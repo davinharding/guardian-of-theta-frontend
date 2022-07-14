@@ -3,6 +3,7 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import ReactPlayer from 'react-player'
 
 // @material-ui/icons
 
@@ -47,7 +48,7 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Your Story Starts With Us.</h1>
+              <h1 className={classes.title}>Welcome to Theta Vibes!</h1>
               <h4>
                 Every landing page needs a small description after the big bold
                 title, that{"'"}s why we added this text here. Add here all the
@@ -55,7 +56,7 @@ export default function LandingPage(props) {
                 impression.
               </h4>
               <br />
-              <Button
+              {/* <Button
                 color="danger"
                 size="lg"
                 href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
@@ -64,10 +65,16 @@ export default function LandingPage(props) {
               >
                 <i className="fas fa-play" />
                 Watch video
-              </Button>
+              </Button> */}
             </GridItem>
             <GridItem xs={12} sm={12} md={6}>
-              
+              <iframe 
+                src="https://player.thetavideoapi.com/video/video_xwf7m3fenry1hihfan64nessss" 
+                border="0" 
+                width="100%" 
+                height="100%"
+                allowFullScreen
+              />
             </GridItem>
           </GridContainer>
         </div>
@@ -75,8 +82,8 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <ProductSection />
-          <TeamSection />
-          <WorkSection />
+          {/* <TeamSection /> */}
+          {/* <WorkSection /> */}
         </div>
       </div>
       <Footer />
