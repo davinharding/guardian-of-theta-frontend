@@ -38,12 +38,11 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href=""
+          href="#roadmap"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
-          <Icon className={classes.icons}>map</Icon> Roadmap
+          <Icon className={classes.icons}>map</Icon> Vibemap
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
