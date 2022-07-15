@@ -20,6 +20,7 @@ import styles from "styles/jss/nextjs-material-kit/pages/landingPage.js";
 
 // Sections for this page
 import ProductSection from "pages-sections/LandingPage-Sections/ProductSection.js";
+import RoadmapSection from "pages-sections/LandingPage-Sections/RoadmapSection.js";
 import TeamSection from "pages-sections/LandingPage-Sections/TeamSection.js";
 import WorkSection from "pages-sections/LandingPage-Sections/WorkSection.js";
 
@@ -48,12 +49,9 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Welcome to Theta Vibes!</h1>
+              <h1 className={classes.title}>Welcome to ThetaVibes!</h1>
               <h4>
-                Every landing page needs a small description after the big bold
-                title, that{"'"}s why we added this text here. Add here all the
-                information that can make you or your product create the first
-                impression.
+                This should be something that teases the user and entices them to scroll and further explore the rest of the site.
               </h4>
               <br />
               {/* <Button
@@ -84,6 +82,7 @@ export default function LandingPage(props) {
           <ProductSection />
           {/* <TeamSection /> */}
           {/* <WorkSection /> */}
+          <RoadmapSection />
         </div>
       </div>
       <Footer />

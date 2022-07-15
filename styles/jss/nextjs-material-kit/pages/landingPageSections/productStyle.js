@@ -1,3 +1,4 @@
+import { Block } from "@material-ui/icons";
 import { title } from "styles/jss/nextjs-material-kit.js";
 
 const productStyle = {
@@ -15,6 +16,12 @@ const productStyle = {
   description: {
     color: "#999",
   },
+  roadmapItems: {
+    display: "block"
+  },
+  roadmapBg: {
+    backgroundColor: "#D3D3D3"
+  }
 };
 
 export default productStyle;

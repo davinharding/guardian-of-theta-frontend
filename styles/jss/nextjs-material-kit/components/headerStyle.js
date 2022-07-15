@@ -13,6 +13,8 @@ import {
   drawerWidth,
 } from "styles/jss/nextjs-material-kit.js";
 
+import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
+
 const headerStyle = {
   appBar: {
     display: "flex",
@@ -160,6 +162,7 @@ const headerStyle = {
     paddingLeft: "0",
     ...transition,
   },
+  ...imagesStyles,
 };
 
 export default headerStyle;
