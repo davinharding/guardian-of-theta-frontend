@@ -29,7 +29,7 @@ const dashboardRoutes = [];
 const useStyles = makeStyles(styles);
 
 export default function Base(props) {
-  const { activateBrowserWallet, account } = useEthers();
+  const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
   const classes = useStyles();
 

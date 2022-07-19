@@ -17,9 +17,7 @@ import IconButton from "@material-ui/core/IconButton";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
-import ConnectButton from "../../web3/ConnectButton.js";
-import AccountModal from "../../web3/AccountModal.js";
-import { ChakraProvider, useDisclosure } from "@chakra-ui/react";
+import ConnectButton from "../../web3/ConnectButton"
 
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 
@@ -59,24 +57,14 @@ export default function HeaderLinks(props) {
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Tooltip
-          id="wallet-tooltip"
-          title="Connect your Theta wallet"
-          placement={"top"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="rose"
-            href=""
-            target="_blank"
-            className={classes.navLink}
-            onClick={props.handleConnectWallet}
-          >
-            Connect
-            {/* {props.etherBalance}
-            {props.account} */}
-          </Button>
-        </Tooltip>       
+        <ConnectButton
+          tooltipClasses={{ tooltip: classes.tooltip }}
+          navLinkClasses={classes.navLink}
+          handleConnectWallet={props.handleConnectWallet}
+          account={props.account}
+          chainId={props.chainId}
+        />
+        {console.log(props.chainId)}   
       </ListItem>
     </List>
   );
