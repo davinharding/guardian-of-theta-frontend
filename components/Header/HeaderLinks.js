@@ -1,21 +1,13 @@
 /*eslint-disable*/
 import React from "react";
-import Link from "next/link";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
 import Icon from "@material-ui/core/Icon";
 
-// @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
-
 // core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 import ConnectButton from "../../web3/ConnectButton";
 import AccountMoadal from "../../web3/AccountModal";
@@ -50,9 +42,8 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href=""
+          href="/staking"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
           <Icon className={classes.icons}>currency_exchange</Icon> Staking

@@ -4,6 +4,7 @@ import { DAppProvider, Theta } from '@usedapp/core';
 // import ReactDOM from 'react-dom';
 
 import Base from './base';
+import LandingPageBody from "../pages-sections/LandingPage-Sections/LandingPageBody"
 
 const config = {
   readOnlyChainId: Theta.chainId,
@@ -14,7 +15,7 @@ const config = {
 
 const Index = () => (
     <DAppProvider config={config}>
-      <Base />
+      <Base bodyComponent={<LandingPageBody />} />
     </DAppProvider>
 );
 
