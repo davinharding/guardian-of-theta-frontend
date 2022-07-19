@@ -17,13 +17,15 @@ import IconButton from "@material-ui/core/IconButton";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
-import ConnectButton from "../../web3/ConnectButton"
+import ConnectButton from "../../web3/ConnectButton";
+import AccountMoadal from "../../web3/AccountModal";
 
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
+  const [openModal, setOpenModal] = React.useState(false);
   const classes = useStyles();
 
   return (
@@ -63,8 +65,12 @@ export default function HeaderLinks(props) {
           handleConnectWallet={props.handleConnectWallet}
           account={props.account}
           chainId={props.chainId}
+          setOpenModal={setOpenModal}
         />
-        {console.log(props.chainId)}   
+        <AccountMoadal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+        />
       </ListItem>
     </List>
   );

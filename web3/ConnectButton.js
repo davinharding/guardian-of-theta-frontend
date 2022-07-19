@@ -30,8 +30,6 @@ export default function ConnectButton(props) {
     }
   };
 
-  console.log(props.chainId)
-
   return props.account ? (    
     props.chainId === THETA_CHAIN_ID ? (
       <Button
@@ -39,7 +37,7 @@ export default function ConnectButton(props) {
         href=""
         target="_blank"
         className={props.navLinkClasses}
-        onClick={props.handleConnectWallet}
+        onClick={() => props.setOpenModal(true)}
       >
       {props.account &&
         `✅ ${props.account.slice(0, 6)}...${props.account.slice(
