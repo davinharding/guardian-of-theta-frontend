@@ -12,6 +12,7 @@ const productStyle = {
     marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
+    color: "#AAFCFBff"
   },
   description: {
     color: "#999",

@@ -17,6 +17,9 @@ import IconButton from "@material-ui/core/IconButton";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
+import ConnectButton from "../../web3/ConnectButton.js";
+import AccountModal from "../../web3/AccountModal.js";
+import { ChakraProvider, useDisclosure } from "@chakra-ui/react";
 
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 
@@ -24,13 +27,13 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
         <Button
-          href=""
+          href="#product"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
           <Icon className={classes.icons}>info</Icon> About
@@ -67,10 +70,13 @@ export default function HeaderLinks(props) {
             href=""
             target="_blank"
             className={classes.navLink}
+            onClick={props.handleConnectWallet}
           >
             Connect
+            {/* {props.etherBalance}
+            {props.account} */}
           </Button>
-        </Tooltip>
+        </Tooltip>       
       </ListItem>
     </List>
   );

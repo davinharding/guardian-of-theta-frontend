@@ -1,6 +1,6 @@
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import Flag from "@material-ui/icons/Flag";
+import Speaker from "@material-ui/icons/Speaker";
 import CheckCircle from "@material-ui/icons/CheckCircle";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -18,21 +18,19 @@ export default function RoadmapSection() {
           <GridItem xs={12} sm={12} md={8}>
             <h2 className={classes.title}>Vibemap</h2>
             <h5 className={classes.description}>
-              Can add some text here explaining the vibemap or remove this entirely.
+              Subject to change
             </h5>
           </GridItem>
         </GridContainer>
       </div>
-      <VerticalTimeline
-        lineColor="gray"
-      >
+      <VerticalTimeline>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #5A94A5ff' }}
+          contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff', backgroundImage: 'url(/img/thetavibes-logo)' }}
+          contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
           date="2011 - present"
-          iconStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          icon={<Flag />}
+          iconStyle={{ background: '#AAFCFBff', color: 'gray', backgroundImage: "/img/thetavibes-logo.jpg" }}
+          icon={<Speaker />}
         >
           <h3 className="vertical-timeline-element-title">Website Launch</h3>
           <h4 className="vertical-timeline-element-subtitle">Q3 2022</h4>
@@ -43,10 +41,10 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2010 - 2011"
-          iconStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          contentStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #5A94A5ff' }}
-          icon={<Flag />}
+          iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
+          contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff' }}
+          contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
+          icon={<Speaker />}
         >
           <h3 className="vertical-timeline-element-title">Staking Phase 1</h3>
           <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4>
@@ -57,10 +55,10 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2008 - 2010"
-          contentStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          iconStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #5A94A5ff' }}
-          icon={<Flag />}
+          contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff' }}
+          iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
+          contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
+          icon={<Speaker />}
         >
           <h3 className="vertical-timeline-element-title">Swag Merch Store!</h3>
           <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4>
@@ -71,10 +69,10 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2006 - 2008"
-          iconStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #5A94A5ff' }}
-          contentStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          icon={<Flag />}
+          iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
+          contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
+          contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff' }}
+          icon={<Speaker />}
         >
           <h3 className="vertical-timeline-element-title">TVIBE NFT Marketplace</h3>
           <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4>
@@ -85,10 +83,10 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2006 - 2008"
-          iconStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #5A94A5ff' }}
-          contentStyle={{ background: '#5A94A5ff', color: '#fff' }}
-          icon={<Flag />}
+          iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
+          contentArrowStyle={{ borderRight: '7px solid  #FFEB81ff' }}
+          contentStyle={{ background: '#FFEB81ff', color: '#1A120Dff' }}
+          icon={<Speaker />}
         >
           <h3 className="vertical-timeline-element-title">Metaverse Concerts</h3>
           <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4>
@@ -97,7 +95,7 @@ export default function RoadmapSection() {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
-          iconStyle={{ background: '#A93E24ff', color: '#fff' }}
+          iconStyle={{ background: '#FFEB81ff', color: '#fff' }}
           icon={<CheckCircle />}
         />
       </VerticalTimeline>

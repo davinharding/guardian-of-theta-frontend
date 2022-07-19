@@ -18,12 +18,12 @@ const useStyles = makeStyles(styles);
 export default function ProductSection() {
   const classes = useStyles();
   return (
-    <div className={classes.section}>
+    <div className={classes.section} id="product">
       <GridContainer justifyContent="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Let{"'"}s talk product</h2>
+          <h2 className={classes.title}>What is ThetaVibes?</h2>
           <h5 className={classes.description}>
-            This should be a paragraph or so outlining the project and explaining its purpose and mission statement.  Depending on the flow we can potentially direct the user to a call to action here which can be a button or a form.  Maybe you want to direct them to thetadrop to buy an nft for example.  The tagline above can also be changed to whatever you want.
+          The Theta Vibes NFT project is about collaborating with different musical and graphical artists to create entertaining video NFTs on the Theta blockchain. We were born out of our love for Theta and utilizing its tehnology, and will continue to push the boundaries of what is possible along side them. Pick up a Theta Vibes NFT today only on Opentheta.io (currently working on getting the direct link to my project, looks like its no longer valid) to start staking, and enjoy our endless gallery of 4k 3D 360° VR content exclusively for Theta Vibes holders.
           </h5>
         </GridItem>
       </GridContainer>
@@ -32,7 +32,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="NFTs"
-              description="Here let's think about the main features and value propositions of the project ON LAUNCH DAY.  Then on the roadmap section below we can talk about prospective features and goals."
+              description="We love to feature artists who are Theta enthusiasts that we already know within our community, however we are not limted to that.  If you would like to be featured in our next drop please reach out to us!"
               icon={Palette}
               iconColor="info"
               vertical
@@ -41,7 +41,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Staking"
-              description="Here let's think about the main features and value propositions of the project ON LAUNCH DAY.  Then on the roadmap section below we can talk about prospective features and goals."
+              description="Stake your Theta Vibes NFT's to start earning our native token $TVIBE!  $TVIBE will be used in our merch store to redeem limited edition NFTs, merch, and more!"
               icon={MonetizationOn}
               iconColor="success"
               vertical
@@ -49,8 +49,8 @@ export default function ProductSection() {
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Music"
-              description="Here let's think about the main features and value propositions of the project ON LAUNCH DAY.  Then on the roadmap section below we can talk about prospective features and goals."
+              title="Content"
+              description="ThetaVibes NFTs are your ticket to exclusive 4k 2D and 4k 3D 360° music experiences! Connect your Theta wallet and click on the content tab to view our ever expanding library!"
               icon={MusicNote}
               iconColor="danger"
               vertical
