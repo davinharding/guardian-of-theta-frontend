@@ -26,10 +26,10 @@ export default function RoadmapSection() {
       <VerticalTimeline>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff', backgroundImage: 'url(/img/thetavibes-logo)' }}
+          contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff' }}
           contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
           date="2011 - present"
-          iconStyle={{ background: '#AAFCFBff', color: 'gray', backgroundImage: "/img/thetavibes-logo.jpg" }}
+          iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
           icon={<Speaker />}
         >
           <h3 className="vertical-timeline-element-title">Website Launch</h3>
