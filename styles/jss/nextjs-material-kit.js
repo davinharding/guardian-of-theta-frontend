@@ -97,6 +97,7 @@ const successColor = "#4caf50";
 const infoColor = "#00acc1";
 const roseColor = "#e91e63";
 const grayColor = "#999999";
+const neonBlueColor = "#AAFCFBff";
 
 const primaryBoxShadow = {
   boxShadow: `0 12px 20px -10px ${hexToRGBAlpha(
@@ -149,6 +150,12 @@ const roseBoxShadow = {
     0.14
   )}, 0 7px 10px -5px ${hexToRGBAlpha(roseColor, 0.4)}`,
 };
+// const neonBlueBoxShadow = {
+//   boxShadow: `0 4px 20px 0px ${hexToRGBAlpha(
+//     "#000",
+//     0.14
+//   )}, 0 7px 10px -5px ${hexToRGBAlpha(neonBlueColor, 0.4)}`,
+// };
 
 const warningCardHeader = {
   color: "#fff",
@@ -180,6 +187,11 @@ const roseCardHeader = {
   background: "linear-gradient(60deg, #ec407a, #d81b60)",
   ...roseBoxShadow,
 };
+// const neonBlueCardHeader = {
+//   color: "#fff",
+//   background: "linear-gradient(60deg, #ec407a, #d81b60)",
+//   ...neonBlueBoxShadow,
+// };
 const cardActions = {
   margin: "0 20px 10px",
   paddingTop: "10px",
@@ -244,6 +256,7 @@ export {
   infoColor,
   roseColor,
   grayColor,
+  neonBlueColor,
   primaryBoxShadow,
   infoBoxShadow,
   successBoxShadow,
@@ -259,6 +272,7 @@ export {
   cardActions,
   cardHeader,
   defaultBoxShadow,
+  // neonBlueCardHeader,
   title,
   cardTitle,
   cardLink,

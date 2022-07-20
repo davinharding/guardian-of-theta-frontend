@@ -33,7 +33,7 @@ export default function ConnectButton(props) {
   return props.account ? (    
     props.chainId === THETA_CHAIN_ID ? (
       <Button
-        color="rose"
+        color="primary"
         href=""
         target="_blank"
         className={props.navLinkClasses}
@@ -47,7 +47,7 @@ export default function ConnectButton(props) {
       </Button> 
     ) : (
       <Button
-        color="rose"
+        color="primary"
         href=""
         target="_blank"
         className={props.navLinkClasses}
@@ -64,7 +64,7 @@ export default function ConnectButton(props) {
       classes={props.tooltipClasses}
     >     
       <Button
-        color="rose"
+        color="primary"
         href=""
         target="_blank"
         className={props.navLinkClasses}
