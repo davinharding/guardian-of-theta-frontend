@@ -20,6 +20,7 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
+import { DAppProvider, Theta } from '@usedapp/core';
 
 import PageChange from "components/PageChange/PageChange.js";
 
@@ -42,27 +43,14 @@ Router.events.on("routeChangeError", () => {
   document.body.classList.remove("body-page-transition");
 });
 
+const config = {
+  readOnlyChainId: Theta.chainId,
+  readOnlyUrls: {
+    [Theta.chainId]: 'https://eth-rpc-api.thetatoken.org/rpc',
+  },
+};
+
 export default class MyApp extends App {
-  componentDidMount() {
-    let comment = document.createComment(`
-
-=========================================================
-* NextJS Material Kit v1.2.0 based on Material Kit Free - v2.0.2 (Bootstrap 4.0.0 Final Edition) and Material Kit React v1.8.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/nextjs-material-kit
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/nextjs-material-kit/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-`);
-    document.insertBefore(comment, document.documentElement);
-  }
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
 
@@ -84,7 +72,9 @@ export default class MyApp extends App {
           />
           <title>Theta Vibes</title>
         </Head>
-        <Component {...pageProps} />
+        <DAppProvider config={config}>
+          <Component {...pageProps} /> 
+        </DAppProvider>        
       </React.Fragment>
     );
   }

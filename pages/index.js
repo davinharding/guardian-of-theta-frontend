@@ -14,9 +14,9 @@ const config = {
 };
 
 const Index = () => (
-    <DAppProvider config={config}>
-      <Base bodyComponent={<LandingPageBody />} />
-    </DAppProvider>
+  <DAppProvider config={config}>
+    <Base bodyComponent={<LandingPageBody />} />
+  </DAppProvider>
 );
 
 export default Index;

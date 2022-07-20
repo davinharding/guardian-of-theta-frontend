@@ -24,7 +24,7 @@ export default function HeaderLinks(props) {
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
         <Button
-          href="#product"
+          href="/#product"
           color="transparent"
           className={classes.navLink}
         >
@@ -33,7 +33,7 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="#roadmap"
+          href="/#roadmap"
           color="transparent"
           className={classes.navLink}
         >
