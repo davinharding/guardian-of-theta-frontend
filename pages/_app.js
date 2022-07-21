@@ -20,7 +20,7 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import { DAppProvider, Theta, useEthers, useEtherBalance } from '@usedapp/core';
+import { DAppProvider, Theta, useEthers } from '@usedapp/core';
 
 import PageChange from "components/PageChange/PageChange.js";
 
@@ -50,76 +50,68 @@ const config = {
   },
 };
 
-const MyApp = ({ Component, pageProps }) => {
-  const { activateBrowserWallet, account, chainId } = useEthers();
-  const etherBalance = useEtherBalance(account);
+export default class MyApp extends App {
 
-  const handleConnectWallet = () => {
-    activateBrowserWallet();
-  };
+  static async getInitialProps({ Component, router, ctx }) {
+    let pageProps = {};
 
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
 
-  // static async getInitialProps({ Component, router, ctx }) {
-  //   let pageProps = {};
-
-  //   if (Component.getInitialProps) {
-  //     pageProps = await Component.getInitialProps(ctx);
-  //   }
-
-  //   return { pageProps };
-  // }
-
-  // const { Component, pageProps } = this.props;
+    return { pageProps };
+  }
   
-  // function getNFTsForContract(contractAddresses, accountAddress) {
-  //   const nfts = [];
-  //   contractAddresses.forEach((address) => {
-  //     axios
-  //       .get(
-  //         `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
-  //       )
-  //       .then((response) => {
-  //         // handle success
-  //         if (response.data) {
-  //           response.data.forEach((nE) => {
-  //             nfts.push(nE);
-  //           });
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         // handle error
-  //         setNftData([]);
-  //         // eslint-disable-next-line no-console
-  //         console.error(error);
-  //       });
-  //   });
-  //   setNftData(nfts);
-  // }
+  render() {
+    const { Component, pageProps } = this.props;
 
-  // useEffect(() => {
-  //   if (account) {
-  //     getNFTsForContract(BARRIZAN_NFT_ADDRESSES, account);
-  //   } else {
-  //     setShowStoreButton(false); // Removes the store link from view if user disconnects and account is undefined
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [account]);
-  console.log(account, "test")
+    // function getNFTsForContract(contractAddresses, accountAddress) {
+    //   const nfts = [];
+    //   contractAddresses.forEach((address) => {
+    //     axios
+    //       .get(
+    //         `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
+    //       )
+    //       .then((response) => {
+    //         // handle success
+    //         if (response.data) {
+    //           response.data.forEach((nE) => {
+    //             nfts.push(nE);
+    //           });
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         // handle error
+    //         setNftData([]);
+    //         // eslint-disable-next-line no-console
+    //         console.error(error);
+    //       });
+    //   });
+    //   setNftData(nfts);
+    // }
 
-  return (
-    <React.Fragment>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <title>Theta Vibes</title>
-      </Head>
-      <DAppProvider config={config}>
-        <Component {...pageProps} /> 
-      </DAppProvider>        
-    </React.Fragment>
-  );
+    // useEffect(() => {
+    //   if (account) {
+    //     getNFTsForContract(BARRIZAN_NFT_ADDRESSES, account);
+    //   } else {
+    //     setShowStoreButton(false); // Removes the store link from view if user disconnects and account is undefined
+    //   }
+    //   // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [account]);
+
+    return (
+      <React.Fragment>
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
+          <title>Theta Vibes</title>
+        </Head>
+        <DAppProvider config={config}>
+          <Component {...pageProps} /> 
+        </DAppProvider>        
+      </React.Fragment>
+    );
+  }
 }
-
-export default MyApp;
