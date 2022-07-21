@@ -1,22 +1,46 @@
 import React from 'react';
-
-import { DAppProvider, Theta } from '@usedapp/core';
-// import ReactDOM from 'react-dom';
-
-import Base from './base';
 import LandingPageBody from "../pages-sections/LandingPage-Sections/LandingPageBody"
+import { useEthers, useEtherBalance } from "@usedapp/core";
+import Header from "components/Header/Header.js";
+import Footer from "components/Footer/Footer.js";
+import HeaderLinks from "components/Header/HeaderLinks.js";
 
-const config = {
-  readOnlyChainId: Theta.chainId,
-  readOnlyUrls: {
-    [Theta.chainId]: 'https://eth-rpc-api.thetatoken.org/rpc',
-  },
+const dashboardRoutes = [];
+
+const Index = (props) => {
+  const { activateBrowserWallet, account, chainId } = useEthers();
+  const etherBalance = useEtherBalance(account);
+
+  const handleConnectWallet = () => {
+    activateBrowserWallet();
+  };
+
+  const { ...rest } = props;
+  return(
+    <div>
+      <Header
+        color="transparent"
+        routes={dashboardRoutes}
+        brand="Theta Vibes"
+        rightLinks={
+          <HeaderLinks 
+            account={account} 
+            handleConnectWallet={handleConnectWallet} 
+            etherBalance={etherBalance}
+            chainId={chainId}
+          />
+        }
+        fixed
+        changeColorOnScroll={{
+          height: 400,
+          color: "white",
+        }}
+        {...rest}
+      />
+      <LandingPageBody />
+      <Footer />
+    </div>
+  )
 };
-
-const Index = () => (
-  <DAppProvider config={config}>
-    <Base bodyComponent={<LandingPageBody />} />
-  </DAppProvider>
-);
 
 export default Index;
