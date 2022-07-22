@@ -15,6 +15,8 @@ const Index = (props) => {
     activateBrowserWallet();
   };
 
+  console.log(props.imgUrlKey)
+
   const { ...rest } = props;
   return(
     <div>
@@ -28,6 +30,7 @@ const Index = (props) => {
             handleConnectWallet={handleConnectWallet} 
             etherBalance={etherBalance}
             chainId={chainId}
+            imgUrlKey={props.imgUrlKey}
           />
         }
         fixed
