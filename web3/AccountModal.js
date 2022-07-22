@@ -15,7 +15,7 @@ import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody"
 import CardFooter from "components/Card/CardFooter"
 import CardHeader from "components/Card/CardHeader"
-
+import { formatEther } from '@ethersproject/units';
 import style from "../styles/jss/nextjs-material-kit/modalStyle.js";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -63,21 +63,26 @@ export default function AccountModal (props) {
         >
           {props.nftData.map(e=>{
             return(
-              <div style={{textAlign: "center", marginTop: "3rem"}}>                
-                <Card>
-                  <CardHeader color="primary">
-                    {props.imgUrlKey[e.contract].name} #{e.token}
-                  </CardHeader>
-                  <CardBody>
-                    <img src={props.imgUrlKey[e.contract].url} height="50%" width="50%"/>
-                  </CardBody>
-                  <CardFooter>
-                    {/* <Button color="primary">
-                      Stake
-                    </Button>  */}
-                  </CardFooter>     
-                </Card>
-              </div>
+              <>
+              TFUEL Balance: {props.etherBalance && 
+                parseFloat(formatEther(props.etherBalance)).toFixed(3)} 
+                <div style={{textAlign: "center", marginTop: "3rem"}}>   
+                              
+                  <Card>
+                    <CardHeader color="primary">
+                      {props.imgUrlKey[e.contract].name} #{e.token}
+                    </CardHeader>
+                    <CardBody>
+                      <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
+                    </CardBody>
+                    <CardFooter>
+                      {/* <Button color="primary">
+                        Stake
+                      </Button>  */}
+                    </CardFooter>     
+                  </Card>
+                </div>
+              </>
             )
           })}
         </DialogContent>
