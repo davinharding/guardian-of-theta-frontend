@@ -65,40 +65,6 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
-    // function getNFTsForContract(contractAddresses, accountAddress) {
-    //   const nfts = [];
-    //   contractAddresses.forEach((address) => {
-    //     axios
-    //       .get(
-    //         `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
-    //       )
-    //       .then((response) => {
-    //         // handle success
-    //         if (response.data) {
-    //           response.data.forEach((nE) => {
-    //             nfts.push(nE);
-    //           });
-    //         }
-    //       })
-    //       .catch((error) => {
-    //         // handle error
-    //         setNftData([]);
-    //         // eslint-disable-next-line no-console
-    //         console.error(error);
-    //       });
-    //   });
-    //   setNftData(nfts);
-    // }
-
-    // useEffect(() => {
-    //   if (account) {
-    //     getNFTsForContract(BARRIZAN_NFT_ADDRESSES, account);
-    //   } else {
-    //     setShowStoreButton(false); // Removes the store link from view if user disconnects and account is undefined
-    //   }
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [account]);
-
     return (
       <React.Fragment>
         <Head>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LandingPageBody from "../pages-sections/LandingPage-Sections/LandingPageBody"
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import Header from "components/Header/Header.js";

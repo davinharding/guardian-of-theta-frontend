@@ -8,4 +8,7 @@ module.exports = withPlugins([[withImages]], {
     config.resolve.modules.push(path.resolve("./"));
     return config;
   },
+  images: {
+    domains: ['arweave.net/RS42khqGKBTQfibQnLhElImn8co-005UROuLSRF4HyM']
+  }
 });
