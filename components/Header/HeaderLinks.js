@@ -100,6 +100,7 @@ export default function HeaderLinks(props) {
           openModal={openModal}
           setOpenModal={setOpenModal}
           nftData={nftData}
+          account={props.account}
         />
       </ListItem>
     </List>

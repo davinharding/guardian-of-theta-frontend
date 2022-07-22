@@ -10,6 +10,7 @@ export default function ConnectButton(props) {
   const handleNetworkChange = async () => {
     try {
       await switchNetwork(THETA_CHAIN_ID);
+      console.log(test)
     } catch (err) {
       const provider = window.ethereum;
       await provider.request({
