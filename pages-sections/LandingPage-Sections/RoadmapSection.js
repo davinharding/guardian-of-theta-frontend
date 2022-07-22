@@ -28,26 +28,24 @@ export default function RoadmapSection() {
           className="vertical-timeline-element--work"
           contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff' }}
           contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
-          date="2011 - present"
           iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">Website Launch</h3>
-          <h4 className="vertical-timeline-element-subtitle">Q3 2022</h4>
+          <h3 className="vertical-timeline-element-title">NFT Staking for TVIBE ✅ </h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q3 2022</h4> */}
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="2010 - 2011"
           iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
           contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff' }}
           contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">Staking Phase 1</h3>
-          <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4>
+          <h3 className="vertical-timeline-element-title">Members only live streams and chat ✅</h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
           </p>
@@ -60,36 +58,60 @@ export default function RoadmapSection() {
           contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">Swag Merch Store!</h3>
-          <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4>
+          <h3 className="vertical-timeline-element-title">$TVIBE only Merch Store ✅</h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="2006 - 2008"
           iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
           contentArrowStyle={{ borderRight: '7px solid  #AAFCFBff' }}
           contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">TVIBE NFT Marketplace</h3>
-          <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4>
+          <h3 className="vertical-timeline-element-title">4k 2D/ 4k 3D 360 VR Content and Live Performances / Theta DRM ✅</h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="2006 - 2008"
           iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
           contentArrowStyle={{ borderRight: '7px solid  #FFEB81ff' }}
           contentStyle={{ background: '#FFEB81ff', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">Metaverse Concerts</h3>
-          <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4>
+          <h3 className="vertical-timeline-element-title">Sony Spatial Reality Display 3D NFTS DeThetaFi integration</h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
+          contentArrowStyle={{ borderRight: '7px solid  #FFEB81ff' }}
+          contentStyle={{ background: '#FFEB81ff', color: '#1A120Dff' }}
+          icon={<Speaker />}
+        >
+          <h3 className="vertical-timeline-element-title">DeThetaFi integration</h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
+          contentArrowStyle={{ borderRight: '7px solid  #FFEB81ff' }}
+          contentStyle={{ background: '#FFEB81ff', color: '#1A120Dff' }}
+          icon={<Speaker />}
+        >
+          <h3 className="vertical-timeline-element-title">Gworld/Metaverse Integration</h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
           </p>

@@ -23,7 +23,7 @@ export default function ProductSection() {
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>What is ThetaVibes?</h2>
           <h5 className={classes.description}>
-          The Theta Vibes NFT project is about collaborating with different musical and graphical artists to create entertaining video NFTs on the Theta blockchain. We were born out of our love for Theta and utilizing its tehnology, and will continue to push the boundaries of what is possible along side them. Pick up a Theta Vibes NFT today only on Opentheta.io (currently working on getting the direct link to my project, looks like its no longer valid) to start staking, and enjoy our endless gallery of 4k 3D 360° VR content exclusively for Theta Vibes holders.
+          The Theta Vibes NFT project is about collaborating with different musical and graphical artists to create entertaining video NFTs on the Theta blockchain. We were born out of our love for Theta and utilizing its tehnology, and will continue to push the boundaries of what is possible along side them. Pick up a Theta Vibes NFT today only on <a target="_blank" rel="noreferrer"href="https://opentheta.io/explore">Opentheta.io</a>! Follow the link and search "Theta Vibes" to mint or buy and NFT from the genesis collection.  From there you can start staking as well as enjoy our endless gallery of 4k 3D 360° VR content exclusively for Theta Vibes holders.
           </h5>
         </GridItem>
       </GridContainer>
