@@ -86,6 +86,18 @@ const signupPageStyle = {
   inputIconsColor: {
     color: "#495057",
   },
+  stakingCard: {
+    width: "40%",
+    display: "inline-block",
+    marginRight: "1rem"
+  },
+  '@media only screen and (max-width: 600px)': {
+    stakingCard: {
+      display: 'flex',
+      width: "100%",
+      marginTop: "3rem"
+    }
+  }
 };
 
 export default signupPageStyle;

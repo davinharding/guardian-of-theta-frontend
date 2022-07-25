@@ -8,6 +8,7 @@ import ConnectButton from "../../web3/ConnectButton";
 import AccountModal from "../../web3/AccountModal";
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 import axios from "axios";
+import Link from "next/link"
 
 
 const useStyles = makeStyles(styles);
@@ -78,13 +79,15 @@ export default function HeaderLinks(props) {
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          href="/staking"
-          color="transparent"
-          className={classes.navLink}
-        >
-          <Icon className={classes.icons}>currency_exchange</Icon> Staking
-        </Button>
+        <Link href="/staking" as="/staking">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >          
+          
+            <Icon className={classes.icons}>currency_exchange</Icon> Staking
+          </Button>
+        </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <ConnectButton

@@ -8,10 +8,7 @@ export default function ConnectButton(props) {
   const THETA_CHAIN_ID = 361; // Chain ID for theta network
 
   const handleNetworkChange = async () => {
-    try {
       await switchNetwork(THETA_CHAIN_ID);
-      console.log(test)
-    } catch (err) {
       const provider = window.ethereum;
       await provider.request({
         method: 'wallet_addEthereumChain',
@@ -28,7 +25,6 @@ export default function ConnectButton(props) {
           },
         ],
       });
-    }
   };
   
   return props.account ? (    

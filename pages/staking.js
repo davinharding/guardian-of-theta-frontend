@@ -66,9 +66,7 @@ export default function StakingPage(props) {
   }
 
   useEffect(() => {
-    if (account) {
-      getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
-    }
+    getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
   }, [account]);
 
   const handleConnectWallet = () => {
@@ -115,7 +113,7 @@ export default function StakingPage(props) {
                     {nftData.map(e=>{
                       return(
                         <div style={{textAlign: "center", marginTop: "3rem"}}>                
-                          <Card>
+                          <Card className={classes.stakingCard}>
                             <CardHeader color="primary">
                               {props.imgUrlKey[e.contract].name} #{e.token}
                             </CardHeader>
@@ -126,14 +124,28 @@ export default function StakingPage(props) {
                               <Button color="primary">
                                 Stake
                               </Button> 
+                            </CardFooter>     
+                          </Card>
+                          <Card className={classes.stakingCard}>
+                            <CardHeader color="primary">
+                              {props.imgUrlKey[e.contract].name} #{e.token}
+                            </CardHeader>
+                            <CardBody>
+                              <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
+                            </CardBody>
+                            <CardFooter>
                               <Button color="primary">
-                                Collect
-                              </Button> 
+                                Stake
+                              </Button>
                             </CardFooter>     
                           </Card>
                         </div>
                       )
                     })}
+                    
+                    <Button color="primary">
+                      Collect
+                    </Button> 
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     {/* <Button simple color="primary" size="lg">

@@ -66,7 +66,7 @@ export default function AccountModal (props) {
               <>
               TFUEL Balance: {props.etherBalance && 
                 parseFloat(formatEther(props.etherBalance)).toFixed(3)} 
-                <div style={{textAlign: "center", marginTop: "3rem"}}>   
+                <div style={{textAlign: "center", marginTop: "3rem"}} id={props.nftData.indexOf(e)}>   
                               
                   <Card>
                     <CardHeader color="primary">

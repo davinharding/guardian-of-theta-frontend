@@ -15,8 +15,6 @@ const Index = (props) => {
     activateBrowserWallet();
   };
 
-  console.log(props.imgUrlKey)
-
   const { ...rest } = props;
   return(
     <div>
