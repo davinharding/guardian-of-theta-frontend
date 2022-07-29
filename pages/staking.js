@@ -102,57 +102,55 @@ export default function StakingPage(props) {
         }}
       >
         <div className={classes.container}>
-          <GridContainer justify="center">
-            <GridItem xs={12} sm={6} md={8}>
+          <GridContainer justifyContent="center">
+            <GridItem xs={12} sm={6} md={12}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Staking Menu</h4>
-                  </CardHeader>
-                  <CardBody>
-                    {nftData.map(e=>{
-                      return(
-                        <div style={{textAlign: "center", marginTop: "3rem"}}>                
-                          <Card className={classes.stakingCard}>
-                            <CardHeader color="primary">
-                              {props.imgUrlKey[e.contract].name} #{e.token}
-                            </CardHeader>
-                            <CardBody>
-                              <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
-                            </CardBody>
-                            <CardFooter>
-                              <Button color="primary">
-                                Stake
-                              </Button> 
-                            </CardFooter>     
-                          </Card>
-                          <Card className={classes.stakingCard}>
-                            <CardHeader color="primary">
-                              {props.imgUrlKey[e.contract].name} #{e.token}
-                            </CardHeader>
-                            <CardBody>
-                              <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
-                            </CardBody>
-                            <CardFooter>
-                              <Button color="primary">
-                                Stake
-                              </Button>
-                            </CardFooter>     
-                          </Card>
-                        </div>
-                      )
-                    })}
-                    
-                    <Button color="primary">
-                      Collect
-                    </Button> 
-                  </CardBody>
-                  <CardFooter className={classes.cardFooter}>
-                    {/* <Button simple color="primary" size="lg">
-                      Get started
-                    </Button> */}
-                  </CardFooter>
-                </form>
+                <CardHeader color="primary" className={classes.cardHeader}>
+                  <h4>Staking Menu</h4>
+                </CardHeader>
+                <CardBody>
+                  {nftData.map((e,idx)=>{
+                    return(
+                      <div key={idx} style={{marginTop: "3rem"}}>                
+                        <Card className={classes.stakingCard}>
+                          <CardHeader color="primary">
+                            {props.imgUrlKey[e.contract].name} #{e.token}
+                          </CardHeader>
+                          <CardBody>
+                            <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
+                          </CardBody>
+                          <CardFooter>
+                            <Button color="primary">
+                              Stake
+                            </Button> 
+                          </CardFooter>     
+                        </Card>
+                        {/* <Card className={classes.stakingCard}>
+                          <CardHeader color="primary">
+                            {props.imgUrlKey[e.contract].name} #{e.token}
+                          </CardHeader>
+                          <CardBody>
+                            <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
+                          </CardBody>
+                          <CardFooter>
+                            <Button color="primary">
+                              Stake
+                            </Button>
+                          </CardFooter>     
+                        </Card> */}
+                      </div>
+                    )
+                  })}
+                  
+                  <Button color="primary">
+                    Collect
+                  </Button> 
+                </CardBody>
+                <CardFooter className={classes.cardFooter}>
+                  {/* <Button simple color="primary" size="lg">
+                    Get started
+                  </Button> */}
+                </CardFooter>
               </Card>
             </GridItem>
           </GridContainer>

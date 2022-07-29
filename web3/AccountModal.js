@@ -61,13 +61,11 @@ export default function AccountModal (props) {
           id="classic-modal-slide-description"
           className={classes.modalBody}
         >
-          {props.nftData.map(e=>{
+          TFUEL Balance: {props.etherBalance && 
+            parseFloat(formatEther(props.etherBalance)).toFixed(3)} 
+          {props.nftData.map((e, idx)=>{
             return(
-              <>
-              TFUEL Balance: {props.etherBalance && 
-                parseFloat(formatEther(props.etherBalance)).toFixed(3)} 
-                <div style={{textAlign: "center", marginTop: "3rem"}} id={props.nftData.indexOf(e)}>   
-                              
+              <div key={idx} style={{textAlign: "center", marginTop: "3rem"}}>
                   <Card>
                     <CardHeader color="primary">
                       {props.imgUrlKey[e.contract].name} #{e.token}
@@ -81,8 +79,7 @@ export default function AccountModal (props) {
                       </Button>  */}
                     </CardFooter>     
                   </Card>
-                </div>
-              </>
+              </div>
             )
           })}
         </DialogContent>

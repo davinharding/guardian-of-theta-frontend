@@ -61,22 +61,24 @@ export default function HeaderLinks(props) {
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <Button
-          href="/#product"
-          color="transparent"
-          className={classes.navLink}
-        >
-          <Icon className={classes.icons}>info</Icon> About
-        </Button>
+        <Link href="/#product" as="/#product">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Icon className={classes.icons}>info</Icon> About
+          </Button>
+        </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          href="/#roadmap"
-          color="transparent"
-          className={classes.navLink}
-        >
-          <Icon className={classes.icons}>map</Icon> Vibemap
-        </Button>
+        <Link href="/#roadmap" as="/#roadmap">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Icon className={classes.icons}>map</Icon> Vibemap
+          </Button>
+        </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link href="/staking" as="/staking">

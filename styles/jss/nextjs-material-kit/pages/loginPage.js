@@ -91,7 +91,7 @@ const signupPageStyle = {
     display: "inline-block",
     marginRight: "1rem"
   },
-  '@media only screen and (max-width: 600px)': {
+  '@media only screen and (max-width: 960px)': {
     stakingCard: {
       display: 'flex',
       width: "100%",

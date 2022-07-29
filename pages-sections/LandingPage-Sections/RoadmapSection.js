@@ -6,6 +6,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/jss/nextjs-material-kit/pages/landingPageSections/productStyle.js";
+import tiedye from "public/img/tiedyetvibe.svg"
 
 const useStyles = makeStyles(styles);
 
@@ -34,7 +35,7 @@ export default function RoadmapSection() {
           <h3 className="vertical-timeline-element-title">NFT Staking for TVIBE ✅ </h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q3 2022</h4> */}
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          Stake your Theta Vibes NFTs to stack $TVIBE and spend it in our store!
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -47,7 +48,7 @@ export default function RoadmapSection() {
           <h3 className="vertical-timeline-element-title">Members only live streams and chat ✅</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          Join the Discord to verify membership for access to live performances and VIP giveaways!
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -61,7 +62,7 @@ export default function RoadmapSection() {
           <h3 className="vertical-timeline-element-title">$TVIBE only Merch Store ✅</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          Stake your Theta Vibes NFTs and earn $TVIBE to redeem limited edition merch, NFTs, and more.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -71,10 +72,10 @@ export default function RoadmapSection() {
           contentStyle={{ background: '#AAFCFBff', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">4k 2D/ 4k 3D 360 VR Content and Live Performances / Theta DRM ✅</h3>
+          <h3 className="vertical-timeline-element-title">8k 2D/ 8k 3D 180° VR Content and Live Performances / Theta DRM ✅</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          Join us in Discord and verify membership to watch live performances with us! We plan to shoot all types of entertaining content. Click the Content tab at the top of the page to view our 8k 3D 180° content!
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -84,12 +85,12 @@ export default function RoadmapSection() {
           contentStyle={{ background: '#FFEB81ff', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">Sony Spatial Reality Display 3D NFTS DeThetaFi integration</h3>
+          <h3 className="vertical-timeline-element-title">Sony Spatial Reality Display 3D NFTS</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          Use your $TVIBE to redeem for 3D NFTs!
           </p>
-        </VerticalTimelineElement>
+        </VerticalTimelineElement>        
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
@@ -97,10 +98,10 @@ export default function RoadmapSection() {
           contentStyle={{ background: '#FFEB81ff', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">DeThetaFi integration</h3>
+          <h3 className="vertical-timeline-element-title">DeThetaFi Integration</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          Use your Theta Vibes NFTs to access dethetafi.xyz
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -111,6 +112,19 @@ export default function RoadmapSection() {
           icon={<Speaker />}
         >
           <h3 className="vertical-timeline-element-title">Gworld/Metaverse Integration</h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          iconStyle={{ background: '#AAFCFBff', color: 'gray' }}
+          contentArrowStyle={{ borderRight: '7px solid  #FFEB81ff' }}
+          contentStyle={{ background: '#FFEB81ff', color: '#1A120Dff' }}
+          icon={<Speaker />}
+        >
+          <h3 className="vertical-timeline-element-title">12k 3D 360° VR Content and Live Performances</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
