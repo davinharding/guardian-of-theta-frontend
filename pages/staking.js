@@ -18,10 +18,19 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-import { useEthers, useEtherBalance } from "@usedapp/core";
+import { ContractButton } from "../web3/contractButton";
+import { DepositButton } from "../web3/depositButton";
+import { MintButton } from "../web3/mintButton";
+import { nftStakingAbi } from "../web3/nftStakingAbi";
+import { nftContractAbi } from "../web3/nftContractAbi";
+import { formatEther } from '@ethersproject/units'
+import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import axios from 'axios';
+import { ethers } from 'ethers';
+import { useReadFunction } from "../web3/useReadFunction";
 
 import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
+import { WithdrawButton } from "../web3/withdrawButton";
 
 const useStyles = makeStyles(styles);
 
@@ -30,9 +39,22 @@ export default function StakingPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
+  // const unstakedBalance = useReadFunction('0x1e9be4b41510cfbe4af40e06829df05bf873d65d', account, nftContractAbi, 'balanceOf');
+  // const stakedBalance = useReadFunction('0x036cF009EF2893718b7C9e0Fc885205125af60eC', account, nftStakingAbi, 'balanceOf');
+  const currentTokensDeposited = useReadFunction('0x036cF009EF2893718b7C9e0Fc885205125af60eC', account, nftStakingAbi, 'depositsOf')
+
+  // console.log(account)
+
+  // console.log(parseInt(stakedBalance), 'stakedBalance');
+  // console.log(parseInt(unstakedBalance), 'unstakedBalance');
+  if(currentTokensDeposited) {
+    console.log(currentTokensDeposited, 'currentTokensDeposited');
+  }
+  
 
   const THETA_VIBES_NFT_ADDRESSES = [
     "0xcd8ee3078fa8565135f1e17974e04a6fbabedd66", // Guardian
+    "0x1E9BE4b41510cfBe4af40E06829Df05BF873D65d", // Test Guardian
     "0x1a54ff4a92daf67eafb9a790d596b9794e2d27a8", // Fly N High
     "0xa07965551c88df408594139ac23c778cf54e25f4", // Down with Me
     "0x4c7d0a83d59bd47219cd5ca980047d38de07686c", // Dreamland
@@ -40,6 +62,32 @@ export default function StakingPage(props) {
     "0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1", // gimme the tfuel
   ];
 
+  const STAKED_NFT_ADDRESSES = [
+    '0x036cF009EF2893718b7C9e0Fc885205125af60eC', //  Guardian
+  ]
+
+  function getStakedNfts(contractAddresses, accountAddress) {
+    let returnArr = [];
+    contractAddresses.forEach(contractAddress => {
+      const currentTokensDeposited = useReadFunction(contractAddress, accountAddress, nftStakingAbi, 'depositsOf');
+      if(currentTokensDeposited){
+        Object.values(currentTokensDeposited).forEach(tokenId => {
+          returnArr.push({ 
+            contract: contractAddress,
+            token: parseInt(tokenId),
+            staked: true,
+          });
+        }); 
+      }
+         
+    });
+    console.log(returnArr, returnArr)
+    return returnArr;
+  };
+
+  const stakedNfts = getStakedNfts(STAKED_NFT_ADDRESSES, account);
+
+  console.log(stakedNfts, 'stakedNfts');
   function getNFTsForContract(contractAddresses, accountAddress) {
     const nfts = [];
     contractAddresses.forEach((address) => {
@@ -51,6 +99,7 @@ export default function StakingPage(props) {
           // handle success
           if (response.data) {
             response.data.forEach((nE) => {
+              // console.log(response.data, 'test');
               nfts.push(nE);
             });
           }
@@ -67,8 +116,8 @@ export default function StakingPage(props) {
 
   useEffect(() => {
     getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
+    
   }, [account]);
-
   const handleConnectWallet = () => {
     activateBrowserWallet();
   };
@@ -125,7 +174,13 @@ export default function StakingPage(props) {
                             </Button> 
                           </CardFooter>     
                         </Card>
-                        {/* <Card className={classes.stakingCard}>
+                      </div>
+                    )
+                  })}
+                  {stakedNfts.map((e,idx)=>{
+                    return(
+                      <div key={idx} style={{marginTop: "3rem"}}>                
+                        <Card className={classes.stakingCard}>
                           <CardHeader color="primary">
                             {props.imgUrlKey[e.contract].name} #{e.token}
                           </CardHeader>
@@ -133,11 +188,9 @@ export default function StakingPage(props) {
                             <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
                           </CardBody>
                           <CardFooter>
-                            <Button color="primary">
-                              Stake
-                            </Button>
+                            <WithdrawButton tokenId={e.token} />
                           </CardFooter>     
-                        </Card> */}
+                        </Card>
                       </div>
                     )
                   })}
@@ -145,6 +198,29 @@ export default function StakingPage(props) {
                   <Button color="primary">
                     Collect
                   </Button> 
+                  <DepositButton />
+                  <ContractButton 
+                    contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
+                    abi={nftStakingAbi}
+                    functionName={'updateRewardRate'}
+                    buttonTitle={'Update rewardRate'}
+                  />
+                  <ContractButton 
+                    contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
+                    abi={nftStakingAbi}
+                    functionName={'setERC721Address'}
+                    buttonTitle={'Set ERC721 Address'}
+                    sendParameter={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
+                  />
+                  <ContractButton 
+                    contractAddress={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
+                    abi={nftStakingAbi}
+                    functionName={'setApprovalForAll'}
+                    buttonTitle={'Set Approval'}
+                    sendFunction={('0x036cF009EF2893718b7C9e0Fc885205125af60eC', true)}
+                    // nftContract={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
+                  />
+                  <MintButton account={account} />
                 </CardBody>
                 <CardFooter className={classes.cardFooter}>
                   {/* <Button simple color="primary" size="lg">

@@ -47,6 +47,7 @@ const config = {
   readOnlyChainId: Theta.chainId,
   readOnlyUrls: {
     [Theta.chainId]: 'https://eth-rpc-api.thetatoken.org/rpc',
+    365: 'https://eth-rpc-api-testnet.thetatoken.org/rpc',
   },
 };
 
@@ -90,6 +91,14 @@ export default class MyApp extends App {
         url: 'https://oqm2vlnadma7ahuo73lryxqqc5d4dhfdb2dycqw44rsz7tl2.arweave.net/dBmq-raAbAfAejv7XHF4QF0fBnKMOh4F_C3ORln8160',
         name: "Gimme the TFuel"
       },
+      '0x036cF009EF2893718b7C9e0Fc885205125af60eC': {
+        url: 'https://cq4btd6fkvsbcjmg6qywqut4tjiov2gvgbgcyfugeiq24gi.arweave.net/FDgZj8VVZBElhvQxaFJ8mlDq6N_-UwT_CwWhiI-hrhk',
+        name: 'Test Staked Guardian'
+      },
+      '0x1e9be4b41510cfbe4af40e06829df05bf873d65d': {
+        url: 'https://cq4btd6fkvsbcjmg6qywqut4tjiov2gvgbgcyfugeiq24gi.arweave.net/FDgZj8VVZBElhvQxaFJ8mlDq6N_-UwT_CwWhiI-hrhk',
+        name: 'Test Guardian'
+      }
     };
 
     return (
