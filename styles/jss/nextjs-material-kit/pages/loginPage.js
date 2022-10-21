@@ -87,7 +87,7 @@ const signupPageStyle = {
     color: "#495057",
   },
   stakingCard: {
-    width: "40%",
+    width: "23%",
     display: "inline-block",
     marginRight: "1rem"
   },

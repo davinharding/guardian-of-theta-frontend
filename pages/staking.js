@@ -208,25 +208,23 @@ export default function StakingPage(props) {
                   Unclaimned TVIBE Balance: {unclaimedRewards && 
                   parseFloat(unclaimedRewards).toFixed(3)} 
                 </div> 
-                  {nftData.map((e,idx)=>{
-                    return(
-                      <div key={idx} style={{marginTop: "3rem"}}>                
+                  <div style={{marginTop: "3rem"}}>  
+                    {nftData.map((e,idx)=>{
+                      return(                                      
                         <Card className={classes.stakingCard}>
                           <CardHeader color="primary">
                             {props.imgUrlKey[e.contract].name} #{e.token}
                           </CardHeader>
                           <CardBody>
-                            <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
+                            <img src={props.imgUrlKey[e.contract].url} heigh key={idx} t="100%" width="100%"/>
                           </CardBody>
                           <CardFooter>
-                            <Button color="primary">
-                              Stake
-                            </Button> 
+                            <DepositButton tokenId={e.token} />
                           </CardFooter>     
-                        </Card>
-                      </div>
-                    )
-                  })}
+                        </Card>                       
+                      )
+                    })}
+                  </div>
 {/*                   
                   {unstakedNfts.map((e,idx)=>{
                     return(                      

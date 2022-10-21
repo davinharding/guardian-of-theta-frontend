@@ -23,7 +23,7 @@ export function DepositButton(props) {
 
   return (
     <div>
-      <Button color="primary" onClick={() => execute()}>Stake</Button>
+      <Button color="primary" onClick={() => execute()}>Deposit</Button>
       <p>Status: {status}</p>
     </div>
   )
