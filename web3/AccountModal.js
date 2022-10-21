@@ -63,6 +63,10 @@ export default function AccountModal (props) {
         >
           TFUEL Balance: {props.etherBalance && 
             parseFloat(formatEther(props.etherBalance)).toFixed(3)} 
+          <div>
+            TVIBE Balance: {props.tvibeBalance && 
+            parseFloat(formatEther(props.tvibeBalance)).toFixed(3)} 
+          </div>          
           {props.nftData.map((e, idx)=>{
             return(
               <div key={idx} style={{textAlign: "center", marginTop: "3rem"}}>

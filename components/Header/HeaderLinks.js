@@ -107,6 +107,7 @@ export default function HeaderLinks(props) {
           account={props.account}
           imgUrlKey={props.imgUrlKey}
           etherBalance={props.etherBalance}
+          tvibeBalance={props.tvibeBalance}
         />
       </ListItem>
     </List>
