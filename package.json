@@ -39,6 +39,7 @@
     "@usedapp/core": "^1.1.2",
     "axios": "^0.27.2",
     "classnames": "2.3.1",
+    "ethers": "^5.7.2",
     "moment": "2.29.4",
     "next": "12.2.2",
     "next-compose-plugins": "2.2.1",
