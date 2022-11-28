@@ -29,26 +29,28 @@ export default function HeaderLinks(props) {
 
   function getNFTsForContract(contractAddresses, accountAddress) {
     const nfts = [];
-    contractAddresses.forEach((address) => {
-      axios
-        .get(
-          `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
-        )
-        .then((response) => {
-          // handle success
-          if (response.data) {
-            response.data.forEach((nE) => {
-              nfts.push(nE);
-            });
-          }
-        })
-        .catch((error) => {
-          // handle error
-          setNftData([]);
-          // eslint-disable-next-line no-console
-          console.error(error);
-        });
-    });
+    if(props.chainId === 361) { // Theta Mainnet
+      contractAddresses.forEach((address) => {
+        axios
+          .get(
+            `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
+          )
+          .then((response) => {
+            // handle success
+            if (response.data) {
+              response.data.forEach((nE) => {
+                nfts.push(nE);
+              });
+            }
+          })
+          .catch((error) => {
+            // handle error
+            setNftData([]);
+            // eslint-disable-next-line no-console
+            console.error(error);
+          });
+      });
+    }
     setNftData(nfts);
   }
 

@@ -39,7 +39,6 @@ const useStyles = makeStyles(styles);
 
 export default function StakingPage(props) {
   const [nftData, setNftData] = useState([]);
-  const [nfts, setNfts] = useState(0)
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
@@ -119,7 +118,7 @@ export default function StakingPage(props) {
     let answer = 0;
     if(bigNumberArray) {
       bigNumberArray.forEach(e => {
-        answer += ethers.utils.formatEther(parseInt(e).toString());
+        answer += Number(parseFloat(formatEther(e)).toFixed(3));
       })
     }
     
@@ -131,27 +130,29 @@ export default function StakingPage(props) {
 
   function getNFTsForContract(contractAddresses, accountAddress) {
     const nfts = [];
-    contractAddresses.forEach((address) => {
-      axios
-        .get(
-          `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
-        )
-        .then((response) => {
-          // handle success
-          if (response.data) {
-            response.data.forEach((nE) => {
-              // console.log(response.data, 'test');
-              nfts.push(nE);
-            });
-          }
-        })
-        .catch((error) => {
-          // handle error
-          setNftData([]);
-          // eslint-disable-next-line no-console
-          console.error(error);
-        });
-    });
+    if(chainId === 361 && account) { // Theta Mainnet
+      contractAddresses.forEach((address) => {
+        axios
+          .get(
+            `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
+          )
+          .then((response) => {
+            // handle success
+            if (response.data) {
+              response.data.forEach((nE) => {
+                // console.log(response.data, 'test');
+                nfts.push(nE);
+              });
+            }
+          })
+          .catch((error) => {
+            // handle error
+            setNftData([]);
+            // eslint-disable-next-line no-console
+            console.error(error);
+          });
+      });
+    }
     setNftData(nfts);
   }
 
@@ -203,30 +204,32 @@ export default function StakingPage(props) {
                 <div>
                   TVIBE Balance: {tvibeBalance && 
                   parseFloat(formatEther(tvibeBalance)).toFixed(3)} 
-                </div>   
+                </div> 
                 <div>
                   Unclaimned TVIBE Balance: {unclaimedRewards && 
                   parseFloat(unclaimedRewards).toFixed(3)} 
                 </div> 
                   <div style={{marginTop: "3rem"}}>  
-                    {nftData.map((e,idx)=>{
-                      return(                                      
-                        <Card className={classes.stakingCard}>
-                          <CardHeader color="primary">
-                            {props.imgUrlKey[e.contract].name} #{e.token}
-                          </CardHeader>
-                          <CardBody>
-                            <img src={props.imgUrlKey[e.contract].url} heigh key={idx} t="100%" width="100%"/>
-                          </CardBody>
-                          <CardFooter>
-                            <DepositButton tokenId={e.token} />
-                          </CardFooter>     
-                        </Card>                       
+                    {chainId === 361 ? nftData.map((e,idx)=>{
+                      return(    
+                        <span key={idx}>                                  
+                          <Card className={classes.stakingCard}>
+                            <CardHeader color="primary">
+                              {props.imgUrlKey[e.contract].name} #{e.token}
+                            </CardHeader>
+                            <CardBody>
+                              <img src={props.imgUrlKey[e.contract].url} key={idx} height="100%" width="100%"/>
+                            </CardBody>
+                            <CardFooter>
+                              <DepositButton tokenId={e.token} />
+                            </CardFooter>     
+                          </Card>
+                        </span>
                       )
-                    })}
+                    }) : ''}
                   </div>
-{/*                   
-                  {unstakedNfts.map((e,idx)=>{
+                  
+                  {/* {unstakedNfts.map((e,idx)=>{
                     return(                      
                       <div key={idx} style={{marginTop: "3rem"}}>       
                         <Card className={classes.stakingCard}>
@@ -245,7 +248,8 @@ export default function StakingPage(props) {
                   })} */}
                   <div style={{marginTop: "3rem"}}>  
                     {stakedNfts.map((e,idx)=>{
-                      return(                                      
+                      return(    
+                        <span key={idx}>                                  
                         <Card className={classes.stakingCard}>
                           <CardHeader color="primary">
                             {props.imgUrlKey[e.contract].name} #{e.token}
@@ -256,7 +260,8 @@ export default function StakingPage(props) {
                           <CardFooter>
                             <WithdrawButton tokenId={e.token} />
                           </CardFooter>     
-                        </Card>                        
+                        </Card>  
+                        </span>                      
                       )
                     })}
                   </div>
