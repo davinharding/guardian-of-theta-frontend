@@ -29,7 +29,7 @@ export default function ConnectButton(props) {
   };
   
   return props.account ? (    
-    props.chainId === THETA_CHAIN_ID || props.chainId === THETA_TESTNET_CHAIN_ID ? (
+    props.chainId === THETA_CHAIN_ID ? (
       <Button
         color="primary"
         href=""
