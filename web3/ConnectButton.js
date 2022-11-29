@@ -6,7 +6,7 @@ export default function ConnectButton(props) {
   const { switchNetwork } = useEthers();
 
   const THETA_CHAIN_ID = 361; // Chain ID for theta network
-  const THETA_TESTNET_CHAIN_ID = 365; // Chain ID for theta network
+  // const THETA_TESTNET_CHAIN_ID = 365; // Chain ID for theta network
 
   const handleNetworkChange = async () => {
       await switchNetwork(THETA_CHAIN_ID);
