@@ -37,7 +37,7 @@ export default function RoadmapSection() {
           <h3 className="vertical-timeline-element-title">NFT Staking for TVIBE ✅ </h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q3 2022</h4> */}
           <p>
-          Stake your Theta Vibes NFTs to stack $TVIBE and spend it in our store!
+          Stake your Theta Vibes NFTs to stack $TVIBE to add media and entertainment to your collection.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -50,7 +50,7 @@ export default function RoadmapSection() {
           <h3 className="vertical-timeline-element-title">Members only live streams and chat ✅</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Join the Discord to verify membership for access to live performances and VIP giveaways!
+          Join the Discord for access to live premiers, and VIP giveaways!
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -61,10 +61,10 @@ export default function RoadmapSection() {
           contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
           icon={<Storefront />}
         >
-          <h3 className="vertical-timeline-element-title">$TVIBE only Merch Store ✅</h3>
+          <h3 className="vertical-timeline-element-title">$TVIBE/USD Store ✅</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Stake your Theta Vibes NFTs and earn $TVIBE to redeem limited edition merch, NFTs, and more.
+          Stake your Theta Vibes NFTs and earn $TVIBE, or use USD to purchase entertainment, merch, NFTs, and more.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
