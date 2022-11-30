@@ -74,10 +74,10 @@ export default function RoadmapSection() {
           contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">8k 2D/ 8k 3D 180° VR Content and Live Performances / Theta DRM ✅</h3>
+          <h3 className="vertical-timeline-element-title">4k 2D/ 8k 3D 180° VR Content and Live Performances / Theta DRM ✅</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Join us in Discord and verify membership to watch live performances with us! We plan to shoot all types of entertaining content. Click the Content tab at the top of the page to view our 8k 3D 180° content!
+          Join us in Discord and verify membership to watch live premiers with us! Click the Entertainment tab at the top of the page.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -87,10 +87,10 @@ export default function RoadmapSection() {
           contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">Sony Spatial Reality Display 3D NFTS</h3>
+          <h3 className="vertical-timeline-element-title">Sony Spatial Reality Display</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
           <p>
-          Use your $TVIBE to redeem for 3D NFTs!
+          Use your $TVIBE to purchase different 3D Scenes for your device!
           </p>
         </VerticalTimelineElement>        
         <VerticalTimelineElement
@@ -113,10 +113,10 @@ export default function RoadmapSection() {
           contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">Gworld/Metaverse Integration</h3>
+          <h3 className="vertical-timeline-element-title">Metaverse Integration</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          Come watch premiers in the metaverse!
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -129,7 +129,7 @@ export default function RoadmapSection() {
           <h3 className="vertical-timeline-element-title">12k 3D 360° VR Content and Live Performances</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          We would love to expand to include 3D 360° Content
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
