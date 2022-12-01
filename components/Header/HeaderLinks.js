@@ -83,7 +83,7 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <ConnectButton
           tooltipClasses={{ tooltip: classes.tooltip }}
-          navLinkClasses={classes.navLink}
+          navLinkClasses={classes.connectButton}
           handleConnectWallet={props.handleConnectWallet}
           account={props.account}
           chainId={props.chainId}
