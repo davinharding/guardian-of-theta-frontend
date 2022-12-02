@@ -41,7 +41,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Staking"
-              description="Stake your Theta Vibes NFT's to start earning our native TNT20 token $TVIBE! $TVIBE can be used to redeem limited edition NFTs, merch, 2D/3D content and more!"
+              description="Stake your Theta Vibes NFT's to start earning our native TNT20 token $TVIBE! $TVIBE can be used to redeem limited edition NFTs, merch, 2D/3D content and more! (Comning soon!)"
               icon={MonetizationOn}
               iconColor="success"
               vertical
@@ -50,7 +50,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Content"
-              description="4k 2D and 8k 3D 180° music, comedy, and entertainment featuring artists from the Ohio area and beyond.  Connect your Theta wallet and click on the Entertainment tab (Coming soon!) to view the library."
+              description="4k 2D and 8k 3D 180° music, comedy, and entertainment featuring artists from the Ohio area and beyond.  Connect your Theta wallet and click on the Entertainment tab  to view the library. (Coming soon!)"
               icon={MusicNote}
               iconColor="danger"
               vertical
