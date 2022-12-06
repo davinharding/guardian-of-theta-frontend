@@ -20,6 +20,7 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
+import Script from 'next/script';
 import { DAppProvider, Theta, useEthers } from '@usedapp/core';
 
 import PageChange from "components/PageChange/PageChange.js";
@@ -111,14 +112,21 @@ export default class MyApp extends App {
           <title>Theta Vibes</title>
         </Head>
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PPQHTHQ53"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'G-1PPQHTHQ53');
-        </script>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"/>
+        <Script
+          id='google-analytics'
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+          __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXX', {
+              page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
         <DAppProvider config={config}>
           <Component imgUrlKey={imgUrlKey} {...pageProps} /> 
         </DAppProvider>        
