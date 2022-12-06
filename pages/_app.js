@@ -112,7 +112,7 @@ export default class MyApp extends App {
           <title>Theta Vibes</title>
         </Head>
         {/* Google tag (gtag.js) */}
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"/>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-1PPQHTHQ53"/>
         <Script
           id='google-analytics'
           strategy="afterInteractive"
@@ -121,7 +121,7 @@ export default class MyApp extends App {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-XXXXXXX', {
+              gtag('config', 'G-1PPQHTHQ53', {
               page_path: window.location.pathname,
               });
             `,
