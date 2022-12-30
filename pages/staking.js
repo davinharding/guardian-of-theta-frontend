@@ -82,38 +82,43 @@ export default function StakingPage(props) {
   };
   
   const stakedNfts = getStakedNfts(STAKED_NFT_ADDRESSES, account);
+
+  console.log(stakedNfts)
   
-  function getUnstakedNfts(contractAddresses, accountAddress) {
-    let returnArr = [];
-    contractAddresses.forEach(contractAddress => {
-      const rawNumberOfNFts = useReadFunction(contractAddress, accountAddress, nftStakingAbi, 'balanceOf');
-      const numberOfNfts = parseInt(rawNumberOfNFts);
-      // if(numberOfNfts) {
-        for(let i=0; i < 1; i++) {
-          const tokenId = useTokenOfOwnerByIndex(contractAddress, accountAddress, i);
-          returnArr.push({
-            token: parseInt(tokenId),
-            contract: contractAddress,
-          });
-        // }; 
-      }    
-    });
-    return returnArr;
-  };
+  // function getUnstakedNfts(contractAddresses, accountAddress) {
+  //   let returnArr = [];
+  //   contractAddresses.forEach(contractAddress => {
+  //     const rawNumberOfNFts = useReadFunction(contractAddress, accountAddress, nftStakingAbi, 'balanceOf');
+  //     const numberOfNfts = parseInt(rawNumberOfNFts);
+  //     // if(numberOfNfts) {
+  //       for(let i=0; i < 2; i++) {
+  //         const tokenId = useTokenOfOwnerByIndex(contractAddress, accountAddress, i);
+  //         returnArr.push({
+  //           token: parseInt(tokenId),
+  //           contract: contractAddress,
+  //         });
+  //       // }; 
+  //     }    
+  //   });
+  //   return returnArr;
+  // };
   
   // const unstakedNfts = getUnstakedNfts(UNSTAKED_NFT_ADDRESSES, account);
-  function createTokenIdArray(stakedNfts) {
+
+  function createTokenIdArray(nfts) {
     let tokenIdArray = [];
-    stakedNfts.forEach(e => {
+    nfts.forEach(e => {
       tokenIdArray.push(e.token);
     })
     return tokenIdArray;
   }
 
-  const tokenIdArray = createTokenIdArray(stakedNfts);
+  const stakedTokenIdArray = createTokenIdArray(stakedNfts);
+
+  // const unstakedTokenIdArray = createTokenIdArray(unstakedNfts);
   
-  function calculateUnclaimedRewards(tokenIdArray) {
-    const bigNumberArray = useCalculateRewards(STAKED_NFT_ADDRESSES[0], account, tokenIdArray);
+  function calculateUnclaimedRewards(stakedTokenIdArray) {
+    const bigNumberArray = useCalculateRewards(STAKED_NFT_ADDRESSES[0], account, stakedTokenIdArray);
 
     let answer = 0;
     if(bigNumberArray) {
@@ -126,7 +131,7 @@ export default function StakingPage(props) {
   }
 
   // DAVIN: needs to be changed to check all six contract addresses and not just one
-  const unclaimedRewards = calculateUnclaimedRewards(tokenIdArray);
+  const unclaimedRewards = calculateUnclaimedRewards(stakedTokenIdArray);
 
   function getNFTsForContract(contractAddresses, accountAddress) {
     const nfts = [];
@@ -228,10 +233,10 @@ export default function StakingPage(props) {
                       )
                     }) : ''}
                   </div>
-                  
-                  {/* {unstakedNfts.map((e,idx)=>{
+{/*                   
+                  {unstakedNfts.map((e,idx)=>{
                     return(                      
-                      <div key={idx} style={{marginTop: "3rem"}}>       
+                      <span key={idx} style={{marginTop: "3rem"}}>       
                         <Card className={classes.stakingCard}>
                           <CardHeader color="primary">
                             {props.imgUrlKey[e.contract].name} #{e.token}
@@ -243,7 +248,7 @@ export default function StakingPage(props) {
                             <DepositButton tokenId={e.token} /> 
                           </CardFooter>     
                         </Card>
-                      </div>
+                      </span>
                     )
                   })} */}
                   <div style={{marginTop: "3rem"}}>  
@@ -265,10 +270,40 @@ export default function StakingPage(props) {
                       )
                     })}
                   </div>
-                  
-                  <Button color="primary">
-                    Collect
-                  </Button> 
+                  <div>
+                    <span className={classes.stakingButton}>
+                      <ContractButton 
+                      contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
+                      abi={nftStakingAbi}
+                      functionName={'claimRewards'}
+                      buttonTitle={'Collect All'}
+                      sendParameter={stakedTokenIdArray}
+                    />
+                    </span>
+                    <span className={classes.stakingButton}>
+                    <ContractButton 
+                      contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
+                      abi={nftStakingAbi}
+                      functionName={'withdraw'}
+                      buttonTitle={'Withdraw All'}
+                      sendParameter={stakedTokenIdArray}
+                    />
+                    </span>
+                    {/* {unstakedNfts.length >= 0 ? (
+                      <span className={classes.stakingButton}>
+                        <ContractButton 
+                          contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
+                          abi={nftStakingAbi}
+                          functionName={'deposit'}
+                          buttonTitle={'Deposit All'}
+                          sendParameter={unstakedTokenIdArray}
+                        />
+                      </span>
+                    ) : (
+                      ''
+                    )} */}
+                    
+                  </div>
                   <ContractButton 
                     contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
                     abi={nftStakingAbi}
