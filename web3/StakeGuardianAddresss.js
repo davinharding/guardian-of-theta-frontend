@@ -1,0 +1,1 @@
+export const stakeGuardianAddress = "0x67fc8c72707f17761ced1e71ee9a92be36179eac"

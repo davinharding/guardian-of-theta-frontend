@@ -28,8 +28,12 @@ export function ContractButton(props) {
   const { status } = state
 
   const execute = () => {
+    if(props.sendParameter2){
+      send(props.sendParameter, props.sendParameter2);
+    }else{
+      send(props.sendParameter)
+    }
     
-    send(props.sendParameter)
     console.log(state);
   }
 

@@ -69,7 +69,8 @@ export default class MyApp extends App {
     const imgUrlKey = {
       '0xcd8ee3078fa8565135f1e17974e04a6fbabedd66': {
         url: 'https://cq4btd6fkvsbcjmg6qywqut4tjiov2gvgbgcyfugeiq24gi.arweave.net/FDgZj8VVZBElhvQxaFJ8mlDq6N_-UwT_CwWhiI-hrhk',
-        name: "Guardian"
+        name: "Guardian",
+        stakeContract: '0x67fc8c72707f17761ced1e71ee9a92be36179eac'
       },
       '0x1a54ff4a92daf67eafb9a790d596b9794e2d27a8': {
         url: 'https://mvy4bnetjgdfdxj7ay6mzfpewhfoochmsllgxj3yrfs4e4idwu.arweave.net/ZXHAtJNJhlHdPwY8zJXks-crnCOyS1muneIllwnEDtY',
@@ -91,9 +92,9 @@ export default class MyApp extends App {
         url: 'https://oqm2vlnadma7ahuo73lryxqqc5d4dhfdb2dycqw44rsz7tl2.arweave.net/dBmq-raAbAfAejv7XHF4QF0fBnKMOh4F_C3ORln8160',
         name: "Gimme the TFuel"
       },
-      '0x036cF009EF2893718b7C9e0Fc885205125af60eC': {
+      '0x67fc8c72707f17761ced1e71ee9a92be36179eac': {
         url: 'https://cq4btd6fkvsbcjmg6qywqut4tjiov2gvgbgcyfugeiq24gi.arweave.net/FDgZj8VVZBElhvQxaFJ8mlDq6N_-UwT_CwWhiI-hrhk',
-        name: 'Test Staked Guardian'
+        name: 'Staked Guardian'
       },
       '0x1e9be4b41510cfbe4af40e06829df05bf873d65d': {
         url: 'https://cq4btd6fkvsbcjmg6qywqut4tjiov2gvgbgcyfugeiq24gi.arweave.net/FDgZj8VVZBElhvQxaFJ8mlDq6N_-UwT_CwWhiI-hrhk',

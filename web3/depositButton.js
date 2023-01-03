@@ -3,10 +3,25 @@ import { utils, ethers } from 'ethers'
 import { Contract } from '@ethersproject/contracts'
 import { nftStakingAbi } from './nftStakingAbi';
 import Button from "components/CustomButtons/Button.js";
+import { CircularProgress } from '@material-ui/core';
+import { makeStyles } from "@material-ui/core/styles";
+import { stakeGuardianAddress } from './StakeGuardianAddresss';
+
+const useStyles = makeStyles({
+  progress: {
+    color: "white",
+    marginRight: "1rem",
+  },
+  iconWrapper: {
+    display: "block",
+    marginRight: "0rem !important",
+  },
+});
 
 
 export function DepositButton(props) {
-  const contractAddress = '0x036cF009EF2893718b7C9e0Fc885205125af60eC'
+  const classes = useStyles();
+  const contractAddress = stakeGuardianAddress
   const contractInterface = new utils.Interface(nftStakingAbi)
   const contract = new Contract(contractAddress, contractInterface)
 
@@ -17,14 +32,24 @@ export function DepositButton(props) {
 
   const execute = () => {
     
-    send([props.tokenId])
-    console.log(state);
-  }
+    send([props.tokenId]).then((res) => {
+      if (res?.transactionHash) {
+        props.setTxnSuccessful(true);
+      }
+    });
+  };
 
   return (
     <div>
-      <Button color="primary" onClick={() => execute()}>Deposit</Button>
-      <p>Status: {status}</p>
+      <Button color="primary" onClick={() => execute()}>
+        {status === 'PendingSignature' || status === 'Mining' ? (
+          <CircularProgress className={classes.progress} size={18}/>
+          ) : (
+            ''
+          )}{' '}
+        Deposit
+      </Button>
+      {/* <p>Status: {status}</p> */}
     </div>
   )
 }
