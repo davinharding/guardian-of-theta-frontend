@@ -31,7 +31,7 @@ export default function LandingPageBody(props) {
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Welcome to ThetaVibes.</h1>
               <h4>
-              The intersection of music videos, NFTs and vibes powered by the Theta Blockchain.
+              The intersection of entertainment, music, NFTs and vibes powered by the Theta Blockchain.
               </h4>
               <br />
               {/* <Button

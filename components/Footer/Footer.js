@@ -41,7 +41,7 @@ export default function Footer(props) {
                 classes={{ tooltip: classes.tooltip }}
               >
                 <Button
-                  href=""
+                  href="https://twitter.com/ThetaVibesNFTs"
                   target="_blank"
                   color="transparent"
                   className={classes.navLink}
@@ -59,7 +59,7 @@ export default function Footer(props) {
               >
                 <Button
                   color="transparent"
-                  href=""
+                  href="https://www.facebook.com/Theta-Vibes-101684886102969"
                   target="_blank"
                   className={classes.navLink}
                 >
@@ -76,7 +76,7 @@ export default function Footer(props) {
               >
                 <Button
                   color="transparent"
-                  href=""
+                  href="https://discord.gg/HwYDfUCJRD"
                   target="_blank"
                   className={classes.navLink}
                 >

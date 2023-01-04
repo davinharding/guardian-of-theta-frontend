@@ -83,20 +83,9 @@ export default function HeaderLinks(props) {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link href="/staking" as="/staking">
-          <Button
-            color="transparent"
-            className={classes.navLink}
-          >          
-          
-            <Icon className={classes.icons}>currency_exchange</Icon> Staking
-          </Button>
-        </Link>
-      </ListItem>
-      <ListItem className={classes.listItem}>
         <ConnectButton
           tooltipClasses={{ tooltip: classes.tooltip }}
-          navLinkClasses={classes.navLink}
+          navLinkClasses={classes.connectButton}
           handleConnectWallet={props.handleConnectWallet}
           account={props.account}
           chainId={props.chainId}

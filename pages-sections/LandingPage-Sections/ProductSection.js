@@ -23,7 +23,7 @@ export default function ProductSection() {
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>What is ThetaVibes?</h2>
           <h5 className={classes.description}>
-          The Theta Vibes NFT project is about collaborating with different musical and graphical artists to create entertaining video NFTs on the Theta blockchain. We were born out of our love for Theta and utilizing its tehnology, and will continue to push the boundaries of what is possible along side them. Pick up a Theta Vibes NFT today only on <a target="_blank" rel="noreferrer"href="https://opentheta.io/explore">Opentheta.io</a>! Follow the link and search "Theta Vibes" to mint or buy an NFT from the genesis collection.  From there you can start staking as well as enjoy our endless gallery of 8k 3D 180° VR content exclusively for Theta Vibes holders.
+          The Theta Vibes NFT project is about collaborating with different musical and graphical artists to create entertaining video NFTs on the Theta blockchain. We were born out of our love for Theta and utilizing its tehnology, and will continue to push the boundaries of what is possible along side them. Pick up a Theta Vibes NFT today only on <a target="_blank" rel="noreferrer"href="https://opentheta.io/explore">Opentheta.io</a>! Follow the link and search "Theta Vibes" to mint or buy an NFT from the genesis collection.  From there you can start staking, and enjoying our endless gallery of 4k 2D, and 8k 3D 180° VR content (Coming soon!).
           </h5>
         </GridItem>
       </GridContainer>
@@ -41,7 +41,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Staking"
-              description="Stake your Theta Vibes NFT's to start earning our native TNT20 token $TVIBE!  $TVIBE will be used in our merch store to redeem limited edition NFTs, merch, and more!"
+              description="Stake your Theta Vibes NFT's to start earning our native TNT20 token $TVIBE! $TVIBE can be used to redeem limited edition NFTs, merch, 2D/3D content and more! (Comning soon!)"
               icon={MonetizationOn}
               iconColor="success"
               vertical
@@ -50,7 +50,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Content"
-              description="ThetaVibes NFTs are your ticket to exclusive 8k 2D and 8k 3D 180° music experiences! Connect your Theta wallet and click on the content tab to view our ever expanding library!"
+              description="4k 2D and 8k 3D 180° music, comedy, and entertainment featuring artists from the Ohio area and beyond.  Connect your Theta wallet and click on the Entertainment tab  to view the library. (Coming soon!)"
               icon={MusicNote}
               iconColor="danger"
               vertical
