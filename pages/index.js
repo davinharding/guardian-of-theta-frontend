@@ -30,7 +30,7 @@ const Index = (props) => {
             etherBalance={etherBalance}
             tvibeBalance={tvibeBalance}
             chainId={chainId}
-            imgUrlKey={props.imgUrlKey}
+            contractMetadataKey={props.contractMetadataKey}
           />
         }
         fixed

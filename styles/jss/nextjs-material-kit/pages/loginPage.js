@@ -87,7 +87,7 @@ const signupPageStyle = {
     color: "#495057",
   },
   stakingCard: {
-    width: "23%",
+    width: "31%",
     display: "inline-block",
     marginRight: "1rem"
   },
@@ -97,6 +97,10 @@ const signupPageStyle = {
   },
   progress: {
     textAlign: "center",
+    fontSize: "1.3rem"
+  },
+  center: {
+    justifyContent: "center"
   },
   '@media only screen and (max-width: 960px)': {
     stakingCard: {

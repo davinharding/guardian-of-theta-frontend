@@ -72,10 +72,10 @@ export default function AccountModal (props) {
               <div key={idx} style={{textAlign: "center", marginTop: "3rem"}}>
                   <Card>
                     <CardHeader color="primary">
-                      {props.imgUrlKey[e.contract].name} #{e.token}
+                      {props.contractMetadataKey[e.contract].name} #{e.token}
                     </CardHeader>
                     <CardBody>
-                      <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
+                      <img src={props.contractMetadataKey[e.contract].url} height="100%" width="100%"/>
                     </CardBody>
                     <CardFooter>
                       {/* <Button color="primary">

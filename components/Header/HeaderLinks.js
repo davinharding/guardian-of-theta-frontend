@@ -106,7 +106,7 @@ export default function HeaderLinks(props) {
           setOpenModal={setOpenModal}
           nftData={nftData}
           account={props.account}
-          imgUrlKey={props.imgUrlKey}
+          contractMetadataKey={props.contractMetadataKey}
           etherBalance={props.etherBalance}
           tvibeBalance={props.tvibeBalance}
         />

@@ -21,11 +21,13 @@ import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import axios from 'axios';
 import { useReadFunction } from "../web3/useReadFunction";
 import { useCalculateRewards } from "../web3/useCalculateRewards";
-import { stakeGuardianAddress } from "../web3/StakeGuardianAddresss";
+import { stakedNftAddresses } from "../web3/stakedNftAddresses";
 
 import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
 import { WithdrawButton } from "../web3/withdrawButton";
 import { CircularProgress } from "@material-ui/core";
+import { useIsApprovedForAll } from "../web3/useIsApprovedForAll";
+import { contractMetadataKey } from "../web3/ContractMetadataKey";
 
 const useStyles = makeStyles(styles);
 
@@ -44,7 +46,6 @@ export default function StakingPage(props) {
 
   const THETA_VIBES_NFT_ADDRESSES = [
     "0xcd8ee3078fa8565135f1e17974e04a6fbabedd66", // Guardian
-    "0x1E9BE4b41510cfBe4af40E06829Df05BF873D65d", // Test Guardian
     "0x1a54ff4a92daf67eafb9a790d596b9794e2d27a8", // Fly N High
     "0xa07965551c88df408594139ac23c778cf54e25f4", // Down with Me
     "0x4c7d0a83d59bd47219cd5ca980047d38de07686c", // Dreamland
@@ -52,16 +53,7 @@ export default function StakingPage(props) {
     "0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1", // gimme the tfuel
   ];
 
-  const STAKED_NFT_ADDRESSES = [
-    // '0x036cF009EF2893718b7C9e0Fc885205125af60eC', // Test Guardian
-    stakeGuardianAddress
-  ]
-
-  const UNSTAKED_NFT_ADDRESSES = [
-    '0x1e9be4b41510cfbe4af40e06829df05bf873d65d', // Test Guardian
-  ]
-
-  function getStakedNfts(contractAddresses, accountAddress) {
+  function getStakedNfts(contractAddresses, accountAddress) { 
     let returnArr = [];
     contractAddresses.forEach(contractAddress => {
       const currentTokensDeposited = useReadFunction(contractAddress, accountAddress, nftStakingAbi, 'depositsOf');
@@ -78,7 +70,7 @@ export default function StakingPage(props) {
     return returnArr;
   };
   
-  const stakedNfts = getStakedNfts(STAKED_NFT_ADDRESSES, account);
+  const stakedNfts = getStakedNfts(stakedNftAddresses, account);
 
   function createTokenIdArray(nfts) {
     let tokenIdArray = [];
@@ -93,7 +85,7 @@ export default function StakingPage(props) {
   // const unstakedTokenIdArray = createTokenIdArray(unstakedNfts);
   
   function calculateUnclaimedRewards() {
-    const bigNumberArray = useCalculateRewards(STAKED_NFT_ADDRESSES[0], account, stakedTokenIdArray);
+    const bigNumberArray = useCalculateRewards(stakedNftAddresses[0], account, stakedTokenIdArray);
 
     let answer = 0;
     if(bigNumberArray) {
@@ -108,6 +100,18 @@ export default function StakingPage(props) {
   // DAVIN: needs to be changed to check all six contract addresses and not just one
   let unclaimedRewards = calculateUnclaimedRewards();
 
+  function createApprovalKey() { 
+    const tempApprovalKey = {};   
+    THETA_VIBES_NFT_ADDRESSES.forEach((e) => {
+      tempApprovalKey[e] = useIsApprovedForAll(e, contractMetadataKey[e].stakeContract, account);
+    })
+
+    // setApprovalKey(tempApprovalKey);
+    return tempApprovalKey
+  }
+
+  const approvalKey = createApprovalKey();
+
   function getNFTsForContract(contractAddresses, accountAddress) {
     const nfts = [];
     if(chainId === 361 && account) { // Theta Mainnet
@@ -120,7 +124,11 @@ export default function StakingPage(props) {
             // handle success
             if (response.data) {
               response.data.forEach((nE) => {
+                // console.log(nE);
                 // console.log(response.data, 'test');
+                // if(THETA_VIBES_NFT_ADDRESSES.includes(nE.contract)) {
+                  // nE.isApproved = isStakingApproved(nE.contract, contractMetadataKey[nE.contract].stakeContract)
+                // }
                 nfts.push(nE);
               });
             }
@@ -134,22 +142,22 @@ export default function StakingPage(props) {
       });
     }
     if(contractAddresses === THETA_VIBES_NFT_ADDRESSES) {
+      // isStakingApproved(e.contract, stakeGuardianAddress)
       setNftData(nfts);
     } else {
       setStakedNftData(nfts);
-    }
-    
+    }    
   }
 
   useEffect(() => {
     if(txnSuccessful) {
       setTimeout(() => {
         getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
-        getNFTsForContract(STAKED_NFT_ADDRESSES, account);
-      }, 3000)
+        getNFTsForContract(stakedNftAddresses, account);
+      }, 4000)
     } else {
       getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
-      getNFTsForContract(STAKED_NFT_ADDRESSES, account);
+      getNFTsForContract(stakedNftAddresses, account);
     }   
     setTxnSuccessful(false);
   }, [account, txnSuccessful]);
@@ -179,7 +187,7 @@ export default function StakingPage(props) {
           etherBalance={etherBalance}
           tvibeBalance={tvibeBalance}
           chainId={chainId}
-          imgUrlKey={props.imgUrlKey}
+          contractMetadataKey={contractMetadataKey}
           />}
         {...rest}
       />
@@ -198,14 +206,14 @@ export default function StakingPage(props) {
                 <CardHeader color="primary" className={classes.cardHeader}>
                   <h4>Staking Menu</h4>
                 </CardHeader>
-                {nftData.length !== 0 || stakedNftData.length !== 0 ? (
+                {nftData || stakedNftData ? (
                   <CardBody>
                   <div>
                     TVIBE Balance: {tvibeBalance && 
                     parseFloat(formatEther(tvibeBalance)).toFixed(3)} 
                   </div> 
                   <div>
-                    Unclaimned TVIBE Balance: {unclaimedRewards && 
+                    Unclaimed TVIBE Balance: {unclaimedRewards && 
                     parseFloat(unclaimedRewards).toFixed(3)} 
                   </div> 
                     <div style={{marginTop: "3rem"}}>  
@@ -214,25 +222,32 @@ export default function StakingPage(props) {
                           <span key={idx}>                                  
                             <Card className={classes.stakingCard}>
                               <CardHeader color="primary">
-                                {props.imgUrlKey[e.contract].name} #{e.token}
+                                {contractMetadataKey[e.contract].name} #{e.token}
                               </CardHeader>
                               <CardBody>
-                                <img src={props.imgUrlKey[e.contract].url} key={idx} height="100%" width="100%"/>
+                                <img src={contractMetadataKey[e.contract].url} key={idx} height="100%" width="100%"/>
                               </CardBody>
-                              <CardFooter>
-                                <ContractButton 
-                                  contractAddress={e.contract}
-                                  abi={nftContractAbi}
-                                  functionName={'setApprovalForAll'}
-                                  buttonTitle={'Approve'}
-                                  sendParameter={stakeGuardianAddress}
-                                  sendParameter2={true}
-                                  // nftContract={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
-                                />
-                                <DepositButton 
-                                  setTxnSuccessful={setTxnSuccessful}  
-                                  tokenId={e.token} 
-                                />
+                              <CardFooter className={classes.center}>
+                                {approvalKey[e.contract] ? (
+                                  <DepositButton 
+                                    setTxnSuccessful={setTxnSuccessful}  
+                                    tokenId={e.token} 
+                                    nftAddress={e.contract}
+                                  />
+                                ) : (
+                                  <ContractButton 
+                                    contractAddress={e.contract}
+                                    abi={nftContractAbi}
+                                    functionName={'setApprovalForAll'}
+                                    buttonTitle={'Approve'}
+                                    sendParameter={contractMetadataKey[e.contract].stakeContract}
+                                    sendParameter2={true}
+                                    setTxnSuccessful={setTxnSuccessful} 
+                                    // nftContract={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
+                                  />
+                                )}
+                                
+                                
                               </CardFooter>     
                             </Card>
                           </span>
@@ -245,15 +260,16 @@ export default function StakingPage(props) {
                         <span key={idx} style={{marginTop: "3rem"}}>       
                           <Card className={classes.stakingCard}>
                             <CardHeader color="primary">
-                              {props.imgUrlKey[e.contract].name} #{e.token}
+                              {contractMetadataKey[e.contract.toLowerCase()].name} #{e.token}
                             </CardHeader>
                             <CardBody>
-                              <img src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
+                              <img src={contractMetadataKey[e.contract].url} height="100%" width="100%"/>
                             </CardBody>
-                            <CardFooter>
+                            <CardFooter className={classes.center}>
                               <WithdrawButton 
                                 setTxnSuccessful={setTxnSuccessful} 
                                 tokenId={e.token} 
+                                nftAddress={e.contract}
                               />
                             </CardFooter>     
                           </Card>
@@ -263,7 +279,7 @@ export default function StakingPage(props) {
                     <div>
                       <span className={classes.stakingButton}>
                         <ContractButton 
-                        contractAddress={stakeGuardianAddress}
+                        contractAddress={stakedNftAddresses[0]}
                         abi={nftStakingAbi}
                         functionName={'claimRewards'}
                         buttonTitle={'Collect All'}
@@ -272,7 +288,7 @@ export default function StakingPage(props) {
                       </span>
                       <span className={classes.stakingButton}>
                       <ContractButton 
-                        contractAddress={stakeGuardianAddress}
+                        contractAddress={stakedNftAddresses[0]}
                         abi={nftStakingAbi}
                         functionName={'withdraw'}
                         buttonTitle={'Withdraw All'}
@@ -282,7 +298,7 @@ export default function StakingPage(props) {
                       {/* {unstakedNfts.length >= 0 ? ( */}
                         <span className={classes.stakingButton}>
                           <ContractButton 
-                            contractAddress={stakeGuardianAddress}
+                            contractAddress={stakedNftAddresses[0]}
                             abi={nftStakingAbi}
                             functionName={'deposit'}
                             buttonTitle={'Deposit All'}
@@ -318,9 +334,18 @@ export default function StakingPage(props) {
                     {/* <MintButton account={account} /> */}
                   </CardBody>
                   ) : (
-                    <div className={classes.progress} >
-                      <CircularProgress color="primary" size={100} />
-                    </div>                    
+                    !account ? (
+                      <div className={classes.progress}>
+                        Please connect your account in the top right corner to access the staking page
+                      </div>
+                    ) : (
+                      <div className={classes.progress} >
+                        <CircularProgress color="primary" size={100} />
+                      </div>    
+                    )
+
+                    
+                                    
                   )                  
                 }                
                 <CardFooter className={classes.cardFooter}>

@@ -5,7 +5,7 @@ import { nftStakingAbi } from './nftStakingAbi';
 import Button from "components/CustomButtons/Button.js";
 import { CircularProgress } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import { stakeGuardianAddress } from './StakeGuardianAddresss';
+import { contractMetadataKey } from './ContractMetadataKey';
 
 const useStyles = makeStyles({
   progress: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 export function WithdrawButton(props) {
   const classes = useStyles();
-  const contractAddress = stakeGuardianAddress
+  const contractAddress = contractMetadataKey[props.nftAddress].stakeContract;
   const contractInterface = new utils.Interface(nftStakingAbi)
   const contract = new Contract(contractAddress, contractInterface)
 

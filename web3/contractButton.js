@@ -29,7 +29,11 @@ export function ContractButton(props) {
 
   const execute = () => {
     if(props.sendParameter2){
-      send(props.sendParameter, props.sendParameter2);
+      send(props.sendParameter, props.sendParameter2).then((res) => {
+        if (res?.transactionHash) {
+          props.setTxnSuccessful(true);
+        }
+      });
     }else{
       send(props.sendParameter)
     }
