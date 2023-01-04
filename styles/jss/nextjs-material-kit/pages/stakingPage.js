@@ -88,6 +88,10 @@ const stakingPageStyle = {
   inputIconsColor: {
     color: "#495057",
   },
+  progress: {
+    textAlign: "center",
+    color: "green"
+  }
 };
 
 export default stakingPageStyle;

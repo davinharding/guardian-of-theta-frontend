@@ -1,35 +1,25 @@
 import { React, useState, useEffect } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
-import { Contract } from '@ethersproject/contracts'
-import { utils, ethers } from 'ethers';
 import { ContractButton } from "../web3/contractButton";
 import { DepositButton } from "../web3/depositButton";
-import { MintButton } from "../web3/mintButton";
 import { nftStakingAbi } from "../web3/nftStakingAbi";
 import { nftContractAbi } from "../web3/nftContractAbi";
 import { formatEther } from '@ethersproject/units'
 import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import axios from 'axios';
 import { useReadFunction } from "../web3/useReadFunction";
-import { useTokenOfOwnerByIndex } from "../web3/useTokenOfOwnerByIndex";
 import { useCalculateRewards } from "../web3/useCalculateRewards";
 import { stakeGuardianAddress } from "../web3/StakeGuardianAddresss";
 
@@ -103,13 +93,7 @@ export default function StakingPage(props) {
   // const unstakedTokenIdArray = createTokenIdArray(unstakedNfts);
   
   function calculateUnclaimedRewards() {
-    let bigNumberArray = [];
-    
-    stakedNfts.forEach((e) => {
-      bigNumberArray.push(
-        useCalculateRewards(props.imgUrlKey[e.contract]?.stakeContract, account, [e.token])
-      );
-    }) 
+    const bigNumberArray = useCalculateRewards(STAKED_NFT_ADDRESSES[0], account, stakedTokenIdArray);
 
     let answer = 0;
     if(bigNumberArray) {
@@ -122,7 +106,7 @@ export default function StakingPage(props) {
   }
 
   // DAVIN: needs to be changed to check all six contract addresses and not just one
-  const unclaimedRewards = calculateUnclaimedRewards();
+  let unclaimedRewards = calculateUnclaimedRewards();
 
   function getNFTsForContract(contractAddresses, accountAddress) {
     const nfts = [];
@@ -158,8 +142,15 @@ export default function StakingPage(props) {
   }
 
   useEffect(() => {
-    getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
-    getNFTsForContract(STAKED_NFT_ADDRESSES, account);
+    if(txnSuccessful) {
+      setTimeout(() => {
+        getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
+        getNFTsForContract(STAKED_NFT_ADDRESSES, account);
+      }, 2000)
+    } else {
+      getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
+      getNFTsForContract(STAKED_NFT_ADDRESSES, account);
+    }   
     setTxnSuccessful(false);
   }, [account, txnSuccessful]);
 
@@ -207,7 +198,7 @@ export default function StakingPage(props) {
                 <CardHeader color="primary" className={classes.cardHeader}>
                   <h4>Staking Menu</h4>
                 </CardHeader>
-                {nftData && stakedNftData ? (
+                {nftData.length !== 0 || stakedNftData.length !== 0 ? (
                   <CardBody>
                   <div>
                     TVIBE Balance: {tvibeBalance && 
@@ -349,10 +340,11 @@ export default function StakingPage(props) {
                     {/* <MintButton account={account} /> */}
                   </CardBody>
                   ) : (
-                    <CircularProgress />
+                    <div className={classes.progress} >
+                      <CircularProgress color="primary" size={100} />
+                    </div>                    
                   )                  
-                }
-                
+                }                
                 <CardFooter className={classes.cardFooter}>
                   {/* <Button simple color="primary" size="lg">
                     Get started
