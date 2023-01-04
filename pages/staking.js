@@ -146,7 +146,7 @@ export default function StakingPage(props) {
       setTimeout(() => {
         getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
         getNFTsForContract(STAKED_NFT_ADDRESSES, account);
-      }, 2000)
+      }, 3000)
     } else {
       getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, account);
       getNFTsForContract(STAKED_NFT_ADDRESSES, account);
@@ -260,28 +260,6 @@ export default function StakingPage(props) {
                         </span>
                       )
                     })}
-                    <div style={{marginTop: "3rem"}}>  
-                      {/* {stakedNfts.map((e,idx)=>{
-                        return(    
-                          <span key={idx}>                                  
-                          <Card className={classes.stakingCard}>
-                            <CardHeader color="primary">
-                              {props.imgUrlKey[e.contract].name} #{e.token}
-                            </CardHeader>
-                            <CardBody>
-                              <img key={idx} src={props.imgUrlKey[e.contract].url} height="100%" width="100%"/>
-                            </CardBody>
-                            <CardFooter>
-                              <WithdrawButton 
-                                setTxnSuccessful={setTxnSuccessful} 
-                                tokenId={e.token} 
-                              />
-                            </CardFooter>     
-                          </Card>  
-                          </span>                      
-                        )
-                      })} */}
-                    </div>
                     <div>
                       <span className={classes.stakingButton}>
                         <ContractButton 
@@ -316,7 +294,7 @@ export default function StakingPage(props) {
                       )} */}
                       
                     </div>
-                    <ContractButton 
+                    {/* <ContractButton 
                       contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
                       abi={nftStakingAbi}
                       functionName={'updateRewardRate'}
@@ -336,7 +314,7 @@ export default function StakingPage(props) {
                       buttonTitle={'Set Approval'}
                       sendFunction={(stakeGuardianAddress, true)}
                       // nftContract={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
-                    />
+                    /> */}
                     {/* <MintButton account={account} /> */}
                   </CardBody>
                   ) : (
