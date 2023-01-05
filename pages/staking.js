@@ -30,6 +30,7 @@ import { useIsApprovedForAll } from "../web3/useIsApprovedForAll";
 import { contractMetadataKey } from "../web3/ContractMetadataKey";
 import { ApproveDepositSection } from "../web3/ApproveDepositSection";
 import { thetaVibesNftAddresses } from "../web3/thetaVibesNftAddresses";
+import { UnclaimedRewards } from "../web3/UnclaimedRewards";
 
 const useStyles = makeStyles(styles);
 
@@ -44,71 +45,6 @@ export default function StakingPage(props) {
 
   // testnet tvibe address: 0xefd424dfcc47e74a23175713f3e4c3493877f192
 
-  function getStakedNfts(contractAddresses, accountAddress) { 
-    let returnArr = [];
-    contractAddresses.forEach(contractAddress => {
-      const currentTokensDeposited = useReadFunction(contractAddress, accountAddress, nftStakingAbi, 'depositsOf');
-      if(currentTokensDeposited){
-        Object.values(currentTokensDeposited).forEach(tokenId => {
-          returnArr.push({ 
-            contract: contractAddress,
-            token: parseInt(tokenId),
-          });
-        }); 
-      }
-         
-    });
-    return returnArr;
-  };
-  
-  const stakedNfts = getStakedNfts(stakedNftAddresses, account);
-
-  function createTokenIdObject(nfts) {
-    let tokenIdObj = {};
-    nfts.forEach(e => {
-      tokenIdObj[e.contract] ? (
-        tokenIdObj[e.contract] = tokenIdObj[e.contract].push(e.token)
-      ) : (
-        tokenIdObj[e.contract] = [e.token]
-      );
-    })
-    return tokenIdObj;
-  }
-
-  const stakedTokenObj = createTokenIdObject(stakedNfts);
-
-  // console.log(stakedTokenObj, "stakedTokenObj")
-
-  // const unstakedTokenIdArray = createTokenIdArray(unstakedNfts);
-  
-  function calculateUnclaimedRewards() {
-    const bigNumberArray = [];
-
-    console.log(useCalculateRewards("0x67fc8c72707f17761ced1e71ee9a92be36179eac", account, [8]), "useCalculateRewards('0x67fc8c72707f17761ced1e71ee9a92be36179eac', account, [8])")
-
-    console.log(useCalculateRewards("0x76d39587003800215059070Dc1e36D5E939DA0aC", account, [21]), "useCalculateRewards('0x76d39587003800215059070Dc1e36D5E939DA0aC', account, [21])")
-    
-    Object.keys(stakedTokenObj).forEach((e) => {
-      // console.log(e, account, stakedTokenObj[e], useCalculateRewards(e, account, stakedTokenObj[e]), 'useCalculateRewards(e, account, stakedTokenObj[e])');
-      bigNumberArray.push(useCalculateRewards(e, account, stakedTokenObj[e]));
-    })
-
-    console.log(bigNumberArray, 'bigNumberArray')
-    
-
-    let answer = 0;
-    if(bigNumberArray) {
-      bigNumberArray.flat().forEach(e => {
-        answer += Number(parseFloat(formatEther(e)).toFixed(3));
-      })
-    }
-    
-    return answer;
-  }
-
-  // // DAVIN: needs to be changed to check all six contract addresses and not just one
-  let unclaimedRewards  = calculateUnclaimedRewards();
-
   function getNFTsForContract(contractAddresses, accountAddress) {
     const nfts = [];
     if(chainId === 361 && account) { // Theta Mainnet
@@ -122,10 +58,6 @@ export default function StakingPage(props) {
             if (response.data) {
               response.data.forEach((nE) => {
                 // console.log(nE);
-                // console.log(response.data, 'test');
-                // if(thetaVibesNftAddresses.includes(nE.contract)) {
-                  // nE.isApproved = isStakingApproved(nE.contract, contractMetadataKey[nE.contract].stakeContract)
-                // }
                 nfts.push(nE);
               });
             }
@@ -208,10 +140,9 @@ export default function StakingPage(props) {
                     TVIBE Balance: {tvibeBalance && 
                     parseFloat(formatEther(tvibeBalance)).toFixed(3)} 
                   </div> 
-                  <div>
-                    {/* Unclaimed TVIBE Balance: {unclaimedRewards && 
-                    parseFloat(unclaimedRewards).toFixed(3)}  */}
-                  </div> 
+                  <UnclaimedRewards
+                    stakedNftData={stakedNftData}
+                  />
                     <div style={{marginTop: "3rem"}}>  
                       {chainId === 361 ? nftData.map((e,idx)=>{
                         return(    
