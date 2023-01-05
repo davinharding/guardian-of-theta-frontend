@@ -261,11 +261,11 @@ export default function StakingPage(props) {
                       )}                      
                     </div> */}
                     {/* <ContractButton 
-                      contractAddress={'0x67fc8c72707f17761ced1e71ee9a92be36179eac'}
+                      contractAddress={'0x6cd2ddf245340bc2322de497bdaedd963c09c22c'}
                       abi={nftStakingAbi}
-                      functionName={'withdrawTokens'}
-                      buttonTitle={'Withdraw Tokens'}
-                      sendParameter={parseUnits("40000000", "ether")}
+                      functionName={'updateRewardRate'}
+                      buttonTitle={'updateRewardRate'}
+                      sendParameter={50}
                     /> */}
                     {/* <ContractButton 
                       contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
