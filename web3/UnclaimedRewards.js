@@ -6,16 +6,16 @@ import { useState } from 'react';
 
 const UnclaimedRewards = (props) => {
   const { account } = useEthers();
-  const [unclaimedRewards, setUnclaimedRewards] = useState(0);
+  // const [unclaimedRewards, setUnclaimedRewards] = useState(0);
 
   function createTokenIdObject(nfts) {
-    let tokenIdObj = {};
-    nfts.forEach(e => {
-      tokenIdObj[e.contract] ? (
-        tokenIdObj[e.contract] = tokenIdObj[e.contract].push(parseInt(e.token))
-      ) : (
-        tokenIdObj[e.contract] = [parseInt(e.token)]
-      );
+    let tokenIdObj = {
+      "0x67fc8c72707f17761ced1e71ee9a92be36179eac": [], // Staked Guardian
+      "0x76d39587003800215059070dc1e36d5e939da0ac": [], // Staked Down With Me
+      // fill in with the other 4 contracts
+    };
+    nfts.forEach(e => {      
+      tokenIdObj[e.contract].push(parseInt(e.token));
     })
     return tokenIdObj;
   }
@@ -39,14 +39,14 @@ const UnclaimedRewards = (props) => {
       }        
     })
     
-    setUnclaimedRewards(answer);
+    props.setUnclaimedRewards(answer);
   }
 
   calculateUnclaimedRewards();
 
   return (
     <div>
-      Unclaimed TVIBE Balance: {unclaimedRewards && parseFloat(unclaimedRewards).toFixed(3)} 
+      Unclaimed TVIBE Balance: {props.unclaimedRewards && parseFloat(props.unclaimedRewards).toFixed(3)} 
     </div>
   )
 }

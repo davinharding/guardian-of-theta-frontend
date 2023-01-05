@@ -39,6 +39,7 @@ export default function StakingPage(props) {
   const [stakedNftData, setStakedNftData] = useState([]);
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const [txnSuccessful, setTxnSuccessful] = useState(false);
+  const [unclaimedRewards, setUnclaimedRewards] = useState(0);
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
   let tvibeBalance = useTokenBalance('0xfdbf39114ba853d811032d3e528c2b4b7adcecd6', account);
@@ -78,17 +79,17 @@ export default function StakingPage(props) {
   }
 
   useEffect(() => {
-    if(txnSuccessful) {
-      setTimeout(() => {
+    if(txnSuccessful) {      
+      setTimeout(() => {        
         getNFTsForContract(thetaVibesNftAddresses, account);
         getNFTsForContract(stakedNftAddresses, account);
-      }, 4000)
+        setTxnSuccessful(false); 
+      }, 18000)      
     } else {
       getNFTsForContract(thetaVibesNftAddresses, account);
       getNFTsForContract(stakedNftAddresses, account);
-    }   
-    setTxnSuccessful(false);
-  }, [account, txnSuccessful]);
+    }         
+  }, [account,txnSuccessful]);
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
@@ -134,15 +135,40 @@ export default function StakingPage(props) {
                 <CardHeader color="primary" className={classes.cardHeader}>
                   <h4>Staking Menu</h4>
                 </CardHeader>
-                {account && nftData.length !== 0 || account && stakedNftData.length !== 0 ? (
-                  <CardBody>
-                  <div>
-                    TVIBE Balance: {tvibeBalance && 
-                    parseFloat(formatEther(tvibeBalance)).toFixed(3)} 
-                  </div> 
-                  <UnclaimedRewards
-                    stakedNftData={stakedNftData}
-                  />
+                {/* account && nftData.length !== 0 || account && stakedNftData.length !== 0 */}
+                {txnSuccessful ? (                    
+                  <>
+                    <div className={classes.progress} >
+                      <CircularProgress color="primary" size={50} />
+                      
+                    </div>
+                    <div className={classes.progress}>
+                      Waiting for chain data to update!   
+                    </div>  
+                  </>                     
+                  ) : (
+                  ''
+                  )  
+                }
+                <CardBody>
+                  {account ? (
+                    <>
+                      <div>
+                        TVIBE Balance: {tvibeBalance && 
+                        parseFloat(formatEther(tvibeBalance)).toFixed(3)} 
+                      </div> 
+                      <UnclaimedRewards
+                        stakedNftData={stakedNftData}
+                        unclaimedRewards={unclaimedRewards}
+                        setUnclaimedRewards={setUnclaimedRewards}
+                      />
+                    </>
+                    ) : (
+                      <div className={classes.progress}>
+                        Please connect your account in the top right corner!
+                      </div>
+                    )
+                  }                  
                     <div style={{marginTop: "3rem"}}>  
                       {chainId === 361 ? nftData.map((e,idx)=>{
                         return(    
@@ -170,8 +196,7 @@ export default function StakingPage(props) {
                           </span>
                         )
                       }) : ''}
-                    </div>
-                    
+                    </div>                    
                     {stakedNftData.map((e,idx)=>{
                       return(                      
                         <span key={idx} style={{marginTop: "3rem"}}>       
@@ -248,22 +273,7 @@ export default function StakingPage(props) {
                       sendFunction={(stakeGuardianAddress, true)}
                       // nftContract={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
                     /> */}
-                  </CardBody>
-                  ) : (
-                    !account ? (
-                      <div className={classes.progress}>
-                        Please connect your account in the top right corner to access the staking page
-                      </div>
-                    ) : (
-                      <div className={classes.progress} >
-                        <CircularProgress color="primary" size={100} />
-                      </div>    
-                    )
-
-                    
-                                    
-                  )                  
-                }                
+                  </CardBody>                         
                 <CardFooter className={classes.cardFooter}>
                   {/* <Button simple color="primary" size="lg">
                     Get started
