@@ -194,7 +194,8 @@ export default function StakingPage(props) {
                                 sendParameter2={true}
                                 setTxnSuccessful={setTxnSuccessful} 
                                 token={e.token}
-                              />                                
+                              />  
+                                                           
                             </CardFooter>     
                           </Card>
                         </span>
@@ -221,6 +222,13 @@ export default function StakingPage(props) {
                                 tokenId={e.token} 
                                 nftAddress={e.contract}
                               />
+                              <ContractButton
+                                contractAddress={contractMetadataKey[e.contract].stakeContract}
+                                abi={nftStakingAbi}
+                                functionName={'claimRewards'}
+                                buttonTitle={'Collect'}
+                                sendParameter={[e.token]}
+                              /> 
                             </CardFooter>     
                           </Card>
                         </span>
