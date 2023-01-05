@@ -13,24 +13,21 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { ContractButton } from "../web3/contractButton";
-import { DepositButton } from "../web3/depositButton";
-import { nftStakingAbi } from "../web3/nftStakingAbi";
 import { nftContractAbi } from "../web3/nftContractAbi";
 import { formatEther, parseUnits } from '@ethersproject/units'
 import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import axios from 'axios';
-import { useReadFunction } from "../web3/useReadFunction";
-import { useCalculateRewards } from "../web3/useCalculateRewards";
 import { stakedNftAddresses } from "../web3/stakedNftAddresses";
+import { nftStakingAbi } from "../web3/nftStakingAbi";
 
 import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
 import { WithdrawButton } from "../web3/withdrawButton";
 import { CircularProgress } from "@material-ui/core";
-import { useIsApprovedForAll } from "../web3/useIsApprovedForAll";
 import { contractMetadataKey } from "../web3/ContractMetadataKey";
 import { ApproveDepositSection } from "../web3/ApproveDepositSection";
 import { thetaVibesNftAddresses } from "../web3/thetaVibesNftAddresses";
 import { UnclaimedRewards } from "../web3/UnclaimedRewards";
+import { MultipleTxnButton } from "../web3/MultipleTxnButton";
 
 const useStyles = makeStyles(styles);
 
@@ -152,51 +149,62 @@ export default function StakingPage(props) {
                 }
                 <CardBody>
                   {account ? (
-                    <>
-                      <div>
-                        TVIBE Balance: {tvibeBalance && 
+                    <div className={classes.tokenValues}>
+                      <div className={classes.fitContent}>
+                        <span className={classes.bold}>TVIBE Balance:</span> {tvibeBalance && 
                         parseFloat(formatEther(tvibeBalance)).toFixed(3)} 
                       </div> 
-                      <UnclaimedRewards
-                        stakedNftData={stakedNftData}
-                        unclaimedRewards={unclaimedRewards}
-                        setUnclaimedRewards={setUnclaimedRewards}
-                      />
-                    </>
+                      <div className={classes.fitContent}>
+                        <UnclaimedRewards
+                          stakedNftData={stakedNftData}
+                          unclaimedRewards={unclaimedRewards}
+                          setUnclaimedRewards={setUnclaimedRewards}
+                        />
+                      </div>
+                      
+                    </div>
                     ) : (
                       <div className={classes.progress}>
                         Please connect your account in the top right corner!
                       </div>
                     )
-                  }                  
-                    <div style={{marginTop: "3rem"}}>  
-                      {chainId === 361 ? nftData.map((e,idx)=>{
-                        return(    
-                          <span key={idx}>                                  
-                            <Card className={classes.stakingCard}>
-                              <CardHeader color="primary">
-                                {contractMetadataKey[e.contract].name} #{e.token}
-                              </CardHeader>
-                              <CardBody>
-                                <img src={contractMetadataKey[e.contract].url} key={idx} height="100%" width="100%"/>
-                              </CardBody>
-                              <CardFooter className={classes.center}>
-                                <ApproveDepositSection
-                                  contract={e.contract}
-                                  abi={nftContractAbi}
-                                  functionName={'setApprovalForAll'}
-                                  buttonTitle={'Approve'}
-                                  sendParameter={contractMetadataKey[e.contract].stakeContract}
-                                  sendParameter2={true}
-                                  setTxnSuccessful={setTxnSuccessful} 
-                                  token={e.token}
-                                />                                
-                              </CardFooter>     
-                            </Card>
-                          </span>
-                        )
-                      }) : ''}
-                    </div>                    
+                  } 
+                  
+                  <div className={classes.border}>  
+                    <div className={classes.header}>
+                      Your NFTs
+                    </div>
+                    {chainId === 361 ? nftData.map((e,idx)=>{
+                      return(    
+                        <span key={idx}>                                  
+                          <Card className={classes.stakingCard}>
+                            <CardHeader color="primary">
+                              {contractMetadataKey[e.contract].name} #{e.token}
+                            </CardHeader>
+                            <CardBody>
+                              <img src={contractMetadataKey[e.contract].url} key={idx} height="100%" width="100%"/>
+                            </CardBody>
+                            <CardFooter className={classes.center}>
+                              <ApproveDepositSection
+                                contract={e.contract}
+                                abi={nftContractAbi}
+                                functionName={'setApprovalForAll'}
+                                buttonTitle={'Approve'}
+                                sendParameter={contractMetadataKey[e.contract].stakeContract}
+                                sendParameter2={true}
+                                setTxnSuccessful={setTxnSuccessful} 
+                                token={e.token}
+                              />                                
+                            </CardFooter>     
+                          </Card>
+                        </span>
+                      )
+                    }) : ''}
+                  </div>   
+                  <div className={classes.border}>  
+                    <div className={classes.header}>
+                      Your Staked NFTs
+                    </div>              
                     {stakedNftData.map((e,idx)=>{
                       return(                      
                         <span key={idx} style={{marginTop: "3rem"}}>       
@@ -218,15 +226,16 @@ export default function StakingPage(props) {
                         </span>
                       )
                     })}
+                  </div> 
                     {/* <div>
                       <span className={classes.stakingButton}>
-                        <ContractButton 
-                        contractAddress={stakedNftAddresses[0]}
-                        abi={nftStakingAbi}
-                        functionName={'claimRewards'}
-                        buttonTitle={'Collect All'}
-                        sendParameter={stakedTokenIdArray}
-                      />
+                        <MultipleTxnButton
+                          abi={nftStakingAbi}
+                          functionName={'claimRewards'}
+                          buttonTitle={'Collect All'}
+                          setTxnSuccessful={setTxnSuccessful}
+                          stakedNftData={stakedNftData}
+                        />
                       </span>
                       <span className={classes.stakingButton}>
                       <ContractButton 

@@ -1,8 +1,6 @@
 import { formatEther } from '@ethersproject/units';
 import { useEthers } from '@usedapp/core';
 import { useCalculateRewards } from './useCalculateRewards';
-import { useState } from 'react';
-
 
 const UnclaimedRewards = (props) => {
   const { account } = useEthers();
@@ -46,7 +44,8 @@ const UnclaimedRewards = (props) => {
 
   return (
     <div>
-      Unclaimed TVIBE Balance: {props.unclaimedRewards && parseFloat(props.unclaimedRewards).toFixed(3)} 
+      <span style={{color: "purple",
+    fontSize: "2rem"}}>Unclaimed TVIBE Balance:</span> {props.unclaimedRewards && parseFloat(props.unclaimedRewards).toFixed(3)} 
     </div>
   )
 }

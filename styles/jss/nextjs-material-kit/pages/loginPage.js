@@ -89,7 +89,8 @@ const signupPageStyle = {
   stakingCard: {
     width: "31%",
     display: "inline-block",
-    marginRight: "1rem"
+    marginRight: ".5rem",
+    marginLeft: ".5rem"
   },
   stakingButton: {
     display: "inline-block",
@@ -101,6 +102,32 @@ const signupPageStyle = {
   },
   center: {
     justifyContent: "center"
+  },
+  header: {
+    textAlign: "center",
+    margin: "1rem",
+    fontSize: "1.25rem"
+  },
+  border: {
+    border: "2px solid purple",
+    borderRadius: "5px",
+    padding: "1rem",
+    margin: "0.5rem",
+  },
+  tokenValues: {
+    textAlign: "center",
+    fontSize: "1.5rem"
+  },
+  fitContent: {
+    width: "fit-content",
+    display: "inline-block", 
+    textAlign: "center",
+    marginRight: ".5rem",
+    marginLeft: ".5rem"
+  },
+  bold: {
+    color: "purple",
+    fontSize: "2rem"
   },
   '@media only screen and (max-width: 960px)': {
     stakingCard: {
