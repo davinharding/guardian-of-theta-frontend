@@ -25,7 +25,7 @@ export default function LandingPageBody(props) {
 
   return (
     <>
-      <Parallax filter responsive image="/img/theta-vibes-brick-logo.jpg">
+      <Parallax filter responsive image="/img/theta-vibes-brick-smaller.jpg">
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>

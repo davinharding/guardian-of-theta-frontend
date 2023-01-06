@@ -120,7 +120,7 @@ export default function StakingPage(props) {
       <div
         className={classes.pageHeader}
         style={{
-          backgroundImage: "url('/img/thetavibes-neon.jpg')",
+          backgroundImage: "url('/img/thetavibes-neon_smaller.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "top center",
         }}
