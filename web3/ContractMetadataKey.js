@@ -41,7 +41,7 @@ export const contractMetadataKey = {
    }, 
    '0x9beb67806cc909131328edd2daf822aa3bd4c30f': {
     url: 'https://karbabo3vw43es7nijruppndmojjjixquhmyj53xcw5i3pu65m.arweave.net/UCIQBdutub-JL7UJjR72jY5KUovCh2YT3dxW6jb6e60',
-    name: "Beam My Line",
+    name: "Staked Beam My Line",
     stakeContract: '0x9beb67806cc909131328edd2daf822aa3bd4c30f'
    }, 
   '0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1': {
@@ -51,7 +51,7 @@ export const contractMetadataKey = {
   },
   '0x6cd2ddf245340bc2322de497bdaedd963c09c22c': {
     url: 'https://oqm2vlnadma7ahuo73lryxqqc5d4dhfdb2dycqw44rsz7tl2.arweave.net/dBmq-raAbAfAejv7XHF4QF0fBnKMOh4F_C3ORln8160',
-    name: "Stake Gimme the TFuel",
+    name: "Staked Gimme the TFuel",
     stakeContract: '0x6cd2ddf245340bc2322de497bdaedd963c09c22c'
   },
   '0x67fc8c72707f17761ced1e71ee9a92be36179eac': {
