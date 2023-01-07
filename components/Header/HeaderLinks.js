@@ -7,64 +7,13 @@ import Button from "components/CustomButtons/Button.js";
 import ConnectButton from "../../web3/ConnectButton";
 import AccountModal from "../../web3/AccountModal";
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
-import axios from "axios";
 import Link from "next/link"
-
 
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
-  const [nftData, setNftData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const classes = useStyles();
-
-  const THETA_VIBES_NFT_ADDRESSES = [
-    "0xcd8ee3078fa8565135f1e17974e04a6fbabedd66", // Guardian
-    "0x1a54ff4a92daf67eafb9a790d596b9794e2d27a8", // Fly N High
-    "0xa07965551c88df408594139ac23c778cf54e25f4", // Down with Me
-    "0x4c7d0a83d59bd47219cd5ca980047d38de07686c", // Dreamland
-    "0xf20687fc0a0c6e6bb20cfb7334bc2bac20ff57c0", // Beam My Line
-    "0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1", // gimme the tfuel
-    // "0x67fc8c72707f17761ced1e71ee9a92be36179eac", // Staked Guardian
-    // "0x76d39587003800215059070dc1e36d5e939da0ac", // Staked Down With Me
-    // "0xace401567d517af35c1f8e234975f95b3760a1e3", // Staked Dreamland
-    // "0x14daeae94ac3e065c07d2fd1b440919f3dbeeb3e", // Staked Fly N High
-    // "0x9beb67806cc909131328edd2daf822aa3bd4c30f", // Staked Beam My Line
-    // "0x6cd2ddf245340bc2322de497bdaedd963c09c22c", // Staked Gimme The TFuel
-  ];
-
-  function getNFTsForContract(contractAddresses, accountAddress) {
-    const nfts = [];
-    if(props.chainId === 361) { // Theta Mainnet
-      contractAddresses.forEach((address) => {
-        axios
-          .get(
-            `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
-          )
-          .then((response) => {
-            // handle success
-            if (response.data) {
-              response.data.forEach((nE) => {
-                nfts.push(nE);
-              });
-            }
-          })
-          .catch((error) => {
-            // handle error
-            setNftData([]);
-            // eslint-disable-next-line no-console
-            console.error(error);
-          });
-      });
-    }
-    setNftData(nfts);
-  }
-
-  useEffect(() => {
-    if (props.account) {
-      getNFTsForContract(THETA_VIBES_NFT_ADDRESSES, props.account);
-    }
-  }, [props.account]);
 
   return (
     <List className={classes.list}>
@@ -110,7 +59,6 @@ export default function HeaderLinks(props) {
         <AccountModal
           openModal={openModal}
           setOpenModal={setOpenModal}
-          nftData={nftData}
           account={props.account}
           contractMetadataKey={props.contractMetadataKey}
           etherBalance={props.etherBalance}

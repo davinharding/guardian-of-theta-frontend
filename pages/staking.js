@@ -12,89 +12,26 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { ContractButton } from "../web3/contractButton";
-import { nftContractAbi } from "../web3/nftContractAbi";
 import { formatEther, parseUnits } from '@ethersproject/units'
 import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
-import axios from 'axios';
 import { stakedNftAddresses } from "../web3/stakedNftAddresses";
-import { nftStakingAbi } from "../web3/nftStakingAbi";
 
 import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
-import { WithdrawButton } from "../web3/withdrawButton";
 import { CircularProgress } from "@material-ui/core";
 import { contractMetadataKey } from "../web3/ContractMetadataKey";
-import { ApproveDepositSection } from "../web3/ApproveDepositSection";
 import { thetaVibesNftAddresses } from "../web3/thetaVibesNftAddresses";
 import { UnclaimedRewards } from "../web3/UnclaimedRewards";
-import { MultipleTxnButton } from "../web3/MultipleTxnButton";
+import { StakeCollectionCards } from "../web3/StakeCollectionCards";
+import { mutate } from "swr";
 
 const useStyles = makeStyles(styles);
 
 export default function StakingPage(props) {
-  const [nftData, setNftData] = useState([]);
-  const [stakedNftData, setStakedNftData] = useState([]);
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
-  const [txnSuccessful, setTxnSuccessful] = useState(false);
   const [unclaimedRewards, setUnclaimedRewards] = useState(0);
-  const [accountLimiter, setAccountLimiter] = useState('');
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
   let tvibeBalance = useTokenBalance('0xfdbf39114ba853d811032d3e528c2b4b7adcecd6', account);
-
-  // testnet tvibe address: 0xefd424dfcc47e74a23175713f3e4c3493877f192
-
-  function getNFTsForContract(contractAddresses, accountAddress) {
-    const nfts = [];
-    if(chainId === 361 && account) { // Theta Mainnet      
-      contractAddresses.forEach((address) => {
-        console.log("hitting thetascan")
-        axios
-          .get(
-            `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
-          )
-          .then((response) => {
-            // handle success
-            if (response.data) {
-              response.data.forEach((nE) => {
-                // console.log(nE);
-                nfts.push(nE);
-              });
-            }
-          })
-          .catch((error) => {
-            // handle error
-            setNftData([]);
-            // eslint-disable-next-line no-console
-            console.error(error);
-          });
-      });
-    }
-    if(contractAddresses === thetaVibesNftAddresses) {
-      setNftData(nfts);
-    } else {
-      setStakedNftData(nfts);
-    }    
-  }
-
-  useEffect(() => {
-    if(txnSuccessful) {      
-      setTimeout(() => {        
-        getNFTsForContract(thetaVibesNftAddresses, account);
-        getNFTsForContract(stakedNftAddresses, account);
-        setTxnSuccessful(false); 
-      }, 18000)      
-    } else {
-      getNFTsForContract(thetaVibesNftAddresses, account);
-      getNFTsForContract(stakedNftAddresses, account);
-    }         
-  }, [accountLimiter,txnSuccessful]);
-
-  useEffect(() => {
-    if(account !== accountLimiter && acount !== undefined) {
-      setAccountLimiter(account);
-    }
-  }, [account])
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
@@ -140,21 +77,6 @@ export default function StakingPage(props) {
                 <CardHeader color="primary" className={classes.cardHeader}>
                   <h4>Staking Menu</h4>
                 </CardHeader>
-                {/* account && nftData.length !== 0 || account && stakedNftData.length !== 0 */}
-                {txnSuccessful ? (                    
-                  <>
-                    <div className={classes.progress} >
-                      <CircularProgress color="primary" size={50} />
-                      
-                    </div>
-                    <div className={classes.progress}>
-                      Waiting for chain data to update!   
-                    </div>  
-                  </>                     
-                  ) : (
-                  ''
-                  )  
-                }
                 <CardBody>
                   {account ? (
                     <div className={classes.tokenValues}>
@@ -164,7 +86,6 @@ export default function StakingPage(props) {
                       </div> 
                       <div className={classes.fitContent}>
                         <UnclaimedRewards
-                          stakedNftData={stakedNftData}
                           unclaimedRewards={unclaimedRewards}
                           setUnclaimedRewards={setUnclaimedRewards}
                         />
@@ -182,30 +103,15 @@ export default function StakingPage(props) {
                     <div className={classes.header}>
                       Your NFTs
                     </div>
-                    {chainId === 361 ? nftData.map((e,idx)=>{
+                    {chainId === 361 ? thetaVibesNftAddresses.map((e,idx)=>{
                       return(    
                         <span key={idx}>                                  
-                          <Card className={classes.stakingCard}>
-                            <CardHeader color="primary">
-                              {contractMetadataKey[e.contract].name} #{e.token}
-                            </CardHeader>
-                            <CardBody>
-                              <img src={contractMetadataKey[e.contract].url} key={idx} height="100%" width="100%"/>
-                            </CardBody>
-                            <CardFooter className={classes.center}>
-                              <ApproveDepositSection
-                                contract={e.contract}
-                                abi={nftContractAbi}
-                                functionName={'setApprovalForAll'}
-                                buttonTitle={'Approve'}
-                                sendParameter={contractMetadataKey[e.contract].stakeContract}
-                                sendParameter2={true}
-                                setTxnSuccessful={setTxnSuccessful} 
-                                token={e.token}
-                              />  
-                                                           
-                            </CardFooter>     
-                          </Card>
+                          <StakeCollectionCards
+                          contractMetadataKey={contractMetadataKey}
+                          nftContract={e}
+                          account={account}
+                          staked={false}
+                        />
                         </span>
                       )
                     }) : ''}
@@ -214,32 +120,15 @@ export default function StakingPage(props) {
                     <div className={classes.header}>
                       Your Staked NFTs
                     </div>              
-                    {stakedNftData.map((e,idx)=>{
+                    {stakedNftAddresses.map((e,idx)=>{
                       return(                      
-                        <span key={idx} style={{marginTop: "3rem"}}>       
-                          <Card className={classes.stakingCard}>
-                            <CardHeader color="primary">
-                              {contractMetadataKey[e.contract.toLowerCase()].name} #{e.token}
-                            </CardHeader>
-                            <CardBody>
-                              <img src={contractMetadataKey[e.contract].url} height="100%" width="100%"/>
-                            </CardBody>
-                            <CardFooter className={classes.center}>
-                              <WithdrawButton 
-                                setTxnSuccessful={setTxnSuccessful} 
-                                tokenId={e.token} 
-                                nftAddress={e.contract}
-                              />
-                              <ContractButton
-                                contractAddress={contractMetadataKey[e.contract].stakeContract}
-                                abi={nftStakingAbi}
-                                functionName={'claimRewards'}
-                                buttonTitle={'Collect'}
-                                sendParameter={[e.token]}
-                              /> 
-                            </CardFooter>     
-                          </Card>
-                        </span>
+                        <StakeCollectionCards
+                          contractMetadataKey={contractMetadataKey}
+                          nftContract={e}
+                          key={idx}
+                          account={account}
+                          staked={true}
+                        />
                       )
                     })}
                   </div> 
@@ -250,7 +139,6 @@ export default function StakingPage(props) {
                           functionName={'claimRewards'}
                           buttonTitle={'Collect All'}
                           setTxnSuccessful={setTxnSuccessful}
-                          stakedNftData={stakedNftData}
                         />
                       </span>
                       <span className={classes.stakingButton}>

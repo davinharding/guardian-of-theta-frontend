@@ -33,8 +33,6 @@ export function ContractButton(props) {
     }else{
       send(props.sendParameter)
     }
-    
-    console.log(state);
   }
 
   return (

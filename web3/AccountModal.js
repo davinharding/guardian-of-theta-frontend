@@ -11,12 +11,11 @@ import Image from 'next/image'
 import Close from "@material-ui/icons/Close";
 // core components
 import Button from "components/CustomButtons/Button.js";
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody"
-import CardFooter from "components/Card/CardFooter"
-import CardHeader from "components/Card/CardHeader"
 import { formatEther } from '@ethersproject/units';
 import style from "../styles/jss/nextjs-material-kit/modalStyle.js";
+import { CollectionCards } from "./CollectionCards.js";
+import { thetaVibesNftAddresses } from "./thetaVibesNftAddresses";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -67,23 +66,16 @@ export default function AccountModal (props) {
             TVIBE Balance: {props.tvibeBalance && 
             parseFloat(formatEther(props.tvibeBalance)).toFixed(3)} 
           </div>          
-          {props.nftData.map((e, idx)=>{
+          {thetaVibesNftAddresses.map((e, idx)=>{
             return(
-              <div key={idx} style={{textAlign: "center", marginTop: "3rem"}}>
-                  <Card>
-                    <CardHeader color="primary">
-                      {props.contractMetadataKey[e.contract].name} #{e.token}
-                    </CardHeader>
-                    <CardBody>
-                      <img src={props.contractMetadataKey[e.contract].url} height="100%" width="100%"/>
-                    </CardBody>
-                    <CardFooter>
-                      {/* <Button color="primary">
-                        Stake
-                      </Button>  */}
-                    </CardFooter>     
-                  </Card>
-              </div>
+              <span key={idx}>
+                <CollectionCards
+                  contractMetadataKey={props.contractMetadataKey}
+                  nftContract={e}
+                  keys={idx}
+                  account={props.account}
+                />  
+              </span>                        
             )
           })}
         </DialogContent>

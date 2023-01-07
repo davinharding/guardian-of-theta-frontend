@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 export function DepositButton(props) {
   const classes = useStyles();
-  const contractAddress = contractMetadataKey[props.nftAddress].stakeContract
+  const contractAddress = contractMetadataKey[props.nftAddress].relatedContract
   const contractInterface = new utils.Interface(nftStakingAbi)
   const contract = new Contract(contractAddress, contractInterface)
 

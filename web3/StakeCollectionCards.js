@@ -1,0 +1,95 @@
+import Card from "components/Card/Card";
+import CardBody from "components/Card/CardBody"
+import CardFooter from "components/Card/CardFooter"
+import CardHeader from "components/Card/CardHeader"
+import useSWR, { mutate } from 'swr';
+import axios from 'axios'
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
+import { contractMetadataKey } from "./ContractMetadataKey";
+import { WithdrawButton } from "./withdrawButton";
+import { ContractButton } from "./contractButton";
+import { nftStakingAbi } from "./nftStakingAbi";
+import { ApproveDepositSection } from "./ApproveDepositSection";
+import { nftContractAbi } from "./nftContractAbi";
+import { useEffect } from "react";
+import { useState } from "react";
+
+const useStyles = makeStyles(styles);
+
+
+const fetcher = url => axios.get(url).then(res => res.data)
+
+const StakeCollectionCards = (props) => {
+  const [txnSuccessful, setTxnSuccessful] = useState(false);
+  const classes = useStyles();
+  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`, fetcher);
+
+  useEffect(() => {
+    mutate(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`);
+    mutate(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${contractMetadataKey[props.nftContract].relatedContract}`);
+    setTimeout(()=>{          
+      // console.log('refresh test')
+      mutate(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`);
+      mutate(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${contractMetadataKey[props.nftContract].relatedContract}`);
+      setTxnSuccessful(false);
+    }, 18000);    
+  }, [txnSuccessful])  
+
+  if (!data) {
+    return null;
+  }
+  
+  return (
+    <span key={props.keys}>  
+      {data.map((e,idx) => {
+          return (
+            <span key={idx} style={{marginTop: "3rem"}}>       
+              <Card className={classes.stakingCard}>
+                <CardHeader color="primary">
+                  {contractMetadataKey[e.contract.toLowerCase()].name} #{e.token}
+                </CardHeader>
+                <CardBody>
+                  <img src={contractMetadataKey[e.contract].url} height="100%" width="100%"/>
+                </CardBody>
+                <CardFooter className={classes.center}>
+                  {props.staked ? (
+                    <>
+                      <WithdrawButton
+                        setTxnSuccessful={setTxnSuccessful} 
+                        tokenId={e.token}
+                        nftAddress={e.contract} 
+                      />
+                      <ContractButton
+                        contractAddress={contractMetadataKey[e.contract].relatedContract}
+                        abi={nftStakingAbi}
+                        functionName={'claimRewards'}
+                        buttonTitle={'Collect'}
+                        sendParameter={[e.token]} 
+                      />
+                    </> 
+                    ) : (
+                      <ApproveDepositSection
+                        setTxnSuccessful={setTxnSuccessful} 
+                        contract={e.contract}
+                        abi={nftContractAbi}
+                        functionName={'setApprovalForAll'}
+                        buttonTitle={'Approve'}
+                        sendParameter={contractMetadataKey[e.contract].relatedContract}
+                        sendParameter2={true}
+                        token={e.token}
+                      /> 
+                    )
+                  }
+                  
+                </CardFooter>     
+              </Card>
+            </span>
+          )        
+        })
+      }      
+    </span>  
+  )
+}
+
+export { StakeCollectionCards };

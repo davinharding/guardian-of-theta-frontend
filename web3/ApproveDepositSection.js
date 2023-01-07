@@ -12,7 +12,7 @@ const ApproveDepositSection = (props) => {
   function createApprovalKey() { 
     const tempApprovalKey = {};   
     thetaVibesNftAddresses.forEach((e) => {
-      tempApprovalKey[e] = useIsApprovedForAll(e, contractMetadataKey[e].stakeContract, account);
+      tempApprovalKey[e] = useIsApprovedForAll(e, contractMetadataKey[e].relatedContract, account);
     })
 
     // setApprovalKey(tempApprovalKey);
@@ -36,7 +36,7 @@ const ApproveDepositSection = (props) => {
           abi={nftContractAbi}
           functionName={'setApprovalForAll'}
           buttonTitle={'Approve'}
-          sendParameter={contractMetadataKey[props.contract].stakeContract}
+          sendParameter={contractMetadataKey[props.contract].relatedContract}
           sendParameter2={true}
           setTxnSuccessful={props.setTxnSuccessful} 
           // nftContract={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}

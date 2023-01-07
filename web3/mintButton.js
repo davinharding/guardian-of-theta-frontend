@@ -14,10 +14,8 @@ export function MintButton(props) {
   })
   const { status } = state
 
-  const execute = () => {
-    
+  const execute = () => {    
     send(props.account, { value: ethers.utils.parseEther("1")})
-    console.log(state);
   }
 
   return (
