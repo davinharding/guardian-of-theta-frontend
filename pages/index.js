@@ -10,7 +10,7 @@ const dashboardRoutes = [];
 const Index = (props) => {
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  const tvibeBalance = useTokenBalance('0xefd424dfcc47e74a23175713f3e4c3493877f192', account); // DAVIN: REPLACE ADDRESS WITH EXTRAPOLATED CONSTANT VALUE
+  const tvibeBalance = useTokenBalance('0xfdbf39114ba853d811032d3e528c2b4b7adcecd6', account); // DAVIN: REPLACE ADDRESS WITH EXTRAPOLATED CONSTANT VALUE
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
