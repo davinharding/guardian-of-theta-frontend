@@ -37,6 +37,7 @@ export default function StakingPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const [txnSuccessful, setTxnSuccessful] = useState(false);
   const [unclaimedRewards, setUnclaimedRewards] = useState(0);
+  const [accountLimiter, setAccountLimiter] = useState('');
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
   let tvibeBalance = useTokenBalance('0xfdbf39114ba853d811032d3e528c2b4b7adcecd6', account);
@@ -45,8 +46,9 @@ export default function StakingPage(props) {
 
   function getNFTsForContract(contractAddresses, accountAddress) {
     const nfts = [];
-    if(chainId === 361 && account) { // Theta Mainnet
+    if(chainId === 361 && account) { // Theta Mainnet      
       contractAddresses.forEach((address) => {
+        console.log("hitting thetascan")
         axios
           .get(
             `https://www.thetascan.io/api/721/?address=${accountAddress}&contract=${address}`
@@ -86,7 +88,13 @@ export default function StakingPage(props) {
       getNFTsForContract(thetaVibesNftAddresses, account);
       getNFTsForContract(stakedNftAddresses, account);
     }         
-  }, [account,txnSuccessful]);
+  }, [accountLimiter,txnSuccessful]);
+
+  useEffect(() => {
+    if(account !== accountLimiter && acount !== undefined) {
+      setAccountLimiter(account);
+    }
+  }, [account])
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
