@@ -21,20 +21,8 @@ const useStyles = makeStyles(styles);
 const fetcher = url => axios.get(url).then(res => res.data)
 
 const StakeCollectionCards = (props) => {
-  const [txnSuccessful, setTxnSuccessful] = useState(false);
   const classes = useStyles();
-  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`, fetcher);
-
-  useEffect(() => {
-    mutate(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`);
-    mutate(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${contractMetadataKey[props.nftContract].relatedContract}`);
-    setTimeout(()=>{          
-      // console.log('refresh test')
-      mutate(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`);
-      mutate(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${contractMetadataKey[props.nftContract].relatedContract}`);
-      setTxnSuccessful(false);
-    }, 18000);    
-  }, [txnSuccessful])  
+  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`, fetcher, { refreshInterval: 5000});
 
   if (!data) {
     return null;
@@ -56,7 +44,7 @@ const StakeCollectionCards = (props) => {
                   {props.staked ? (
                     <>
                       <WithdrawButton
-                        setTxnSuccessful={setTxnSuccessful} 
+                        setTxnSuccessful={props.setTxnSuccessful} 
                         tokenId={e.token}
                         nftAddress={e.contract} 
                       />
@@ -70,7 +58,7 @@ const StakeCollectionCards = (props) => {
                     </> 
                     ) : (
                       <ApproveDepositSection
-                        setTxnSuccessful={setTxnSuccessful} 
+                        setTxnSuccessful={props.setTxnSuccessful} 
                         contract={e.contract}
                         abi={nftContractAbi}
                         functionName={'setApprovalForAll'}

@@ -28,6 +28,7 @@ const useStyles = makeStyles(styles);
 
 export default function StakingPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
+  const [txnSuccessful, setTxnSuccessful] = useState(false);
   const [unclaimedRewards, setUnclaimedRewards] = useState(0);
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
@@ -40,6 +41,8 @@ export default function StakingPage(props) {
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
+
+  useEffect(() => {console.log("refreshing: /staking")}, [txnSuccessful])  
 
   const classes = useStyles();
 
@@ -111,6 +114,8 @@ export default function StakingPage(props) {
                           nftContract={e}
                           account={account}
                           staked={false}
+                          setTxnSuccessful={setTxnSuccessful}
+                          txnSuccessful={txnSuccessful}
                         />
                         </span>
                       )
@@ -128,6 +133,8 @@ export default function StakingPage(props) {
                           key={idx}
                           account={account}
                           staked={true}
+                          setTxnSuccessful={setTxnSuccessful}
+                          txnSuccessful={txnSuccessful}
                         />
                       )
                     })}
