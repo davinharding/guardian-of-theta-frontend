@@ -42,8 +42,6 @@ export default function StakingPage(props) {
     setCardAnimation("");
   }, 700);
 
-  useEffect(() => {console.log("refreshing: /staking")}, [txnSuccessful])  
-
   const classes = useStyles();
 
   const { ...rest } = props;

@@ -22,7 +22,8 @@ const fetcher = url => axios.get(url).then(res => res.data)
 
 const StakeCollectionCards = (props) => {
   const classes = useStyles();
-  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`, fetcher, { refreshInterval: 5000});
+  const interval = 5000;
+  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`, fetcher, { refreshInterval: interval});
 
   if (!data) {
     return null;
