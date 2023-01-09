@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import styles from "styles/jss/nextjs-material-kit/components/parallaxStyle.js";
+import Image from "next/image"
 
 const useStyles = makeStyles(styles);
 
@@ -55,10 +56,16 @@ export default function Parallax(props) {
       className={parallaxClasses}
       style={{
         ...style,
-        backgroundImage: "url(" + image + ")",
+        backgroundColor: "purple",
         transform: transform,
       }}
     >
+      <Image 
+        src={image.toString()}
+        layout='fill'
+        objectFit='cover'
+        objectPosition='center'      
+      />
       {children}
     </div>
   );

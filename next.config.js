@@ -3,7 +3,11 @@ const withImages = require("next-images");
 const webpack = require("webpack");
 const path = require("path");
 
-module.exports = withPlugins([[withImages]], {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+module.exports = withPlugins([[withImages], [withBundleAnalyzer]], {
   webpack(config, options) {
     config.resolve.modules.push(path.resolve("./"));
     return config;
