@@ -15,7 +15,9 @@ import { formatEther } from '@ethersproject/units';
 import style from "../styles/jss/nextjs-material-kit/modalStyle.js";
 import { CollectionCardsModal } from "./CollectionCardsModal.js";
 import { thetaVibesNftAddresses } from "./thetaVibesNftAddresses";
+import { stakedNftAddresses } from "./stakedNftAddresses.js";
 
+const allAddresses = thetaVibesNftAddresses.concat(stakedNftAddresses);
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -66,7 +68,7 @@ export default function AccountModal (props) {
             TVIBE Balance: {props.tvibeBalance && 
             parseFloat(formatEther(props.tvibeBalance)).toFixed(3)} 
           </div>          
-          {thetaVibesNftAddresses.map((e, idx)=>{
+          {/* {allAddresses.map((e, idx)=>{
             return(
               <span key={idx}>
                 <CollectionCardsModal
@@ -77,7 +79,7 @@ export default function AccountModal (props) {
                 />  
               </span>                        
             )
-          })}
+          })} */}
         </DialogContent>
         <DialogActions className={classes.modalFooter}>
           <Button onClick={() => props.setOpenModal(false)} color="primary">

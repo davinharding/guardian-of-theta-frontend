@@ -19,9 +19,9 @@ const useStyles = makeStyles(styles);
 
 const fetcher = url => axios.get(url).then(res => res.data);
 
-const StakeCollectionCards = (props) => {
+const CollectionCards = (props) => {
   const classes = useStyles();
-  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.stakedNftContract}`, fetcher);
+  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`, fetcher);
 
   // console.log(props.nftContract, data, props.staked)
 
@@ -81,4 +81,4 @@ const StakeCollectionCards = (props) => {
   )
 }
 
-export { StakeCollectionCards };
+export { CollectionCards };
