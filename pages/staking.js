@@ -54,19 +54,19 @@ export default function StakingPage(props) {
   // "0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1", // gimme the tfuel
 
   const handleRefresh = async () => {
-    await mutate();
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x67fc8c72707f17761ced1e71ee9a92be36179eac`)
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x76d39587003800215059070dc1e36d5e939da0ac`)
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xace401567d517af35c1f8e234975f95b3760a1e3`);
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x14daeae94ac3e065c07d2fd1b440919f3dbeeb3e`)
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x9beb67806cc909131328edd2daf822aa3bd4c30f`);
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x6cd2ddf245340bc2322de497bdaedd963c09c22c`)
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xcd8ee3078fa8565135f1e17974e04a6fbabedd66`);
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x1a54ff4a92daf67eafb9a790d596b9794e2d27a8`)
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xa07965551c88df408594139ac23c778cf54e25f4`);
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x4c7d0a83d59bd47219cd5ca980047d38de07686c`)
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xf20687fc0a0c6e6bb20cfb7334bc2bac20ff57c0`);
-    // await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1`)
+    // await mutate();
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x67fc8c72707f17761ced1e71ee9a92be36179eac`)
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x76d39587003800215059070dc1e36d5e939da0ac`)
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xace401567d517af35c1f8e234975f95b3760a1e3`);
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x14daeae94ac3e065c07d2fd1b440919f3dbeeb3e`)
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x9beb67806cc909131328edd2daf822aa3bd4c30f`);
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x6cd2ddf245340bc2322de497bdaedd963c09c22c`)
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xcd8ee3078fa8565135f1e17974e04a6fbabedd66`);
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x1a54ff4a92daf67eafb9a790d596b9794e2d27a8`)
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xa07965551c88df408594139ac23c778cf54e25f4`);
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x4c7d0a83d59bd47219cd5ca980047d38de07686c`)
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xf20687fc0a0c6e6bb20cfb7334bc2bac20ff57c0`);
+    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1`)
   }
 
   setTimeout(function () {
