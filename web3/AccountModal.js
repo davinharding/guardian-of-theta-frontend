@@ -16,6 +16,7 @@ import style from "../styles/jss/nextjs-material-kit/modalStyle.js";
 import { CollectionCardsModal } from "./CollectionCardsModal.js";
 import { thetaVibesNftAddresses } from "./thetaVibesNftAddresses";
 import { stakedNftAddresses } from "./stakedNftAddresses.js";
+import { allowedStatusCodes } from "next/dist/lib/load-custom-routes.js";
 
 const allAddresses = thetaVibesNftAddresses.concat(stakedNftAddresses);
 
@@ -68,7 +69,7 @@ export default function AccountModal (props) {
             TVIBE Balance: {props.tvibeBalance && 
             parseFloat(formatEther(props.tvibeBalance)).toFixed(3)} 
           </div>          
-          {/* {allAddresses.map((e, idx)=>{
+          {allAddresses.map((e, idx)=>{
             return(
               <span key={idx}>
                 <CollectionCardsModal
@@ -79,7 +80,7 @@ export default function AccountModal (props) {
                 />  
               </span>                        
             )
-          })} */}
+          })}
         </DialogContent>
         <DialogActions className={classes.modalFooter}>
           <Button onClick={() => props.setOpenModal(false)} color="primary">
