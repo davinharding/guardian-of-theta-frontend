@@ -116,7 +116,7 @@ const signupPageStyle = {
   },
   tokenValues: {
     textAlign: "center",
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
   },
   fitContent: {
     width: "fit-content",

@@ -98,9 +98,12 @@ const UnclaimedRewards = (props) => {
   calculateUnclaimedRewards();
 
   return (
-    <div>
-      <span style={{color: "purple",
-    fontSize: "2rem"}}>Unclaimed TVIBE Balance:</span> {props.unclaimedRewards && parseFloat(props.unclaimedRewards).toFixed(3)} 
+    <div style={{display: "inline-block"}}>
+      <span style={{color: "purple", fontSize: "2rem"}}>
+        Unclaimed TVIBE Balance:
+      </span> 
+      <img height="37px" src="/img/Theta_Vibes_Neon_Brick_Circle.png" />
+      {props.unclaimedRewards && parseFloat(props.unclaimedRewards).toFixed(3)} 
     </div>
   )
 }

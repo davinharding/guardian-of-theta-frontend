@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const fetcher = url => axios.get(url).then(res => res.data)
 
-const CollectionCards = (props) => {
+const CollectionCardsModal = (props) => {
 
   const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.nftContract}`, fetcher);
 
@@ -42,4 +42,4 @@ const CollectionCards = (props) => {
   )
 }
 
-export { CollectionCards };
+export { CollectionCardsModal };

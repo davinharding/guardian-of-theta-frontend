@@ -13,7 +13,7 @@ import Close from "@material-ui/icons/Close";
 import Button from "components/CustomButtons/Button.js";
 import { formatEther } from '@ethersproject/units';
 import style from "../styles/jss/nextjs-material-kit/modalStyle.js";
-import { CollectionCards } from "./CollectionCards.js";
+import { CollectionCardsModal } from "./CollectionCardsModal.js";
 import { thetaVibesNftAddresses } from "./thetaVibesNftAddresses";
 
 
@@ -69,7 +69,7 @@ export default function AccountModal (props) {
           {thetaVibesNftAddresses.map((e, idx)=>{
             return(
               <span key={idx}>
-                <CollectionCards
+                <CollectionCardsModal
                   contractMetadataKey={props.contractMetadataKey}
                   nftContract={e}
                   keys={idx}

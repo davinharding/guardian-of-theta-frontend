@@ -23,7 +23,7 @@ export function ContractButton(props) {
   const contract = new Contract(contractAddress, contractInterface)
 
   const { state, send } = useContractFunction(contract, props.functionName, {
-    gasLimitBufferPercentage: 100,
+    gasLimitBufferPercentage: 1,
   })
   const { status } = state
 
