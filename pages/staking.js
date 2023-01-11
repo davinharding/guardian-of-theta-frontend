@@ -125,9 +125,9 @@ export default function StakingPage(props) {
                           />
                         </div>
                         <div>
-                          <Button color="primary" onClick={handleRefresh}>
+                          {/* <Button color="primary" onClick={handleRefresh}>
                             Refresh NFTs
-                          </Button>
+                          </Button> */}
                         </div>
                       </div>
                       <div className={classes.border}>
