@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Creative Tim
+Copyright (c) for portions of the ThetaVibes project are held by 2021 Creative Tim.  All other copyrights held by 2023 Davin Harding.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
