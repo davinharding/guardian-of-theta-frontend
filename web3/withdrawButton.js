@@ -40,7 +40,7 @@ export function WithdrawButton(props) {
   return (
     <div>
       <Button color="primary" onClick={() => execute()}>
-        {status === 'PendingSignature' || status === 'Mining' ? (
+        {status === 'PendingSignature' || status === 'Mining' || status === 'Success' ? (
           <CircularProgress className={classes.progress} size={18}/>
           ) : (
             ''
