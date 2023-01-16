@@ -25,6 +25,10 @@ import { StakeCollectionCards } from "../web3/StakeCollectionCards";
 import { mutate } from "swr";
 import Button from "components/CustomButtons/Button.js";
 import { CollectionCards } from "../web3/CollectionCards";
+import { ContractButton } from "../web3/contractButton";
+import { nftStakingAbi } from "../web3/nftStakingAbi";
+import { rewardTokenAbi } from "../web3/rewardTokenAbi";
+import { rewardTokenAddress } from "../web3/rewardTokenAddress";
 
 const useStyles = makeStyles(styles);
 
@@ -34,7 +38,7 @@ export default function StakingPage(props) {
   const [unclaimedRewards, setUnclaimedRewards] = useState(0);
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  let tvibeBalance = useTokenBalance('0xfdbf39114ba853d811032d3e528c2b4b7adcecd6', account);
+  let tvibeBalance = useTokenBalance(rewardTokenAddress, account);
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
@@ -113,8 +117,8 @@ export default function StakingPage(props) {
                   {account && chainId === 361 ? (
                     <>
                       <div className={classes.tokenValues}>
+                        <span className={classes.bold}>TVIBE Balance:</span> 
                         <div className={classes.fitContent}>
-                          <span className={classes.bold}>TVIBE Balance:</span> 
                           <img height="37px" src="/img/Theta_Vibes_Neon_Brick_Circle.png" />{tvibeBalance &&
                           parseFloat(formatEther(tvibeBalance)).toFixed(3)}
                         </div>
@@ -201,13 +205,14 @@ export default function StakingPage(props) {
                         )}                      
                       </div> */}
                       {/* <ContractButton 
-                        contractAddress={'0x6cd2ddf245340bc2322de497bdaedd963c09c22c'}
+                        contractAddress={"0x6cd2ddf245340bc2322de497bdaedd963c09c22c"}
                         abi={nftStakingAbi}
-                        functionName={'updateRewardRate'}
-                        buttonTitle={'updateRewardRate'}
-                        sendParameter={50}
-                      /> */}
-                      {/* <ContractButton 
+                        functionName={'mint'}
+                        buttonTitle={'mint'}
+                        sendParameter={'0x94538853Fd519B99964369fe84e6475d705A4454'}
+                        sendParameter2={parseUnits("99999000", "ether")}
+                      />
+                      <ContractButton 
                         contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
                         abi={nftStakingAbi}
                         functionName={'setERC721Address'}
@@ -219,7 +224,7 @@ export default function StakingPage(props) {
                         abi={nftStakingAbi}
                         functionName={'approve'}
                         buttonTitle={'Set Approval'}
-                        sendFunction={(stakeGuardianAddress, true)}
+                        // sendFunction={(stakeGuardianAddress, true)}
                         // nftContract={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
                       /> */}
                     </> 
