@@ -5,7 +5,7 @@ import CardHeader from "components/Card/CardHeader"
 import useSWR, { mutate } from 'swr';
 import axios from 'axios'
 import { makeStyles } from "@material-ui/core/styles";
-import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
+import styles from "styles/jss/nextjs-material-kit/pages/stakingPage.js";
 import { contractMetadataKey } from "./ContractMetadataKey";
 import { WithdrawButton } from "./withdrawButton";
 import { ContractButton } from "./contractButton";

@@ -51,6 +51,11 @@ const modalStyle = {
     marginLeft: "auto",
     marginRight: "auto",
   },
+  infoImages: {
+    marginTop: "1rem",
+    marginBottom: "1rem",
+    // textAlign: "center"
+  },
 };
 
 export default modalStyle;

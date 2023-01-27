@@ -41,7 +41,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Staking"
-              description="Stake your Theta Vibes NFT's to start earning our native TNT20 token $TVIBE! $TVIBE can be used to redeem limited edition NFTs, merch, 2D/3D content and more! (Comning soon!)"
+              description="Stake your Theta Vibes NFT's to start earning our native TNT20 token $TVIBE! $TVIBE can be used to redeem limited edition NFTs, merch, 2D/3D content and more!"
               icon={MonetizationOn}
               iconColor="success"
               vertical

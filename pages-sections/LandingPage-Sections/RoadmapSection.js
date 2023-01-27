@@ -40,7 +40,20 @@ export default function RoadmapSection() {
           <h3 className="vertical-timeline-element-title">NFT Staking for TVIBE </h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q3 2022</h4> */}
           <p>
-          Stake your Theta Vibes NFTs to stack $TVIBE to add media and entertainment to your collection.
+          Stake your Theta Vibes NFTs and receive $TVIBE to spend on music and video content, NFTs, merch and more!
+          </p>
+        </VerticalTimelineElement>        
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
+          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
+          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
+          icon={<LiveTv />}
+        >
+          <h3 className="vertical-timeline-element-title">$TVIBE LP Staking on Voltswap</h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
+          <p>
+          [explanation here]
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -95,20 +108,7 @@ export default function RoadmapSection() {
           <p>
           Use your $TVIBE to purchase different 3D Scenes for your device!
           </p>
-        </VerticalTimelineElement>        
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
-          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
-          icon={<AccountBalance />}
-        >
-          <h3 className="vertical-timeline-element-title">DeThetaFi Integration</h3>
-          {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
-          <p>
-          Use your Theta Vibes NFTs to access dethetafi.xyz
-          </p>
-        </VerticalTimelineElement>
+        </VerticalTimelineElement>  
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           iconStyle={{ background: '#9c27b0', color: '#ffffff' }}

@@ -1,8 +1,6 @@
-import { container, title } from "styles/jss/nextjs-material-kit.js";
+import { container } from "styles/jss/nextjs-material-kit.js";
 
-import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
-
-const stakingPageStyle = {
+const signupPageStyle = {
   container: {
     ...container,
     zIndex: "2",
@@ -88,10 +86,73 @@ const stakingPageStyle = {
   inputIconsColor: {
     color: "#495057",
   },
+  stakingCard: {
+    width: "31%",
+    display: "inline-block",
+    marginRight: ".5rem",
+    marginLeft: ".5rem"
+  },
+  stakingButton: {
+    display: "inline-block",
+    marginRight: "1rem"
+  },
   progress: {
     textAlign: "center",
-    color: "green"
+    fontSize: "1.3rem"
+  },
+  center: {
+    justifyContent: "center"
+  },
+  header: {
+    textAlign: "center",
+    margin: "1rem",
+    fontSize: "1.25rem"
+  },
+  border: {
+    border: "2px solid purple",
+    borderRadius: "5px",
+    padding: "1rem",
+    margin: "0.5rem",
+  },
+  tokenValues: {
+    textAlign: "center",
+    fontSize: "1.5rem",
+  },
+  fitContent: {
+    width: "fit-content",
+    display: "inline-block", 
+    textAlign: "center",
+    marginRight: ".5rem",
+    marginLeft: ".5rem"
+  },
+  icon: {
+    // color: "purple",
+    fontSize: "1rem",
+    verticalAlign: "middle",
+    transform: "scale(1.5)",
+  },
+  iconText: {
+    fontSize: "1.2rem",
+    marginLeft: ".5rem"
+  },
+  iconGroup: {
+    textAlign: "center",
+    paddingBottom: "15px"
+  },
+  bold: {
+    color: "purple",
+    fontSize: "2rem"
+  },
+  spacer: {
+    paddingTop: "1rem"
+  },
+  '@media only screen and (max-width: 960px)': {
+    stakingCard: {
+      display: 'flex',
+      width: "100%",
+      marginTop: "3rem"
+    }
   }
 };
 
-export default stakingPageStyle;
+export default signupPageStyle;

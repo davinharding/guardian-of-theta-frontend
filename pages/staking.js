@@ -15,8 +15,9 @@ import CardFooter from "components/Card/CardFooter.js";
 import { formatEther, parseUnits } from '@ethersproject/units'
 import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import { stakedNftAddresses } from "../web3/stakedNftAddresses";
+import InfoIcon from "@material-ui/icons/InfoOutlined";
 
-import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
+import styles from "styles/jss/nextjs-material-kit/pages/stakingPage.js";
 import { CircularProgress } from "@material-ui/core";
 import { contractMetadataKey } from "../web3/ContractMetadataKey";
 import { thetaVibesNftAddresses } from "../web3/thetaVibesNftAddresses";
@@ -29,10 +30,13 @@ import { ContractButton } from "../web3/contractButton";
 import { nftStakingAbi } from "../web3/nftStakingAbi";
 import { rewardTokenAbi } from "../web3/rewardTokenAbi";
 import { rewardTokenAddress } from "../web3/rewardTokenAddress";
+import { nftContractAbi } from "../web3/nftContractAbi";
+import ImportantModal from "../components/Modals/ImportantModal";
 
 const useStyles = makeStyles(styles);
 
 export default function StakingPage(props) {
+  const [openModal, setOpenModal] = useState(false);
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const [txnSuccessful, setTxnSuccessful] = useState(false);
   const [unclaimedRewards, setUnclaimedRewards] = useState(0);
@@ -56,22 +60,6 @@ export default function StakingPage(props) {
   // "0x4c7d0a83d59bd47219cd5ca980047d38de07686c", // Dreamland
   // "0xf20687fc0a0c6e6bb20cfb7334bc2bac20ff57c0", // Beam My Line
   // "0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1", // gimme the tfuel
-
-  const handleRefresh = async () => {
-    // await mutate();
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x67fc8c72707f17761ced1e71ee9a92be36179eac`)
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x76d39587003800215059070dc1e36d5e939da0ac`)
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xace401567d517af35c1f8e234975f95b3760a1e3`);
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x14daeae94ac3e065c07d2fd1b440919f3dbeeb3e`)
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x9beb67806cc909131328edd2daf822aa3bd4c30f`);
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x6cd2ddf245340bc2322de497bdaedd963c09c22c`)
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xcd8ee3078fa8565135f1e17974e04a6fbabedd66`);
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x1a54ff4a92daf67eafb9a790d596b9794e2d27a8`)
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xa07965551c88df408594139ac23c778cf54e25f4`);
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x4c7d0a83d59bd47219cd5ca980047d38de07686c`)
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0xf20687fc0a0c6e6bb20cfb7334bc2bac20ff57c0`);
-    await mutate(`https://www.thetascan.io/api/721/?address=${account}&contract=0x2b1dc7c56d17702a53a8adbc158b073b60dd9be1`)
-  }
 
   setTimeout(function () {
     setCardAnimation("");
@@ -114,6 +102,16 @@ export default function StakingPage(props) {
                   <h4>Staking Menu</h4>
                 </CardHeader>
                 <CardBody>
+                  <div className={classes.iconGroup}>
+                    <Button color="primary" onClick={() => setOpenModal(true)}>
+                      <InfoIcon className={classes.icon} />
+                      <span className={classes.iconText}>Important</span>
+                    </Button>
+                    <ImportantModal 
+                      openModal={openModal}
+                      setOpenModal={setOpenModal} 
+                    />
+                  </div>     
                   {account && chainId === 361 ? (
                     <>
                       <div className={classes.tokenValues}>
@@ -127,11 +125,6 @@ export default function StakingPage(props) {
                             unclaimedRewards={unclaimedRewards}
                             setUnclaimedRewards={setUnclaimedRewards} 
                           />
-                        </div>
-                        <div>
-                          {/* <Button color="primary" onClick={handleRefresh}>
-                            Refresh NFTs
-                          </Button> */}
                         </div>
                       </div>
                       <div className={classes.border}>
@@ -205,12 +198,11 @@ export default function StakingPage(props) {
                         )}                      
                       </div> */}
                       {/* <ContractButton 
-                        contractAddress={"0x6cd2ddf245340bc2322de497bdaedd963c09c22c"}
-                        abi={nftStakingAbi}
-                        functionName={'mint'}
-                        buttonTitle={'mint'}
-                        sendParameter={'0x94538853Fd519B99964369fe84e6475d705A4454'}
-                        sendParameter2={parseUnits("99999000", "ether")}
+                        contractAddress={"0x14e4c61d6aa9accda3850b201077cebf464dcb31"}
+                        abi={rewardTokenAbi}
+                        functionName={'transferOwnership'}
+                        buttonTitle={'transferOwnership'}
+                        sendParameter={'0x90d2f5a26e7e09198de23ff18bd7775e40f18322'}
                       />
                       <ContractButton 
                         contractAddress={'0x036cF009EF2893718b7C9e0Fc885205125af60eC'}
