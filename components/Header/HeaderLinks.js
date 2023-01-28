@@ -48,6 +48,46 @@ export default function HeaderLinks(props) {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
+        <Link href="/entertainment" as="/entertainment">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Icon className={classes.icons}>play_circle</Icon> Entertainment
+          </Button>
+        </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <a href="https://discord.gg/HwYDfUCJRD" as="https://discord.gg/HwYDfUCJRD" target="_blank">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <i className={classes.socialIcons + " fab fa-discord"} />
+          </Button>
+        </a>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <a href="https://twitter.com/ThetaVibesNFTs" as="https://twitter.com/ThetaVibesNFTs" target="_blank">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <i className={classes.socialIcons + " fab fa-twitter"} />
+          </Button>
+        </a>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <a href="https://www.facebook.com/profile.php?id=100087533539947" as="https://www.facebook.com/profile.php?id=100087533539947" target="_blank">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <i className={classes.socialIcons + " fab fa-facebook"} />
+          </Button>
+        </a>
+      </ListItem>
+      <ListItem className={classes.listItem}>
         <ConnectButton
           tooltipClasses={{ tooltip: classes.tooltip }}
           navLinkClasses={classes.connectButton}

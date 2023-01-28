@@ -46,8 +46,8 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
+          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
+          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
           icon={<LiveTv />}
         >
           <h3 className="vertical-timeline-element-title">$TVIBE LP Staking on Voltswap</h3>
@@ -59,8 +59,8 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
+          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
+          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
           icon={<LiveTv />}
         >
           <h3 className="vertical-timeline-element-title">Members only live streams and chat</h3>
@@ -72,9 +72,9 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2008 - 2010"
-          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
+          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
           iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
+          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
           icon={<Storefront />}
         >
           <h3 className="vertical-timeline-element-title">$TVIBE/USD Store</h3>
@@ -86,8 +86,8 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
-          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
+          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
+          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
           icon={<Speaker />}
         >
           <h3 className="vertical-timeline-element-title">4k 2D/ 8k 3D 180° VR Content and Live Performances / Theta DRM</h3>
@@ -99,8 +99,8 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
-          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
+          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
+          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
           icon={<Public />}
         >
           <h3 className="vertical-timeline-element-title">Sony Spatial Reality Display</h3>
@@ -112,8 +112,8 @@ export default function RoadmapSection() {
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
-          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
+          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
+          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
           icon={<Landscape />}
         >
           <h3 className="vertical-timeline-element-title">Metaverse Integration</h3>
