@@ -42,7 +42,7 @@ export default function StakingPage(props) {
   const [unclaimedRewards, setUnclaimedRewards] = useState(0);
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  let tvibeBalance = useTokenBalance(rewardTokenAddress, account);
+  let tvibeBalance = useTokenBalance(rewardTokenAddress, account); 
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
@@ -131,39 +131,29 @@ export default function StakingPage(props) {
                         <div className={classes.header}>
                           Your NFTs
                         </div>
-                          {thetaVibesNftAddresses.map((e, idx) => {
-                            return (
-                              <span key={idx}>
-                                <CollectionCards
-                                  contractMetadataKey={contractMetadataKey}
-                                  nftContract={e}
-                                  account={account}
-                                  staked={false}
-                                  setTxnSuccessful={setTxnSuccessful}
-                                  txnSuccessful={txnSuccessful} 
-                                />
-                              </span>
-                            );
-                          })}
+                            <span>
+                              <CollectionCards
+                                contractMetadataKey={contractMetadataKey}
+                                account={account}
+                                staked={false}
+                                setTxnSuccessful={setTxnSuccessful}
+                                txnSuccessful={txnSuccessful} 
+                              />
+                            </span>
                         </div>
                         <div className={classes.border}>
                           <div className={classes.header}>
                             Your Staked NFTs
-                          </div>                         
-                          {stakedNftAddresses.map((e, idx) => {
-                            return (                              
-                              <span key={idx}>
-                                <StakeCollectionCards
-                                  contractMetadataKey={contractMetadataKey}
-                                  stakedNftContract={e}
-                                  account={account}
-                                  staked={true}
-                                  setTxnSuccessful={setTxnSuccessful}
-                                  txnSuccessful={txnSuccessful} 
-                                />
-                              </span>
-                            );
-                          })}
+                          </div>                                    
+                            <span>
+                              <StakeCollectionCards
+                                contractMetadataKey={contractMetadataKey}
+                                account={account}
+                                staked={true}
+                                setTxnSuccessful={setTxnSuccessful}
+                                txnSuccessful={txnSuccessful} 
+                              />
+                            </span>
                         </div>
                       {/* <div>
                         <span className={classes.stakingButton}>

@@ -87,7 +87,7 @@ export default function ImportantModal (props) {
               THIS APPROVAL ONLY AFFECTS YOUR THETA VIBES NFTS AND NOTHING ELSE.
             </li>
             <li>
-              If you have further questions or comments please drop them in our discord.  We greatly appreciate any and all feedback.  Thanks!
+              If you have further questions or comments please drop them in our <a target="_blank" href="https://discord.gg/HwYDfUCJRD">discord</a>.  We greatly appreciate any and all feedback.  Thanks!
             </li>
           </ul>
         </DialogContent>

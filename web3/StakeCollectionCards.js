@@ -14,6 +14,7 @@ import { ApproveDepositSection } from "./ApproveDepositSection";
 import { nftContractAbi } from "./nftContractAbi";
 import { useEffect } from "react";
 import { useState } from "react";
+import { stakedNftAddresses } from "./stakedNftAddresses";
 
 const useStyles = makeStyles(styles);
 
@@ -21,8 +22,14 @@ const fetcher = url => axios.get(url).then(res => res.data);
 
 const StakeCollectionCards = (props) => {
   const classes = useStyles();
-  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&contract=${props.stakedNftContract}`, fetcher, { refreshInterval: 4400});
 
+  let commaStr = '';
+
+  stakedNftAddresses.forEach((e) => {
+    commaStr += e + ",";
+  })
+
+  const { data } = useSWR(`https://www.thetascan.io/api/721/?address=${props.account}&multicontract=${commaStr}`, fetcher, { refreshInterval: 1000});
   // console.log(props.nftContract, data, props.staked)
 
   if (!data) {
