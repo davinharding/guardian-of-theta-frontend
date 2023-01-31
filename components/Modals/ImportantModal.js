@@ -65,7 +65,7 @@ export default function ImportantModal (props) {
               </div>
             </li>
             <li>
-              <a target="_blank" phref="https://swap.thetatoken.org/swap?tokenAddressInput=0x4dc08b15ea0e10b96c41aec22fab934ba15c983e&tokenAddressOutput=0x14e4c61d6aa9accda3850b201077cebf464dcb31">Thetaswap link to buy $TVIBE</a> 
+              <a target="_blank" href="https://swap.thetatoken.org/swap?tokenAddressInput=0x4dc08b15ea0e10b96c41aec22fab934ba15c983e&tokenAddressOutput=0x14e4c61d6aa9accda3850b201077cebf464dcb31">Thetaswap link to buy $TVIBE</a> 
             </li>
             <li>
               Before you are able to transact with the staking contract you will need to give it access to your NFTs via an approval transaction.
