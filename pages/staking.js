@@ -102,18 +102,19 @@ export default function StakingPage(props) {
                   <h4>Staking Menu</h4>
                 </CardHeader>
                 <CardBody>
-                  <div className={classes.iconGroup}>
-                    <Button color="primary" onClick={() => setOpenModal(true)}>
-                      <InfoIcon className={classes.icon} />
-                      <span className={classes.iconText}>Important</span>
-                    </Button>
-                    <ImportantModal 
-                      openModal={openModal}
-                      setOpenModal={setOpenModal} 
-                    />
-                  </div>     
+                   
                   {account && chainId === 361 ? (
-                    <>
+                    <>   
+                      <div className={classes.iconGroup}>
+                        <Button color="primary" onClick={() => setOpenModal(true)}>
+                          <InfoIcon className={classes.icon} />
+                          <span className={classes.iconText}>Important</span>
+                        </Button>
+                        <ImportantModal 
+                          openModal={openModal}
+                          setOpenModal={setOpenModal} 
+                        />
+                      </div> 
                       <div className={classes.tokenValues}>
                         <span className={classes.bold}>TVIBE Balance:</span> 
                         <div className={classes.fitContent}>

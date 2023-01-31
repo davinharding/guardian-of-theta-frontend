@@ -53,7 +53,6 @@ export default function RoadmapSection() {
           <h3 className="vertical-timeline-element-title">$TVIBE LP Staking on Voltswap</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          [explanation here]
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
