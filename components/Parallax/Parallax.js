@@ -64,7 +64,8 @@ export default function Parallax(props) {
         src={image.toString()}
         layout='fill'
         objectFit='cover'
-        objectPosition='center'      
+        objectPosition='center'    
+        priority  
       />
       {children}
     </div>
