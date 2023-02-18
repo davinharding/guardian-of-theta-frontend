@@ -118,7 +118,7 @@ export default function StakingPage(props) {
                       <div className={classes.tokenValues}>
                         <span className={classes.bold}>TVIBE Balance:</span> 
                         <div className={classes.fitContent}>
-                          <img height="37px" src="/img/Theta_Vibes_Neon_Brick_Circle.png" />{tvibeBalance &&
+                          <img height="25px" src="/img/TV_logo.png" />{' '}{tvibeBalance &&
                           parseFloat(formatEther(tvibeBalance)).toFixed(3)}
                         </div>
                         <div className={classes.fitContent}>

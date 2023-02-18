@@ -10,6 +10,8 @@ const UnclaimedRewards = (props) => {
 
   const stakedNftData = [];
 
+  // Davin: This needs to be refactored to multicontract endpoint from thetascan
+
   const { data: guardian } = useSWR(`https://www.thetascan.io/api/721/?address=${account}&contract=0x67fc8c72707f17761ced1e71ee9a92be36179eac`, fetcher);  
 
   if(guardian) {
@@ -101,8 +103,8 @@ const UnclaimedRewards = (props) => {
     <div style={{display: "inline-block"}}>
       <span style={{color: "purple", fontSize: "2rem"}}>
         Unclaimed TVIBE Balance:
-      </span> 
-      <img height="37px" src="/img/Theta_Vibes_Neon_Brick_Circle.png" />
+      </span> {' '}
+      <img height="25px" src="/img/TV_logo.png" />{' '}
       {props.unclaimedRewards && parseFloat(props.unclaimedRewards).toFixed(3)} 
     </div>
   )

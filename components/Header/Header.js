@@ -64,7 +64,7 @@ export default function Header(props) {
   });
   const brandComponent = (
       <Link href="/" as="/">        
-        <Button className={classes.title}><Image src="/img/thetavibes-logo-sq.jpg" height="50%" width="50%" className={classes.imgRoundedCircle + " " + classes.imgFluid}></Image></Button>        
+        <Button className={classes.title}><Image src="/img/TV_logo.png" height="50%" width="50%" className={classes.imgRoundedCircle + " " + classes.imgFluid}></Image></Button>        
       </Link>
   );
   return (
