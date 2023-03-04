@@ -2,6 +2,7 @@ import { formatEther } from '@ethersproject/units';
 import { useEthers } from '@usedapp/core';
 import { useCalculateRewards } from './useCalculateRewards';
 import useSWR from 'swr';
+import { stakedNftAddresses } from './stakedNftAddresses';
 
 const fetcher = url => axios.get(url).then(res => res.data)
 
@@ -60,6 +61,31 @@ const UnclaimedRewards = (props) => {
     })
   } 
 
+  const { data: gloriousGuitar } = useSWR(`https://www.thetascan.io/api/721/?address=${account}&contract=0xaab5452536afbd40d629a48171c99e55cae43743`, fetcher); 
+
+  if(gloriousGuitar){
+    gloriousGuitar.forEach((e) => {
+      stakedNftData.push(e);
+    })
+  } 
+
+  const { data: rastaman } = useSWR(`https://www.thetascan.io/api/721/?address=${account}&contract=0x4031f51e61dc249688f4a1da1ed6dc240f366846`, fetcher); 
+
+  if(rastaman){
+    rastaman.forEach((e) => {
+      stakedNftData.push(e);
+    })
+  } 
+
+  const { data: aiSamurai } = useSWR(`https://www.thetascan.io/api/721/?address=${account}&contract=0xc5acf055576ab9bc9b0b2b72e2792bcf8b82e30f`, fetcher); 
+
+  if(aiSamurai){
+    aiSamurai.forEach((e) => {
+      stakedNftData.push(e);
+    })
+  } 
+  
+
   function createTokenIdObject(nfts) {
     let tokenIdObj = {
       "0x67fc8c72707f17761ced1e71ee9a92be36179eac": [], // Staked Guardian
@@ -68,6 +94,9 @@ const UnclaimedRewards = (props) => {
       "0x14daeae94ac3e065c07d2fd1b440919f3dbeeb3e": [], // Staked Fly N High
       "0x9beb67806cc909131328edd2daf822aa3bd4c30f": [], // Staked Beam My Line
       "0x6cd2ddf245340bc2322de497bdaedd963c09c22c": [], // Staked Gimme The TFuel
+      "0xaab5452536afbd40d629a48171c99e55cae43743": [], // Staked Glorious Guitar
+      "0x4031f51e61dc249688f4a1da1ed6dc240f366846": [], // Staked Rastaman
+      "0xc5acf055576ab9bc9b0b2b72e2792bcf8b82e30f": [], // Staked Ai Samurai
     };
     nfts.forEach(e => {      
       tokenIdObj[e.contract].push(parseInt(e.token));

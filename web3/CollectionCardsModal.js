@@ -4,6 +4,7 @@ import CardFooter from "components/Card/CardFooter"
 import CardHeader from "components/Card/CardHeader"
 import useSWR from 'swr';
 import axios from 'axios'
+import { contractMetadataKey } from "./ContractMetadataKey";
 
 const fetcher = url => axios.get(url).then(res => res.data)
 
@@ -22,10 +23,10 @@ const CollectionCardsModal = (props) => {
           <div key={idx} style={{textAlign: "center", marginTop: "3rem"}}>
             <Card>
               <CardHeader color="primary">
-                {props.contractMetadataKey[e.contract].name} #{e.token}
+                {contractMetadataKey[e.contract].name} #{e.token}
               </CardHeader>
               <CardBody>
-                <img src={props.contractMetadataKey[e.contract].url} height="100%" width="100%"/>
+                <img src={contractMetadataKey[e.contract].url} height="100%" width="100%"/>
               </CardBody>
               <CardFooter>
                 {/* <Button color="primary">

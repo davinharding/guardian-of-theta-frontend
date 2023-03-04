@@ -32,17 +32,17 @@ export const contractMetadataKey = {
    '0xc22c7bc45e8b2acec53c474462cb42ff2536cf54': {
     url: 'https://6fu7hlhpdp7y3mp55z5qfvq77j3mapbl4csu7sph2wdycus4wj2a.arweave.net/8WnzrO8b_42x_e57AtYf-nbAPCvgpU_J59WHgVJcsnQ',
     name: "Glorious Guitar",
-    relatedContract: '0xaab5452536afBD40d629A48171c99E55Cae43743'
+    relatedContract: '0xaab5452536afbd40d629a48171c99e55cae43743'
    }, 
    '0x10c5594f8b6d43055909498ffcdb83b9ddb6a67a': {
     url: 'https://bkalhx6zogwrqwtut4wpf7d3tz6ka55x75venkz6kzrzemtim53a.arweave.net/CoCz39lxrRhadJ8s8vx7nnygd7f_akarPlZjkjJoZ3Y',
     name: "Rastaman",
-    relatedContract: '0x4031f51e61DC249688f4a1da1eD6Dc240F366846'
+    relatedContract: '0x4031f51e61dc249688f4a1da1ed6dc240f366846'
    }, 
    '0xf7578080ffae18c9e3ba2eccd9628946816a7dfe': {
     url: 'https://mvllr6hv5zcoumfoa7pdhdyu5fir57pn3pyhxq32c4yxyqjcq2sq.arweave.net/ZVa4-PXuROowrgfeM48U6VEe_e3b8HvDehcxfEEihqU',
     name: "Ai Samurai",
-    relatedContract: '0xC5ACF055576ab9Bc9B0B2b72e2792bcF8B82E30f'
+    relatedContract: '0xc5acf055576ab9bc9b0b2b72e2792bcf8b82e30f'
    }, 
    '0xace401567d517af35c1f8e234975f95b3760a1e3': {
     url: 'https://mcfzzovh2ackan55luk5fp3n6zemmoivtwqfjf6oj5uwtppzoe.arweave.net/YIucuqfQBKA3vV0V0r9t9kjGO_RWdoFSXzk9pab35cU',
@@ -74,17 +74,17 @@ export const contractMetadataKey = {
     name: 'Staked Guardian',
     relatedContract: '0xcd8ee3078fa8565135f1e17974e04a6fbabedd66'
   },
-  '0xaab5452536afBD40d629A48171c99E55Cae43743': {
+  '0xaab5452536afbd40d629a48171c99e55cae43743': {
     url: 'https://6fu7hlhpdp7y3mp55z5qfvq77j3mapbl4csu7sph2wdycus4wj2a.arweave.net/8WnzrO8b_42x_e57AtYf-nbAPCvgpU_J59WHgVJcsnQ',
     name: "Staked Glorious Guitar",
     relatedContract: '0xc22c7bc45e8b2acec53c474462cb42ff2536cf54'
    }, 
-   '0x4031f51e61DC249688f4a1da1eD6Dc240F366846': {
+   '0x4031f51e61dc249688f4a1da1ed6dc240f366846': {
     url: 'https://bkalhx6zogwrqwtut4wpf7d3tz6ka55x75venkz6kzrzemtim53a.arweave.net/CoCz39lxrRhadJ8s8vx7nnygd7f_akarPlZjkjJoZ3Y',
     name: "Staked Rastaman",
     relatedContract: '0x10c5594f8b6d43055909498ffcdb83b9ddb6a67a'
    }, 
-   '0xC5ACF055576ab9Bc9B0B2b72e2792bcF8B82E30f': {
+   '0xc5acf055576ab9bc9b0b2b72e2792bcf8b82e30f': {
     url: 'https://mvllr6hv5zcoumfoa7pdhdyu5fir57pn3pyhxq32c4yxyqjcq2sq.arweave.net/ZVa4-PXuROowrgfeM48U6VEe_e3b8HvDehcxfEEihqU',
     name: "Staked Ai Samurai",
     relatedContract: '0xf7578080ffae18c9e3ba2eccd9628946816a7dfe'

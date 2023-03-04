@@ -43,7 +43,7 @@ const StakeCollectionCards = (props) => {
             <span key={idx} style={{marginTop: "3rem"}}>       
               <Card className={classes.stakingCard}>
                 <CardHeader color="primary">
-                  {contractMetadataKey[e.contract.toLowerCase()].name} #{e.token}
+                  {contractMetadataKey[e.contract].name} #{e.token}
                 </CardHeader>
                 <CardBody>
                   <img src={contractMetadataKey[e.contract].url} height="100%" width="100%"/>
