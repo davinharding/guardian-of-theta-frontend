@@ -32,6 +32,7 @@ const Index = (props) => {
             tvibeBalance={tvibeBalance}
             chainId={chainId}
             contractMetadataKey={props.contractMetadataKey}
+            page={'index'}
           />
         }
         fixed

@@ -87,24 +87,31 @@ export default function HeaderLinks(props) {
           </Button>
         </a>
       </ListItem>
-      <ListItem className={classes.listItem}>
-        <ConnectButton
-          tooltipClasses={{ tooltip: classes.tooltip }}
-          navLinkClasses={classes.connectButton}
-          handleConnectWallet={props.handleConnectWallet}
-          account={props.account}
-          chainId={props.chainId}
-          setOpenModal={setOpenModal}
-        />
-        <AccountModal
-          openModal={openModal}
-          setOpenModal={setOpenModal}
-          account={props.account}
-          contractMetadataKey={props.contractMetadataKey}
-          etherBalance={props.etherBalance}
-          tvibeBalance={props.tvibeBalance}
-        />
-      </ListItem>
+      {
+        props.page !== 'index' ? (
+          <ListItem className={classes.listItem}>
+            <ConnectButton
+              tooltipClasses={{ tooltip: classes.tooltip }}
+              navLinkClasses={classes.connectButton}
+              handleConnectWallet={props.handleConnectWallet}
+              account={props.account}
+              chainId={props.chainId}
+              setOpenModal={setOpenModal}
+            />        
+            <AccountModal
+              openModal={openModal}
+              setOpenModal={setOpenModal}
+              account={props.account}
+              contractMetadataKey={props.contractMetadataKey}
+              etherBalance={props.etherBalance}
+              tvibeBalance={props.tvibeBalance}
+            />
+          </ListItem>
+            ) : (
+              ''
+          )
+       }        
+      
     </List>
   );
 }
