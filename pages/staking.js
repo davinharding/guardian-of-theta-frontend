@@ -14,23 +14,15 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { formatEther, parseUnits } from '@ethersproject/units'
 import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
-import { stakedNftAddresses } from "../web3/stakedNftAddresses";
 import InfoIcon from "@material-ui/icons/InfoOutlined";
 
 import styles from "styles/jss/nextjs-material-kit/pages/stakingPage.js";
-import { CircularProgress } from "@material-ui/core";
 import { contractMetadataKey } from "../web3/ContractMetadataKey";
-import { thetaVibesNftAddresses } from "../web3/thetaVibesNftAddresses";
 import { UnclaimedRewards } from "../web3/UnclaimedRewards";
 import { StakeCollectionCards } from "../web3/StakeCollectionCards";
-import { mutate } from "swr";
 import Button from "components/CustomButtons/Button.js";
 import { CollectionCards } from "../web3/CollectionCards";
-import { ContractButton } from "../web3/contractButton";
-import { nftStakingAbi } from "../web3/nftStakingAbi";
-import { rewardTokenAbi } from "../web3/rewardTokenAbi";
 import { rewardTokenAddress } from "../web3/rewardTokenAddress";
-import { nftContractAbi } from "../web3/nftContractAbi";
 import ImportantModal from "../components/Modals/ImportantModal";
 
 const useStyles = makeStyles(styles);
