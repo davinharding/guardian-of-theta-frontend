@@ -33,6 +33,19 @@ const landingPageStyle = {
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
   },
+  videoPlayerContainer: {
+    position: "relative",
+    paddingBottom: "56.25%", // 16:9 aspect ratio
+    height: 0,
+    overflow: "hidden",
+  },
+  iframe: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  },
   ...imagesStyles
 };
 
