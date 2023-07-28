@@ -47,14 +47,13 @@ export default function LandingPageBody(props) {
             </GridItem>
             <GridItem xs={12} sm={12} md={6}>
             <div className={classes.videoPlayerContainer}>
-              <iframe
+              <iframe 
                 className={classes.iframe}
-                src="https://player.thetavideoapi.com/video/video_ycy5bsbvx5f6720avbsjs2dqf8"
-                border="0"
-                width="100%"
+                src="https://player.thetavideoapi.com/video/video_mbxnpi3j79yamytfvzt605541c" 
+                border="0" 
+                width="100%" 
                 height="100%"
-                allowFullScreen
-              />
+                allowfullscreen/>
             </div>
             </GridItem>
           </GridContainer>
