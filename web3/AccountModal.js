@@ -17,6 +17,7 @@ import { CollectionCardsModal } from "./CollectionCardsModal.js";
 import { thetaVibesNftAddresses } from "./thetaVibesNftAddresses";
 import { stakedNftAddresses } from "./stakedNftAddresses.js";
 import { allowedStatusCodes } from "next/dist/lib/load-custom-routes.js";
+import commaNumber from "comma-number";
 
 const allAddresses = thetaVibesNftAddresses.concat(stakedNftAddresses);
 
@@ -64,10 +65,10 @@ export default function AccountModal (props) {
           className={classes.modalBody}
         >
           TFUEL Balance: {props.etherBalance && 
-            parseFloat(formatEther(props.etherBalance)).toFixed(3)} 
+            commaNumber(parseFloat(formatEther(props.etherBalance)).toFixed(3))} 
           <div>
             TVIBE Balance: {props.tvibeBalance && 
-            parseFloat(formatEther(props.tvibeBalance)).toFixed(3)} 
+            commaNumber(parseFloat(formatEther(props.tvibeBalance)).toFixed(3))} 
           </div>          
           {allAddresses.map((e, idx)=>{
             return(

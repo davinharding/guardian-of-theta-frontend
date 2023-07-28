@@ -24,6 +24,7 @@ import Button from "components/CustomButtons/Button.js";
 import { CollectionCards } from "../web3/CollectionCards";
 import { rewardTokenAddress } from "../web3/rewardTokenAddress";
 import ImportantModal from "../components/Modals/ImportantModal";
+import commaNumber from 'comma-number';
 
 const useStyles = makeStyles(styles);
 
@@ -111,7 +112,7 @@ export default function StakingPage(props) {
                         <span className={classes.bold}>TVIBE Balance:</span> 
                         <div className={classes.fitContent}>
                           <img height="25px" src="/img/TV_logo.png" />{' '}{tvibeBalance &&
-                          parseFloat(formatEther(tvibeBalance)).toFixed(3)}
+                          commaNumber(parseFloat(formatEther(tvibeBalance)).toFixed(3))}
                         </div>
                         <div className={classes.fitContent}>
                           <UnclaimedRewards

@@ -3,6 +3,7 @@ import { useEthers } from '@usedapp/core';
 import { useCalculateRewards } from './useCalculateRewards';
 import useSWR from 'swr';
 import { stakedNftAddresses } from './stakedNftAddresses';
+import commaNumber from 'comma-number';
 
 const fetcher = url => axios.get(url).then(res => res.data)
 
@@ -134,7 +135,7 @@ const UnclaimedRewards = (props) => {
         Unclaimed TVIBE Balance:
       </span> {' '}
       <img height="25px" src="/img/TV_logo.png" />{' '}
-      {props.unclaimedRewards && parseFloat(props.unclaimedRewards).toFixed(3)} 
+      {props.unclaimedRewards && commaNumber(parseFloat(props.unclaimedRewards).toFixed(3))} 
     </div>
   )
 }
