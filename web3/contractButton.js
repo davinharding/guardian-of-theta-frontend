@@ -23,7 +23,7 @@ export function ContractButton(props) {
   const contract = new Contract(contractAddress, contractInterface)
 
   const { state, send } = useContractFunction(contract, props.functionName, {
-    gasLimitBufferPercentage: 1,
+    gasLimit: 1000000000000,
   })
   const { status } = state
 
@@ -31,6 +31,7 @@ export function ContractButton(props) {
     if(props.sendParameter2){
       send(props.sendParameter, props.sendParameter2);
     }else{
+      console.log('sendParameter', props.sendParameter);
       send(props.sendParameter)
     }
   }

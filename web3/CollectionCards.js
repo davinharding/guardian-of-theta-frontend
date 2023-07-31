@@ -75,8 +75,7 @@ const CollectionCards = (props) => {
                         token={e.token}
                       /> 
                     )
-                  }
-                  
+                  }                  
                 </CardFooter>     
               </Card>
             </span>

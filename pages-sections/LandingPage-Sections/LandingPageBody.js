@@ -53,7 +53,7 @@ export default function LandingPageBody(props) {
                 border="0" 
                 width="100%" 
                 height="100%"
-                allowfullscreen/>
+                allowFullScreen/>
             </div>
             </GridItem>
           </GridContainer>
