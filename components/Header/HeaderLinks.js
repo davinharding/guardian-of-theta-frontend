@@ -8,12 +8,22 @@ import ConnectButton from "../../web3/ConnectButton";
 import AccountModal from "../../web3/AccountModal";
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 import Link from "next/link"
+import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
+import { rewardTokenAddress } from "../../web3/rewardTokenAddress";
 
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
+  const { activateBrowserWallet, account, chainId } = useEthers();
   const [openModal, setOpenModal] = useState(false);
+  const tvibeBalance = useTokenBalance(rewardTokenAddress, account); 
+  const etherBalance = useEtherBalance(account);
+
   const classes = useStyles();
+
+  const handleConnectWallet = () => {
+    activateBrowserWallet();
+  };
 
   return (
     <List className={classes.list}>
@@ -58,6 +68,16 @@ export default function HeaderLinks(props) {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
+        <Link href="/collect-got" as="/collect-got">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Icon className={classes.icons}>paid</Icon> Collect $GOT
+          </Button>
+        </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
         <a href="https://discord.gg/HwYDfUCJRD" as="https://discord.gg/HwYDfUCJRD" target="_blank">
           <Button
             color="transparent"
@@ -93,9 +113,9 @@ export default function HeaderLinks(props) {
             <ConnectButton
               tooltipClasses={{ tooltip: classes.tooltip }}
               navLinkClasses={classes.connectButton}
-              handleConnectWallet={props.handleConnectWallet}
-              account={props.account}
-              chainId={props.chainId}
+              handleConnectWallet={handleConnectWallet}
+              account={account}
+              chainId={chainId}
               setOpenModal={setOpenModal}
             />        
             <AccountModal
@@ -103,8 +123,8 @@ export default function HeaderLinks(props) {
               setOpenModal={setOpenModal}
               account={props.account}
               contractMetadataKey={props.contractMetadataKey}
-              etherBalance={props.etherBalance}
-              tvibeBalance={props.tvibeBalance}
+              etherBalance={etherBalance}
+              tvibeBalance={tvibeBalance}
             />
           </ListItem>
             ) : (

@@ -1,21 +1,11 @@
-import React, { useState } from 'react';
 import LandingPageBody from "../pages-sections/LandingPage-Sections/LandingPageBody"
-import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import { rewardTokenAddress } from '../web3/rewardTokenAddress';
 
 const dashboardRoutes = [];
 
 const Index = (props) => {
-  const { activateBrowserWallet, account, chainId } = useEthers();
-  const etherBalance = useEtherBalance(account);
-  const tvibeBalance = useTokenBalance(rewardTokenAddress, account); // DAVIN: REPLACE ADDRESS WITH EXTRAPOLATED CONSTANT VALUE
-
-  const handleConnectWallet = () => {
-    activateBrowserWallet();
-  };
 
   const { ...rest } = props;
   return(
@@ -27,9 +17,7 @@ const Index = (props) => {
         rightLinks={
           <HeaderLinks 
             account={account} 
-            handleConnectWallet={handleConnectWallet} 
             etherBalance={etherBalance}
-            tvibeBalance={tvibeBalance}
             chainId={chainId}
             contractMetadataKey={props.contractMetadataKey}
             page={'index'}
