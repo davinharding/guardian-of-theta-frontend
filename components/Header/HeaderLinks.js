@@ -121,7 +121,7 @@ export default function HeaderLinks(props) {
             <AccountModal
               openModal={openModal}
               setOpenModal={setOpenModal}
-              account={props.account}
+              account={account}
               contractMetadataKey={props.contractMetadataKey}
               etherBalance={etherBalance}
               tvibeBalance={tvibeBalance}

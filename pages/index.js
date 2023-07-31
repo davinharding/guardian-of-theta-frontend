@@ -16,9 +16,6 @@ const Index = (props) => {
         brand="Theta Vibes"
         rightLinks={
           <HeaderLinks 
-            account={account} 
-            etherBalance={etherBalance}
-            chainId={chainId}
             contractMetadataKey={props.contractMetadataKey}
             page={'index'}
           />
