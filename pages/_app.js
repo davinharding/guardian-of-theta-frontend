@@ -49,7 +49,7 @@ const config = {
   readOnlyChainId: Theta.chainId,
   readOnlyUrls: {
     [Theta.chainId]: 'https://eth-rpc-api.thetatoken.org/rpc',
-    365: 'https://eth-rpc-api-testnet.thetatoken.org/rpc',
+    365: 'https://eth-rpc-api-testnet.thetatoken.org/rpc', // theta testnet
   },
 };
 

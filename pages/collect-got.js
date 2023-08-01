@@ -22,7 +22,7 @@ import { GOTDistributorAbi } from "../web3/GOTDistributorAbi";
 import axios from 'axios';
 import { keccak256, bufferToHex, toBuffer } from 'ethereumjs-util';
 import { MerkleTree } from 'merkletreejs';
-import { ethers, web3 } from "ethers";
+import { EthersContractButton } from "../web3/ethersContractButton";
 
 const useStyles = makeStyles(styles);
 
@@ -31,6 +31,7 @@ const GOTDistributorAddress = "0x67fc8c72707f17761ced1e71ee9a92be36179eac"
 export default function CollectGOTPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const [merkleProof, setMerkleProof] = useState([]);
+  const [merkleRoot, setMerkleRoot] = useState('');
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
   let tvibeBalance = useTokenBalance(rewardTokenAddress, account); 
@@ -71,15 +72,14 @@ export default function CollectGOTPage(props) {
     const nodeAddress = '0x104f8b65bf3fa313cc2998b2ab7319f9eca57089'; // guardian node address
     const addresses = await getStakedAddresses(nodeAddress);
     const merkleTree = createMerkleTree(addresses);
+    setMerkleRoot(merkleTree.getHexRoot());
     const leaf = keccak256(toBuffer(account));
     const proof = merkleTree.getHexProof(leaf);
-    // const bytes32Proof = proof.map(value => ethers.utils.formatBytes32String(value));
+    // const doubeQuotesProof = proof.map(value => value.replace(/'/g, '"'));
     setMerkleProof(proof);
 }, [account]);
 
-    console.log(Object.keys(
-        merkleProof
-      ).map((key) => merkleProof[key]))
+    console.log(merkleProof)
 
   return (
     <div>
@@ -121,6 +121,21 @@ export default function CollectGOTPage(props) {
                         functionName={'claimReward'}
                         buttonTitle={'Claim $GOT'}
                         sendParameter={merkleProof} 
+                    />
+                    <ContractButton
+                        contractAddress={GOTDistributorAddress}
+                        abi={GOTDistributorAbi}
+                        functionName={'updateMerkleRoot'}
+                        buttonTitle={'Update MerkleRoot'}
+                        sendParameter={merkleRoot} 
+                    />
+                    <EthersContractButton
+                      contractAddress={GOTDistributorAddress}
+                      abi={GOTDistributorAbi}
+                      functionName={'claimReward'}
+                      buttonTitle={'Ethers Claim $GOT'}
+                      sendParameter={merkleProof} 
+                      gasLimit={500000}
                     />
                     <ContractButton
                         contractAddress={GOTDistributorAddress}
