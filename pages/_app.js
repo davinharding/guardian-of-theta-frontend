@@ -93,13 +93,9 @@ export default class MyApp extends App {
             `,
           }}
         />
-        {Component.name === 'Index' ? (
+        <DAppProvider config={config}>
           <Component contractMetadataKey={contractMetadataKey} {...pageProps} /> 
-        ) : (
-          <DAppProvider config={config}>
-            <Component contractMetadataKey={contractMetadataKey} {...pageProps} /> 
-          </DAppProvider> 
-        )}               
+        </DAppProvider> 
       </React.Fragment>
     );
   }
