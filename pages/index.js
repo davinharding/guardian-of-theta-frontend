@@ -4,14 +4,14 @@ import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import { rewardTokenAddress } from '../web3/rewardTokenAddress';
+import { tvibeTokenAddress } from '../web3/tokenAddresses';
 
 const dashboardRoutes = [];
 
 const Index = (props) => {
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  const tvibeBalance = useTokenBalance(rewardTokenAddress, account); // DAVIN: REPLACE ADDRESS WITH EXTRAPOLATED CONSTANT VALUE
+  const tvibeBalance = useTokenBalance(tvibeTokenAddress, account); // DAVIN: REPLACE ADDRESS WITH EXTRAPOLATED CONSTANT VALUE
 
   const handleConnectWallet = () => {
     activateBrowserWallet();

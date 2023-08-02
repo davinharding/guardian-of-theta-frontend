@@ -19,7 +19,11 @@ export const EthersContractButton = (props) => {
     const { gasLimit } = props;
     const classes = useStyles();
     const contractAddress = props.contractAddress;
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    let provider;
+    if(window) {
+       provider = new ethers.providers.Web3Provider(window.ethereum);
+    } 
+
     const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, props.abi, signer);
 

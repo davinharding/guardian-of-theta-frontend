@@ -63,7 +63,7 @@ export default function HeaderLinks(props) {
             color="transparent"
             className={classes.navLink}
           >
-            <Icon className={classes.icons}>play_circle</Icon> Collect $GOT
+            <Icon className={classes.icons}>paid</Icon> Collect $GOT
           </Button>
         </Link>
       </ListItem>

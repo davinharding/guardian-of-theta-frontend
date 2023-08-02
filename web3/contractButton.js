@@ -31,7 +31,6 @@ export const ContractButton = (props) => {
     if(props.sendParameter2){
       send(props.sendParameter, props.sendParameter2);
     }else{
-      console.log('sendParameter', props.sendParameter);
       send(props.sendParameter)
     }
   }
