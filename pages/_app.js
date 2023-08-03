@@ -67,7 +67,7 @@ export default class MyApp extends App {
   
   render() {
     const { Component, pageProps } = this.props;
-
+    
     return (
       <React.Fragment>
         <Head>
@@ -93,9 +93,13 @@ export default class MyApp extends App {
             `,
           }}
         />
-        <DAppProvider config={config}>
+        {Component.name === 'Index' ? (
           <Component contractMetadataKey={contractMetadataKey} {...pageProps} /> 
-        </DAppProvider> 
+        ) : (
+          <DAppProvider config={config}>
+            <Component contractMetadataKey={contractMetadataKey} {...pageProps} />
+          </DAppProvider> 
+        )}        
       </React.Fragment>
     );
   }
