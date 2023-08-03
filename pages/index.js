@@ -1,3 +1,4 @@
+import { React } from 'react';
 import LandingPageBody from "../pages-sections/LandingPage-Sections/LandingPageBody"
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";

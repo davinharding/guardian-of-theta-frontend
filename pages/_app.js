@@ -95,7 +95,7 @@ export default class MyApp extends App {
         />
         <DAppProvider config={config}>
           <Component contractMetadataKey={contractMetadataKey} {...pageProps} /> 
-        </DAppProvider>        
+        </DAppProvider> 
       </React.Fragment>
     );
   }
