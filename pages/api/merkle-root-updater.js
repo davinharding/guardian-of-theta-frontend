@@ -70,6 +70,7 @@ export default async function handler(_request, response) {
     const transactionHash = await sendTransactionWithKeys(process.env.PRIVATE_KEY, GOTDistributorAddress, GOTDistributorAbi, root);
     console.log('Transaction sent:', transactionHash);
     result.success = `Transaction sent: ${transactionHash}`;
+    result.newRoot = root;
   } catch (error) {
     console.error('Failed to send transaction:', error);
     result.failure = `Failed to send transaction: ${error.message}`;

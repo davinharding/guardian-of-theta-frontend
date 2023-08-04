@@ -122,13 +122,13 @@ export default function CollectGOTPage(props) {
                         buttonTitle={'Claim $GOT'}
                         sendParameter={merkleProof} 
                     /> */}
-                    <ContractButton
+                    {/* <ContractButton
                         contractAddress={GOTDistributorAddress}
                         abi={GOTDistributorAbi}
                         functionName={'updateMerkleRoot'}
                         buttonTitle={'Update MerkleRoot'}
                         sendParameter={merkleRoot} 
-                    />
+                    /> */}
                     <EthersContractButton
                       contractAddress={GOTDistributorAddress}
                       abi={GOTDistributorAbi}
@@ -137,13 +137,13 @@ export default function CollectGOTPage(props) {
                       sendParameter={merkleProof} 
                       gasLimit={100000}
                     />
-                    <ContractButton
+                    {/* <ContractButton
                         contractAddress={GOTDistributorAddress}
                         abi={GOTDistributorAbi}
                         functionName={'updateDistributionRate'}
                         buttonTitle={'Update Distribution Rate'}
                         sendParameter={11} 
-                    />
+                    /> */}
                   </div>                  
                 </CardBody>                         
                 <CardFooter className={classes.cardFooter}>
