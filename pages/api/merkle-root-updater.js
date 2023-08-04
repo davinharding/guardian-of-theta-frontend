@@ -31,6 +31,10 @@ export default async function handler(_request, response) {
   const merkleTree = createMerkleTree(addresses);
   const root = merkleTree.getHexRoot();
 
+  let result = {
+    success: '',
+  };
+
   async function sendTransactionWithKeys(privateKey, contractAddress, contractAbi, merkleRoot) {
     try {
       // Initialize provider and signer
@@ -47,6 +51,7 @@ export default async function handler(_request, response) {
       const response = await wallet.sendTransaction(transaction);
   
       console.log('Transaction hash:', response.hash);
+      
       return response.hash;
     } catch (error) {
       console.error('Error sending transaction:', error);
@@ -60,17 +65,15 @@ export default async function handler(_request, response) {
   else { 
       console.log('No set!'); 
   }
-
   
-  const result = sendTransactionWithKeys(process.env.PRIVATE_KEY, GOTDistributorAddress, GOTDistributorAbi, root)
-    .then((transactionHash) => {
-      console.log('Transaction sent:', transactionHash);
-      return 'Transaction sent:', transactionHash;
-    })
-    .catch((error) => {
-      console.error('Failed to send transaction:', error);
-      return 'Failed to send transaction:', error;
-    });
+  try {
+    const transactionHash = await sendTransactionWithKeys(process.env.PRIVATE_KEY, GOTDistributorAddress, GOTDistributorAbi, root);
+    console.log('Transaction sent:', transactionHash);
+    result.success = `Transaction sent: ${transactionHash}`;
+  } catch (error) {
+    console.error('Failed to send transaction:', error);
+    result.failure = `Failed to send transaction: ${error.message}`;
+  }
     
   response.status(200).json({
     body: result,
