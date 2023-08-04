@@ -22,7 +22,7 @@ import { UnclaimedRewards } from "../web3/UnclaimedRewards";
 import { StakeCollectionCards } from "../web3/StakeCollectionCards";
 import Button from "components/CustomButtons/Button.js";
 import { CollectionCards } from "../web3/CollectionCards";
-import { tvibeTokenAddress } from "../web3/tokenAddresses";
+import { tvibeTokenAddress } from "../web3/addressConstants";
 import ImportantModal from "../components/Modals/ImportantModal";
 import commaNumber from 'comma-number';
 

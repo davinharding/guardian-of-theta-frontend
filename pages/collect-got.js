@@ -17,14 +17,14 @@ import { formatEther } from '@ethersproject/units';
 import commaNumber from "comma-number";
 import styles from "styles/jss/nextjs-material-kit/pages/stakingPage.js";
 import { contractMetadataKey } from "../web3/ContractMetadataKey";
-import { tvibeTokenAddress } from "../web3/tokenAddresses";
+import { tvibeTokenAddress } from "../web3/addressConstants";
 import { ContractButton } from "../web3/contractButton";
 import { GOTDistributorAbi } from "../web3/GOTDistributorAbi";
 import axios from 'axios';
 import { keccak256, toBuffer } from 'ethereumjs-util';
 import { MerkleTree } from 'merkletreejs';
 import { EthersContractButton } from "../web3/ethersContractButton";
-import { GOTTokenAddress, GOTDistributorAddress } from "../web3/tokenAddresses";
+import { GOTTokenAddress, GOTDistributorAddress } from "../web3/addressConstants";
 
 const useStyles = makeStyles(styles);
 
@@ -76,9 +76,8 @@ export default function CollectGOTPage(props) {
     const leaf = keccak256(toBuffer(account));
     const proof = merkleTree.getHexProof(leaf);
     setMerkleProof(proof);
-}, [account]);
+  }, [account]);
 
-// ["0xb700c8ac2724536b29e7fb37eceb35188da0287016f3b898ba349745769bb131", "0x5b900841595efddfaa8b19395f67cf82576ecb107cd68344a9c9eb47c85d7a39", "0x2520466244cba1cf40eaaf580039b73261107eb0d717c0c7fac654a8906a36b0", "0x5ea51a7eaa9e7e321b089d0bf4c09e1ff95ddda3657d096aa266500d3b8de912", "0x8b156d0aee2b2caa7a6ffaf684116fcff99d5db109fdb72bf3ea783517342ae1", "0x5fb6e5b0226b60abf020898fa814a34f8b6cfc81c815998e8019cae77eb7e05d", "0xb7df323c12c0fb9507da4518aa2a69395d266859a56ced631172cf871db17f12", "0x1515578ccb5910436134f4529cd1576fc14f6d1668d8f46f1234a48ca9150297", "0x695a20f080c6ba7b8f9ffe20e73265a47e22a4d52535b18b2242f90ff0509fa9", "0x1ee59b14fb71b4a132bb5b01847945ec549c330cb65614e284417214117eb03c"]
 
   return (
     <div>
@@ -123,13 +122,13 @@ export default function CollectGOTPage(props) {
                         buttonTitle={'Claim $GOT'}
                         sendParameter={merkleProof} 
                     /> */}
-                    {/* <ContractButton
+                    <ContractButton
                         contractAddress={GOTDistributorAddress}
                         abi={GOTDistributorAbi}
                         functionName={'updateMerkleRoot'}
                         buttonTitle={'Update MerkleRoot'}
                         sendParameter={merkleRoot} 
-                    /> */}
+                    />
                     <EthersContractButton
                       contractAddress={GOTDistributorAddress}
                       abi={GOTDistributorAbi}

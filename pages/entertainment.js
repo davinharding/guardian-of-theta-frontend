@@ -16,7 +16,7 @@ import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 
 import styles from "styles/jss/nextjs-material-kit/pages/stakingPage.js";
 import { contractMetadataKey } from "../web3/ContractMetadataKey";
-import { tvibeTokenAddress } from "../web3/tokenAddresses";
+import { tvibeTokenAddress } from "../web3/addressConstants";
 const useStyles = makeStyles(styles);
 
 export default function StakingPage(props) {

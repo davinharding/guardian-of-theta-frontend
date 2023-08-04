@@ -4,7 +4,7 @@ import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import { tvibeTokenAddress } from '../web3/tokenAddresses';
+import { tvibeTokenAddress } from '../web3/addressConstants';
 
 const dashboardRoutes = [];
 
