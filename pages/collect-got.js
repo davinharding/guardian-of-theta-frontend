@@ -23,10 +23,15 @@ import { GOTDistributorAbi } from "../web3/GOTDistributorAbi";
 import axios from 'axios';
 import { keccak256, toBuffer } from 'ethereumjs-util';
 import { MerkleTree } from 'merkletreejs';
-import { EthersContractButton } from "../web3/ethersContractButton";
 import { GOTTokenAddress, GOTDistributorAddress } from "../web3/addressConstants";
+import dynamic from 'next/dynamic';
 
 const useStyles = makeStyles(styles);
+
+const EthersContractButton = dynamic(
+  import('../web3/ethersContractButton').then((lib) => lib.default),
+  { ssr: false }
+);
 
 export default function CollectGOTPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");

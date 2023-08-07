@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const EthersContractButton = (props) => {
+const EthersContractButton = (props) => {
     const [errorMessage, setErrorMessage] = useState('')
     const { gasLimit } = props;
     const classes = useStyles();
@@ -82,3 +82,5 @@ export const EthersContractButton = (props) => {
         </div>
       );
 };
+
+export default EthersContractButton;
