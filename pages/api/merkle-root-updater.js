@@ -59,13 +59,6 @@ export default async function handler(_request, response) {
     }
   }
 
-  if(process.env.NEXT_PUBLIC_TEST) { 
-      console.log('It is set!'); 
-  }
-  else { 
-      console.log('No set!'); 
-  }
-  
   try {
     const transactionHash = await sendTransactionWithKeys(process.env.PRIVATE_KEY, GOTDistributorAddress, GOTDistributorAbi, root);
     console.log('Transaction sent:', transactionHash);
