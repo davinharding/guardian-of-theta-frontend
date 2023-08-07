@@ -117,39 +117,45 @@ export default function CollectGOTPage(props) {
                   <h4>$GOT Collection Menu</h4>
                 </CardHeader>
                 <CardBody>
-                  <div className={classes.header}>
-                    GOT Balance: {GOTbalance && 
-            commaNumber(parseFloat(formatEther(GOTbalance)).toFixed(3))}
-                    {/* <ContractButton
+                  {account && chainId === 361 || 365 ? (
+                    <div className={classes.header}>
+                      GOT Balance: {GOTbalance && 
+              commaNumber(parseFloat(formatEther(GOTbalance)).toFixed(3))}
+                      {/* <ContractButton
+                          contractAddress={GOTDistributorAddress}
+                          abi={GOTDistributorAbi}
+                          functionName={'claimReward'}
+                          buttonTitle={'Claim $GOT'}
+                          sendParameter={merkleProof} 
+                      /> */}
+                      <ContractButton
+                          contractAddress={GOTDistributorAddress}
+                          abi={GOTDistributorAbi}
+                          functionName={'updateMerkleRoot'}
+                          buttonTitle={'Update MerkleRoot'}
+                          sendParameter={merkleRoot} 
+                      />
+                      <EthersContractButton
                         contractAddress={GOTDistributorAddress}
                         abi={GOTDistributorAbi}
                         functionName={'claimReward'}
-                        buttonTitle={'Claim $GOT'}
+                        buttonTitle={'Ethers Claim $GOT'}
                         sendParameter={merkleProof} 
-                    /> */}
-                    {/* <ContractButton
-                        contractAddress={GOTDistributorAddress}
-                        abi={GOTDistributorAbi}
-                        functionName={'updateMerkleRoot'}
-                        buttonTitle={'Update MerkleRoot'}
-                        sendParameter={merkleRoot} 
-                    /> */}
-                    <EthersContractButton
-                      contractAddress={GOTDistributorAddress}
-                      abi={GOTDistributorAbi}
-                      functionName={'claimReward'}
-                      buttonTitle={'Ethers Claim $GOT'}
-                      sendParameter={merkleProof} 
-                      gasLimit={100000}
-                    />
-                    {/* <ContractButton
-                        contractAddress={GOTDistributorAddress}
-                        abi={GOTDistributorAbi}
-                        functionName={'updateDistributionRate'}
-                        buttonTitle={'Update Distribution Rate'}
-                        sendParameter={11} 
-                    /> */}
-                  </div>                  
+                        gasLimit={100000}
+                      />
+                      {/* <ContractButton
+                          contractAddress={GOTDistributorAddress}
+                          abi={GOTDistributorAbi}
+                          functionName={'updateDistributionRate'}
+                          buttonTitle={'Update Distribution Rate'}
+                          sendParameter={11} 
+                      /> */}
+                    </div>  
+                  ) : (
+                    <div className={classes.progress}>
+                      Please connect your theta wallet in the top right corner!
+                    </div>
+                  )}                   
                 </CardBody>                         
                 <CardFooter className={classes.cardFooter}>
                   {/* <Button simple color="primary" size="lg">
