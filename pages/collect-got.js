@@ -128,13 +128,13 @@ export default function CollectGOTPage(props) {
                           buttonTitle={'Claim $GOT'}
                           sendParameter={merkleProof} 
                       /> */}
-                      <ContractButton
+                      {/* <ContractButton
                           contractAddress={GOTDistributorAddress}
                           abi={GOTDistributorAbi}
                           functionName={'updateMerkleRoot'}
                           buttonTitle={'Update MerkleRoot'}
                           sendParameter={merkleRoot} 
-                      />
+                      /> */}
                       <EthersContractButton
                         contractAddress={GOTDistributorAddress}
                         abi={GOTDistributorAbi}
