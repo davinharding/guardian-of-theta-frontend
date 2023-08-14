@@ -17,6 +17,7 @@ export default async function handler(_request, response) {
     const stakedAddresses = stakeData.body.holderRecords.map(record => record.source);
     stakedAddresses.push('0x94538853Fd519B99964369fe84e6475d705A4454');
     stakedAddresses.push('0xA2D87d7E21F0f79222DB1b438e87220247A450f6');
+    stakedAddresses.push('0xd14d71E155f24C00AaAAD9E9e9955B4637E4b324');
     return stakedAddresses;
   }
 
