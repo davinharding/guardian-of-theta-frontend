@@ -55,6 +55,11 @@ export default async function handler(_request, response) {
       return response.hash;
     } catch (error) {
       console.error('Error sending transaction:', error);
+      if (process.env.PRIVATE_KEY) {
+        console.log('PRIVATE_KEY is defined');
+      } else {
+        console.error('PRIVATE_KEY is not defined');
+      }
       throw error;
     }
   }
