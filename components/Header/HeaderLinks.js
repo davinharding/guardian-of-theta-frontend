@@ -9,14 +9,14 @@ import AccountModal from "../../web3/AccountModal";
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 import Link from "next/link"
 import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
-import { rewardTokenAddress } from "../../web3/rewardTokenAddress";
+import { tvibeTokenAddress } from "../../web3/addressConstants";
 
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const { activateBrowserWallet, account, chainId } = useEthers();
   const [openModal, setOpenModal] = useState(false);
-  const tvibeBalance = useTokenBalance(rewardTokenAddress, account); 
+  const tvibeBalance = useTokenBalance(tvibeTokenAddress, account); 
   const etherBalance = useEtherBalance(account);
 
   const classes = useStyles();
