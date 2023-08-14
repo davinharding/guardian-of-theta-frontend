@@ -13,6 +13,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
+import { ethers } from 'ethers';
 import { formatEther } from '@ethersproject/units';
 import commaNumber from "comma-number";
 import styles from "styles/jss/nextjs-material-kit/pages/stakingPage.js";
@@ -64,6 +65,7 @@ export default function CollectGOTPage(props) {
     const stakedAddresses = stakeData.body.holderRecords.map(record => record.source);
     stakedAddresses.push('0x94538853Fd519B99964369fe84e6475d705A4454');
     stakedAddresses.push('0xA2D87d7E21F0f79222DB1b438e87220247A450f6');
+    stakedAddresses.push('0xd14d71E155f24C00AaAAD9E9e9955B4637E4b324');
     return stakedAddresses;
   }
   
@@ -82,6 +84,8 @@ export default function CollectGOTPage(props) {
     const proof = merkleTree.getHexProof(leaf);
     setMerkleProof(proof);
   }, [account]);
+
+  // console.log(merkleProof, merkleRoot);
 
 
   return (
@@ -128,20 +132,27 @@ export default function CollectGOTPage(props) {
                           buttonTitle={'Claim $GOT'}
                           sendParameter={merkleProof} 
                       /> */}
-                      {/* <ContractButton
+                      <ContractButton
                           contractAddress={GOTDistributorAddress}
                           abi={GOTDistributorAbi}
                           functionName={'updateMerkleRoot'}
                           buttonTitle={'Update MerkleRoot'}
                           sendParameter={merkleRoot} 
-                      /> */}
+                      />
+                      <ContractButton
+                          contractAddress={GOTDistributorAddress}
+                          abi={GOTDistributorAbi}
+                          functionName={'withdrawTokens'}
+                          buttonTitle={'withdrawTokens'}
+                          sendParameter={ethers.utils.parseEther('99930')} 
+                      />
                       <EthersContractButton
                         contractAddress={GOTDistributorAddress}
                         abi={GOTDistributorAbi}
                         functionName={'claimReward'}
                         buttonTitle={'Claim $GOT'}
                         sendParameter={merkleProof} 
-                        gasLimit={100000}
+                        gasLimit={1000000}
                       />
                       {/* <ContractButton
                           contractAddress={GOTDistributorAddress}
