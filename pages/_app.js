@@ -49,24 +49,30 @@ const config = {
   readOnlyChainId: Theta.chainId,
   readOnlyUrls: {
     [Theta.chainId]: 'https://eth-rpc-api.thetatoken.org/rpc',
-    365: 'https://eth-rpc-api-testnet.thetatoken.org/rpc',
+    365: 'https://eth-rpc-api-testnet.thetatoken.org/rpc', // theta testnet
   },
 };
 
 export default class MyApp extends App {
 
-  static async getInitialProps({ Component, router, ctx }) {
-    let pageProps = {};
+  // static async getInitialProps({ Component, router, ctx }) {
+  //   let pageProps = {};
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx);
+  //   }
 
-    return { pageProps };
-  }
+  //   return { pageProps };
+  // }
+
+ 
   
   render() {
     const { Component, pageProps } = this.props;
+
+    if(!Component) {
+        return null;
+    }
 
     return (
       <React.Fragment>

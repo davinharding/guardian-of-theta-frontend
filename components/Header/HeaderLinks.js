@@ -67,6 +67,16 @@ export default function HeaderLinks(props) {
           </Button>
         </Link>
       </ListItem>
+      {/* <ListItem className={classes.listItem}>
+        <Link href="/collect-got" as="/collect-got">
+          <Button
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Icon className={classes.icons}>paid</Icon> Collect $GOT
+          </Button>
+        </Link>
+      </ListItem> */}
       <ListItem className={classes.listItem}>
         <a href="https://discord.gg/HwYDfUCJRD" as="https://discord.gg/HwYDfUCJRD" target="_blank">
           <Button

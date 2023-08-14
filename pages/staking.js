@@ -22,7 +22,7 @@ import { UnclaimedRewards } from "../web3/UnclaimedRewards";
 import { StakeCollectionCards } from "../web3/StakeCollectionCards";
 import Button from "components/CustomButtons/Button.js";
 import { CollectionCards } from "../web3/CollectionCards";
-import { rewardTokenAddress } from "../web3/rewardTokenAddress";
+import { tvibeTokenAddress } from "../web3/addressConstants";
 import ImportantModal from "../components/Modals/ImportantModal";
 import commaNumber from 'comma-number';
 
@@ -35,7 +35,7 @@ export default function StakingPage(props) {
   const [unclaimedRewards, setUnclaimedRewards] = useState(0);
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  let tvibeBalance = useTokenBalance(rewardTokenAddress, account); 
+  let tvibeBalance = useTokenBalance(tvibeTokenAddress, account); 
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
@@ -96,7 +96,7 @@ export default function StakingPage(props) {
                 </CardHeader>
                 <CardBody>
                    
-                  {account && chainId === 361 || 365 ? (
+                  {account && (chainId === 361 || chainId === 365) ? (
                     <>   
                       <div className={classes.iconGroup}>
                         <Button color="primary" onClick={() => setOpenModal(true)}>

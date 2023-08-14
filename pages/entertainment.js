@@ -16,14 +16,14 @@ import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 
 import styles from "styles/jss/nextjs-material-kit/pages/stakingPage.js";
 import { contractMetadataKey } from "../web3/ContractMetadataKey";
-import { rewardTokenAddress } from "../web3/rewardTokenAddress";
+import { tvibeTokenAddress } from "../web3/addressConstants";
 const useStyles = makeStyles(styles);
 
 export default function StakingPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  let tvibeBalance = useTokenBalance(rewardTokenAddress, account); 
+  let tvibeBalance = useTokenBalance(tvibeTokenAddress, account); 
 
   const handleConnectWallet = () => {
     activateBrowserWallet();

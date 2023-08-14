@@ -1,0 +1,8 @@
+{
+    "crons": [
+      {
+        "path": "/api/merkle-root-updater",
+        "schedule": "0 5 * * *"
+      }
+    ]
+  }

@@ -16,22 +16,21 @@ const useStyles = makeStyles({
   },
 });
 
-export function ContractButton(props) {
+export const ContractButton = (props) => {
   const classes = useStyles();
   const contractAddress = props.contractAddress 
   const contractInterface = new utils.Interface(props.abi)
   const contract = new Contract(contractAddress, contractInterface)
 
   const { state, send } = useContractFunction(contract, props.functionName, {
-    gasLimit: 1000000000000,
+    gasLimit: 20,
   })
-  const { status } = state
+  const { status } = state;
 
   const execute = () => {
     if(props.sendParameter2){
       send(props.sendParameter, props.sendParameter2);
     }else{
-      console.log('sendParameter', props.sendParameter);
       send(props.sendParameter)
     }
   }
