@@ -87,6 +87,7 @@ export default function CollectGOTPage(props) {
 
   // console.log(merkleProof, merkleRoot);
 
+  return(null); // returning null for main branch until this page is done testing and goes live
 
   return (
     <div>
@@ -132,6 +133,13 @@ export default function CollectGOTPage(props) {
                           buttonTitle={'Claim $GOT'}
                           sendParameter={merkleProof} 
                       /> */}
+                      {/* <ContractButton
+                          contractAddress={GOTDistributorAddress}
+                          abi={GOTDistributorAbi}
+                          functionName={'updateClaimWaitTimeInBlocks'}
+                          buttonTitle={'updateClaimWaitTimeInBlocks'}
+                          sendParameter={13900} 
+                      />
                       <ContractButton
                           contractAddress={GOTDistributorAddress}
                           abi={GOTDistributorAbi}
@@ -144,8 +152,8 @@ export default function CollectGOTPage(props) {
                           abi={GOTDistributorAbi}
                           functionName={'withdrawTokens'}
                           buttonTitle={'withdrawTokens'}
-                          sendParameter={ethers.utils.parseEther('99930')} 
-                      />
+                          sendParameter={ethers.utils.parseEther('1176')} 
+                      /> */}
                       <EthersContractButton
                         contractAddress={GOTDistributorAddress}
                         abi={GOTDistributorAbi}
