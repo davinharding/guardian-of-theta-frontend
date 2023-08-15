@@ -87,8 +87,6 @@ export default function CollectGOTPage(props) {
 
   // console.log(merkleProof, merkleRoot);
 
-  return(null); // returning null for main branch until this page is done testing and goes live
-
   return (
     <div>
       <Header

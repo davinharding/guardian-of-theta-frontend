@@ -57,7 +57,7 @@ export default function HeaderLinks(props) {
           </Button>
         </Link>
       </ListItem>
-      {/* <ListItem className={classes.listItem}>
+      <ListItem className={classes.listItem}>
         <Link href="/collect-got" as="/collect-got">
           <Button
             color="transparent"
@@ -66,7 +66,7 @@ export default function HeaderLinks(props) {
             <Icon className={classes.icons}>paid</Icon> Collect $GOT
           </Button>
         </Link>
-      </ListItem> */}
+      </ListItem>
       <ListItem className={classes.listItem}>
         <a href="https://discord.gg/HwYDfUCJRD" as="https://discord.gg/HwYDfUCJRD" target="_blank">
           <Button
