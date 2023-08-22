@@ -15,7 +15,9 @@ async function sendTransactionWithKeys(privateKey, contractAddress, contractAbi,
 
         const contract = new ethers.Contract(contractAddress, contractAbi, wallet);
 
-        const transaction = await contract.populateTransaction.updateMapping(sources, amounts);
+        const transaction = await contract.populateTransaction.updateAmountStaked(sources, amounts);
+
+        transaction.gasLimit = 100000;
 
         const response = await wallet.sendTransaction(transaction);
 
@@ -45,8 +47,10 @@ export default async function handler(_request, response) {
         // push in testing addresses and amounts
         holderRecords.push({
             source: '0xd14d71E155f24C00AaAAD9E9e9955B4637E4b324', // theta vibes tester address, testnet
-            amount: '10000'
+            amount: '10000000000000000000000'
         })
+
+        console.log(holderRecords[0], holderRecords[1]);
 
         // Initialize param arrays
         let sources = [];
