@@ -37,23 +37,21 @@ export default async function handler(request, response) {
 
     try {
         // Get address from path parameter
-        const nodeAddress = request.query.address; // Extract address from path parameter
+        const nodeAddress = '0x104f8b65bf3fa313cc2998b2ab7319f9eca57089'; // guardian node address
+        
+        const userAddress = request.query.address; // Extract address from path parameter
 
         // Fetch staked data from the API
         const stakedDataFromAPI = await getStakeByAddress(nodeAddress);
 
         // Filter holderRecords based on the address
-        const holderRecords = stakedDataFromAPI.body.holderRecords.filter(record => record.source === nodeAddress);
+        const holderRecords = stakedDataFromAPI.body.holderRecords.filter(record => record.source === userAddress);
 
         // push in testing addresses and amounts
-        holderRecords.push({
-            source: '0xd14d71E155f24C00AaAAD9E9e9955B4637E4b324', // theta vibes tester address, testnet
-            amount: '10000000000000000000000'
-        })
-        holderRecords.push({
-            source: '0x47f9899Dc03E35b5802f50D6C675846752DF97B0', // theta vibes tester address, testnet
-            amount: '10000000000000000000000'
-        })
+        // holderRecords.push({
+        //     source: '0x4CdCCcf2C3c8bc7BffB41353A4FA005fEb01BDca', // theta vibes tester address, testnet
+        //     amount: '10000000000000000000000'
+        // })
 
         // Initialize param arrays
         let sources = [];
