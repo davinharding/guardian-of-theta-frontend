@@ -17,7 +17,7 @@ async function sendTransactionWithKeys(privateKey, contractAddress, contractAbi,
 
         const transaction = await contract.populateTransaction.updateAmountStaked(sources, amounts);
 
-        transaction.gasLimit = 100000;
+        // transaction.gasLimit = 20000000;
 
         const response = await wallet.sendTransaction(transaction);
 
@@ -30,27 +30,30 @@ async function sendTransactionWithKeys(privateKey, contractAddress, contractAbi,
     }
 }
 
-export default async function handler(_request, response) {
+export default async function handler(request, response) {
     let result = {
         success: '',
     };
 
     try {
+        // Get address from path parameter
+        const nodeAddress = request.query.address; // Extract address from path parameter
+
         // Fetch staked data from the API
-        const nodeAddress = '0x104f8b65bf3fa313cc2998b2ab7319f9eca57089'; // guardian node address
         const stakedDataFromAPI = await getStakeByAddress(nodeAddress);
 
-        console.log('stakedData', await stakedDataFromAPI.body.holderRecords[0]);
-
-        const holderRecords = stakedDataFromAPI.body.holderRecords;
+        // Filter holderRecords based on the address
+        const holderRecords = stakedDataFromAPI.body.holderRecords.filter(record => record.source === nodeAddress);
 
         // push in testing addresses and amounts
         holderRecords.push({
             source: '0xd14d71E155f24C00AaAAD9E9e9955B4637E4b324', // theta vibes tester address, testnet
             amount: '10000000000000000000000'
         })
-
-        console.log(holderRecords[0], holderRecords[1]);
+        holderRecords.push({
+            source: '0x47f9899Dc03E35b5802f50D6C675846752DF97B0', // theta vibes tester address, testnet
+            amount: '10000000000000000000000'
+        })
 
         // Initialize param arrays
         let sources = [];
@@ -70,9 +73,6 @@ export default async function handler(_request, response) {
             sources,
             amounts
         );
-
-        result.sources = sources;
-        result.amounts = amounts;
 
         console.log('Transaction sent:', transactionHash);
         result.success = `Transaction sent: ${transactionHash}`;
