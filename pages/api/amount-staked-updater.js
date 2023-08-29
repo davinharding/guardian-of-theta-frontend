@@ -36,21 +36,21 @@ export default async function handler(request, response) {
     };
 
     try {
-        // Get address from path parameter
+        // // Set address for Guardian Node
         const nodeAddress = '0x104f8b65bf3fa313cc2998b2ab7319f9eca57089'; // guardian node address
         
-        const userAddress = request.query.address; // Extract address from path parameter
+        const userAddress = request.query.address.toLowerCase(); // Extract address from path parameter, needs to be lowercased to match what we get from the theta api
 
         // Fetch staked data from the API
         const stakedDataFromAPI = await getStakeByAddress(nodeAddress);
-
+        
         // Filter holderRecords based on the address
-        const holderRecords = stakedDataFromAPI.body.holderRecords.filter(record => record.source === userAddress);
+        const holderRecords = await stakedDataFromAPI.body.holderRecords.filter(record => record.source === userAddress);
 
-        // push in testing addresses and amounts
+        // snippet to push in test address and amount if needed
         // holderRecords.push({
-        //     source: '0x4CdCCcf2C3c8bc7BffB41353A4FA005fEb01BDca', // theta vibes tester address, testnet
-        //     amount: '10000000000000000000000'
+        //     source: '0x2e10e1eebf9796ca1f4fc09e084d78505f2d7380', // theta vibes tester address, testnet
+        //     amount: '1000000000000000000'
         // })
 
         // Initialize param arrays
@@ -58,7 +58,7 @@ export default async function handler(request, response) {
         let amounts = [];
 
         // Transform staked data into the required format
-        holderRecords.forEach(item => {
+        await holderRecords.forEach(item => {
             sources.push(item.source),
             amounts.push(ethers.BigNumber.from(item.amount.substring(0, item.amount.length - 18)));
         });
