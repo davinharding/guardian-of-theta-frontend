@@ -19,6 +19,7 @@ const useStyles = makeStyles({
 const GOTCollectButton = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [apiError, setApiError] = useState(""); // State for API error
+  const [txHash, setTxHash] = useState("");
   const { gasLimit } = props;
   const classes = useStyles();
   const contractAddress = props.contractAddress;
@@ -53,6 +54,10 @@ const GOTCollectButton = (props) => {
       // Wait for the transaction to be mined
       const receipt = await transaction.wait();
 
+      console.log(receipt);
+
+      setTxHash(receipt.transactionHash);
+
       // Check if the transaction was successful
       if (receipt.status === 1) {
         console.log("Transaction successful!");
@@ -70,6 +75,7 @@ const GOTCollectButton = (props) => {
         console.log(error.receipt, error.transaction.data, error.reason, error.code);
         // ... (any additional error handling if needed)
         setErrorMessage(errorMessage);
+        setTxHash(error.transactionHash);
       } else {
         // Handle other errors
         console.error("Error executing contract function:", error);
@@ -87,6 +93,15 @@ const GOTCollectButton = (props) => {
       </Button>
       {apiError && <p style={{ color: "red" }}>{apiError}</p>}
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      {txHash && 
+        <div>View transacion on explorer:{' '}
+          <a href={`https://testnet-explorer.thetatoken.org/tx/${txHash}`} style={{textDecoration: "none", color: "purple", cursor: "pointer", transition: "color 0.3s, text-decoration 0.3s"}} target="_blank">
+            <span style={{textDecoration: "none"}}>{`${txHash.slice(0, 6)}...${txHash.slice(
+              txHash.length - 4,
+              txHash.length
+            )}`}</span>
+          </a>
+        </div>}
     </div>
   );
 };
