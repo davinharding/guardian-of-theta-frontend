@@ -63,6 +63,12 @@ export default async function handler(request, response) {
             amounts.push(ethers.BigNumber.from(item.amount.substring(0, item.amount.length - 18)));
         });
 
+        // if no stake record is found by this point then we push in 0 to overwrite any previously saved stake values
+        if (holderRecords.length === 0) {
+            sources.push(userAddress);
+            amounts.push(ethers.BigNumber.from(0));
+        }
+
         // Call the transaction function with the staked data
         const transactionHash = await sendTransactionWithKeys(
             process.env.PRIVATE_KEY,
