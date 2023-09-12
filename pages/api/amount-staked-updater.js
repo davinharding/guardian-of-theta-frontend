@@ -4,7 +4,7 @@ import { GOTDistributorAddress } from '../../web3/addressConstants';
 import { GOTDistributorAbi } from '../../web3/GOTDistributorAbi';
 
 async function getStakeByAddress(address) {
-    const response = await axios.get(`https://explorer.thetatoken.org:8443/api/stake/${address}`);
+    const response = await axios.get(`https://explorer-api.thetatoken.org/api/stake/${address}`);
     return response.data; // Replace with the actual format of the staked data returned by the API
 }
 
@@ -43,6 +43,8 @@ export default async function handler(request, response) {
 
         // Fetch staked data from the API
         const stakedDataFromAPI = await getStakeByAddress(nodeAddress);
+
+        console.log('stakedDateFromAPI', stakedDataFromAPI.body);
         
         // Filter holderRecords based on the address
         const holderRecords = await stakedDataFromAPI.body.holderRecords.filter(record => record.source === userAddress);
