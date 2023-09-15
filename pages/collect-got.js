@@ -80,7 +80,7 @@ export default function CollectGOTPage(props) {
                   <h4>$GOT Collection Menu</h4>
                 </CardHeader>
                 <CardBody>
-                  {account && (chainId === 361 || chainId === 365) ? (
+                  {account && (chainId === 365) ? ( // DAVIN CHANGE: switch to mainnet after testing
                     <div className={classes.header}>
                       GOT Balance: {GOTbalance && 
               commaNumber(parseFloat(formatEther(GOTbalance)).toFixed(3))}

@@ -8,28 +8,41 @@ export default function ConnectButton(props) {
   const THETA_CHAIN_ID = 361; // Chain ID for theta network
   const THETA_TESTNET_CHAIN_ID = 365; // Chain ID for theta network
 
+  const mainnetParams = {
+    chainId: '0x169',
+    chainName: 'Theta Mainnet',
+    rpcUrls: ['https://eth-rpc-api.thetatoken.org/rpc'],
+    blockExplorerUrls: ['https://explorer.thetatoken.org/'],
+    nativeCurrency: {
+      symbol: 'TFUEL', // 2-6 characters long
+      decimals: 18,
+    },
+  }
+
+  const testnettParams = {
+    chainId: '0x16d',
+    chainName: 'Theta Testnet',
+    rpcUrls: ['https://eth-rpc-api-testnet.thetatoken.org/rpc'],
+    blockExplorerUrls: ['https://testnet-explorer.thetatoken.org/'],
+    nativeCurrency: {
+      symbol: 'TFUEL', // 2-6 characters long
+      decimals: 18,
+    },
+  }
+
   const handleNetworkChange = async () => {
-      await switchNetwork(THETA_CHAIN_ID);
+      await switchNetwork(THETA_TESTNET_CHAIN_ID); // DAVIN CHANGE: back to mainnet after testing
       const provider = window.ethereum;
       await provider.request({
         method: 'wallet_addEthereumChain',
         params: [
-          {
-            chainId: '0x169',
-            chainName: 'Theta Mainnet',
-            rpcUrls: ['https://eth-rpc-api.thetatoken.org/rpc'],
-            blockExplorerUrls: ['https://explorer.thetatoken.org/'],
-            nativeCurrency: {
-              symbol: 'TFUEL', // 2-6 characters long
-              decimals: 18,
-            },
-          },
+          testnettParams, // DAVIN CHANGE: back to mainnet after testing 
         ],
       });
   };
   
   return props.account ? (    
-    props.chainId === THETA_CHAIN_ID || props.chainId === THETA_TESTNET_CHAIN_ID ? (
+    props.chainId === THETA_TESTNET_CHAIN_ID ? ( // DAVIN CHANGE: switch to mainnet after testing
       <Button
         color="primary"
         href=""
