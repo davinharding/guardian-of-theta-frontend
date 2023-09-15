@@ -96,7 +96,7 @@ export default function StakingPage(props) {
                 </CardHeader>
                 <CardBody>
                    
-                  {account && (chainId === 361 || chainId === 365) ? (
+                  {account && (chainId === 361) ? (
                     <>   
                       <div className={classes.iconGroup}>
                         <Button color="primary" onClick={() => setOpenModal(true)}>
