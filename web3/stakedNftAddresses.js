@@ -8,4 +8,5 @@ export const stakedNftAddresses = [
   "0xaab5452536afbd40d629a48171c99e55cae43743", // Glorious Guitar
   "0x4031f51e61dc249688f4a1da1ed6dc240f366846", // Rastaman
   "0xc5acf055576ab9bc9b0b2b72e2792bcf8b82e30f", // AI Samurai
+  "0x2f9ce5a469ed1cc8ae353b55b40432c8c1745153", // Lil Monsters
 ]

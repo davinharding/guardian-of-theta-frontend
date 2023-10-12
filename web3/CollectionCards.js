@@ -12,8 +12,6 @@ import { ContractButton } from "./contractButton";
 import { nftStakingAbi } from "./nftStakingAbi";
 import { ApproveDepositSection } from "./ApproveDepositSection";
 import { nftContractAbi } from "./nftContractAbi";
-import { useEffect } from "react";
-import { useState } from "react";
 import { thetaVibesNftAddresses } from "./thetaVibesNftAddresses";
 
 const useStyles = makeStyles(styles);
