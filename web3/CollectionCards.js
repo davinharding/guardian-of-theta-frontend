@@ -43,7 +43,12 @@ const CollectionCards = (props) => {
                   {contractMetadataKey[e.contract.toLowerCase()].name} #{e.token}
                 </CardHeader>
                 <CardBody>
-                  <img src={contractMetadataKey[e.contract].url} height="100%" width="100%"/>
+                  <img src={
+                    // below handles the Lil Monsters contract which has unique images for each NFT whereas all the others use the same image
+                    e.contract === "0xDe402d4dEfF8CEa11F515a7BeF886277b32CBC5a" ? contractMetadataKey[e.contract].url + e.token + '.png' 
+                    :
+                    contractMetadataKey[e.contract].url
+                    } height="100%" width="100%"/>
                 </CardBody>
                 <CardFooter className={classes.center}>
                   {props.staked ? (
