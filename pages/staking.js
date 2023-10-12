@@ -12,7 +12,7 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { formatEther, parseUnits } from '@ethersproject/units'
+import { formatEther } from "@ethersproject/units";
 import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import InfoIcon from "@material-ui/icons/InfoOutlined";
 
@@ -24,7 +24,7 @@ import Button from "components/CustomButtons/Button.js";
 import { CollectionCards } from "../web3/CollectionCards";
 import { tvibeTokenAddress } from "../web3/addressConstants";
 import ImportantModal from "../components/Modals/ImportantModal";
-import commaNumber from 'comma-number';
+import commaNumber from "comma-number";
 
 const useStyles = makeStyles(styles);
 
@@ -35,7 +35,7 @@ export default function StakingPage(props) {
   const [unclaimedRewards, setUnclaimedRewards] = useState(0);
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  let tvibeBalance = useTokenBalance(tvibeTokenAddress, account); 
+  let tvibeBalance = useTokenBalance(tvibeTokenAddress, account);
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
@@ -70,21 +70,24 @@ export default function StakingPage(props) {
         brand="ThetaVibes"
         rightLinks={
           <HeaderLinks
-          account={account} 
-          handleConnectWallet={handleConnectWallet} 
-          etherBalance={etherBalance}
-          tvibeBalance={tvibeBalance}
-          chainId={chainId}
-          contractMetadataKey={contractMetadataKey}
-          />}
+            account={account}
+            handleConnectWallet={handleConnectWallet}
+            etherBalance={etherBalance}
+            tvibeBalance={tvibeBalance}
+            chainId={chainId}
+            contractMetadataKey={contractMetadataKey}
+          />
+        }
         {...rest}
       />
+
       <div
         className={classes.pageHeader}
         style={{
           backgroundImage: "url('/img/thetavibes-neon_smaller.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "top center",
+          height: "100vh",
         }}
       >
         <div className={classes.container}>
@@ -95,60 +98,61 @@ export default function StakingPage(props) {
                   <h4>Staking Menu</h4>
                 </CardHeader>
                 <CardBody>
-                   
                   {account && (chainId === 361 || chainId === 365) ? (
-                    <>   
+                    <>
                       <div className={classes.iconGroup}>
-                        <Button color="primary" onClick={() => setOpenModal(true)}>
+                        <Button
+                          color="primary"
+                          onClick={() => setOpenModal(true)}
+                        >
                           <InfoIcon className={classes.icon} />
                           <span className={classes.iconText}>Important</span>
                         </Button>
-                        <ImportantModal 
+                        <ImportantModal
                           openModal={openModal}
-                          setOpenModal={setOpenModal} 
+                          setOpenModal={setOpenModal}
                         />
-                      </div> 
+                      </div>
                       <div className={classes.tokenValues}>
-                        <span className={classes.bold}>TVIBE Balance:</span> 
+                        <span className={classes.bold}>TVIBE Balance:</span>
                         <div className={classes.fitContent}>
-                          <img height="25px" src="/img/TV_logo.png" />{' '}{tvibeBalance &&
-                          commaNumber(parseFloat(formatEther(tvibeBalance)).toFixed(3))}
+                          <img height="25px" src="/img/TV_logo.png" />{" "}
+                          {tvibeBalance &&
+                            commaNumber(
+                              parseFloat(formatEther(tvibeBalance)).toFixed(3)
+                            )}
                         </div>
                         <div className={classes.fitContent}>
                           <UnclaimedRewards
                             unclaimedRewards={unclaimedRewards}
-                            setUnclaimedRewards={setUnclaimedRewards} 
+                            setUnclaimedRewards={setUnclaimedRewards}
                           />
                         </div>
                       </div>
                       <div className={classes.border}>
-                        <div className={classes.header}>
-                          Your NFTs
-                        </div>
-                            <span>
-                              <CollectionCards
-                                contractMetadataKey={contractMetadataKey}
-                                account={account}
-                                staked={false}
-                                setTxnSuccessful={setTxnSuccessful}
-                                txnSuccessful={txnSuccessful} 
-                              />
-                            </span>
-                        </div>
-                        <div className={classes.border}>
-                          <div className={classes.header}>
-                            Your Staked NFTs
-                          </div>                                    
-                            <span>
-                              <StakeCollectionCards
-                                contractMetadataKey={contractMetadataKey}
-                                account={account}
-                                staked={true}
-                                setTxnSuccessful={setTxnSuccessful}
-                                txnSuccessful={txnSuccessful} 
-                              />
-                            </span>
-                        </div>
+                        <div className={classes.header}>Your NFTs</div>
+                        <span>
+                          <CollectionCards
+                            contractMetadataKey={contractMetadataKey}
+                            account={account}
+                            staked={false}
+                            setTxnSuccessful={setTxnSuccessful}
+                            txnSuccessful={txnSuccessful}
+                          />
+                        </span>
+                      </div>
+                      <div className={classes.border}>
+                        <div className={classes.header}>Your Staked NFTs</div>
+                        <span>
+                          <StakeCollectionCards
+                            contractMetadataKey={contractMetadataKey}
+                            account={account}
+                            staked={true}
+                            setTxnSuccessful={setTxnSuccessful}
+                            txnSuccessful={txnSuccessful}
+                          />
+                        </span>
+                      </div>
                       {/* <div>
                         <span className={classes.stakingButton}>
                           <MultipleTxnButton
@@ -203,14 +207,13 @@ export default function StakingPage(props) {
                         // sendFunction={(stakeGuardianAddress, true)}
                         // nftContract={'0x1e9be4b41510cfbe4af40e06829df05bf873d65d'}
                       /> */}
-                    </> 
-                    ) : (
-                      <div className={classes.progress}>
-                        Please connect your theta wallet in the top right corner!
-                      </div>
-                    )
-                  }                   
-                  </CardBody>                         
+                    </>
+                  ) : (
+                    <div className={classes.progress}>
+                      Please connect your theta wallet in the top right corner!
+                    </div>
+                  )}
+                </CardBody>
                 <CardFooter className={classes.cardFooter}>
                   {/* <Button simple color="primary" size="lg">
                     Get started
@@ -220,8 +223,10 @@ export default function StakingPage(props) {
             </GridItem>
           </GridContainer>
         </div>
-        <Footer whiteFont />
       </div>
+
+      <div className={classes.backgroundOverflow}></div>
+      <Footer  />
     </div>
   );
 }

@@ -9,6 +9,12 @@ const signupPageStyle = {
     color: "#FFFFFF",
     paddingBottom: "200px",
   },
+  backgroundOverflow: {
+    background: 'linear-gradient(0deg, #8e24aa, black)',
+    borderRadius: '0px 0px 5px 5px',
+    minHeight: '100vh', 
+    boxShadow: '0px 0px 5px rgba(0, 0, 0, 1)',
+  },
   cardHidden: {
     opacity: "0",
     transform: "translate3d(0, -60px, 0)",

@@ -44,8 +44,8 @@ export const contractMetadataKey = {
     name: "Ai Samurai",
     relatedContract: '0xc5acf055576ab9bc9b0b2b72e2792bcf8b82e30f'
    }, 
-   '0xDe402d4dEfF8CEa11F515a7BeF886277b32CBC5a': {
-    url: 'https://vwu3tsoheafidfrtyt2xmunu46af2qrau5ha2wiu6y46hcrjozxa.arweave.net/ram5yccgCoGWM8T1dlG054BdQiCnTg1ZFPY544opdm4',
+   '0xde402d4deff8cea11f515a7bef886277b32cbc5a': {
+    url: 'https://arweave.net/-7a3Q5nk0A-Jm6uOOiZFmA-aLK9hCS41mmqXJJSOcyI',
     name: "Lil Monsters",
     relatedContract: '0x2f9ce5a469ed1cc8ae353b55b40432c8c1745153'
    }, 
@@ -95,8 +95,8 @@ export const contractMetadataKey = {
     relatedContract: '0xf7578080ffae18c9e3ba2eccd9628946816a7dfe'
    }, 
    '0x2f9ce5a469ed1cc8ae353b55b40432c8c1745153': {
-    url: 'https://vwu3tsoheafidfrtyt2xmunu46af2qrau5ha2wiu6y46hcrjozxa.arweave.net/ram5yccgCoGWM8T1dlG054BdQiCnTg1ZFPY544opdm4',
+    url: 'https://arweave.net/-7a3Q5nk0A-Jm6uOOiZFmA-aLK9hCS41mmqXJJSOcyI',
     name: "Staked Lil Monsters",
-    relatedContract: '0xDe402d4dEfF8CEa11F515a7BeF886277b32CBC5a'
+    relatedContract: '0xde402d4deff8cea11f515a7bef886277b32cbc5a'
    }
 };
