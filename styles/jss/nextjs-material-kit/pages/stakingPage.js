@@ -10,10 +10,11 @@ const signupPageStyle = {
     paddingBottom: "200px",
   },
   backgroundOverflow: {
-    background: 'linear-gradient(0deg, #8e24aa, black)',
-    borderRadius: '0px 0px 5px 5px',
-    minHeight: '100vh', 
-    boxShadow: '0px 0px 5px rgba(0, 0, 0, 1)',
+    background: "linear-gradient(0deg, #8e24aa, black)",
+    borderRadius: "0px 0px 5px 5px",
+    height: '100%',
+    boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)",
+    zIndex: "0",
   },
   cardHidden: {
     opacity: "0",
@@ -96,23 +97,23 @@ const signupPageStyle = {
     width: "31%",
     display: "inline-block",
     marginRight: ".5rem",
-    marginLeft: ".5rem"
+    marginLeft: ".5rem",
   },
   stakingButton: {
     display: "inline-block",
-    marginRight: "1rem"
+    marginRight: "1rem",
   },
   progress: {
     textAlign: "center",
-    fontSize: "1.3rem"
+    fontSize: "1.3rem",
   },
   center: {
-    justifyContent: "center"
+    justifyContent: "center",
   },
   header: {
     textAlign: "center",
     margin: "1rem",
-    fontSize: "1.25rem"
+    fontSize: "1.25rem",
   },
   border: {
     border: "2px solid purple",
@@ -126,10 +127,10 @@ const signupPageStyle = {
   },
   fitContent: {
     width: "fit-content",
-    display: "inline-block", 
+    display: "inline-block",
     textAlign: "center",
     marginRight: ".5rem",
-    marginLeft: ".5rem"
+    marginLeft: ".5rem",
   },
   icon: {
     // color: "purple",
@@ -139,26 +140,26 @@ const signupPageStyle = {
   },
   iconText: {
     fontSize: "1.2rem",
-    marginLeft: ".5rem"
+    marginLeft: ".5rem",
   },
   iconGroup: {
     textAlign: "center",
-    paddingBottom: "15px"
+    paddingBottom: "15px",
   },
   bold: {
     color: "purple",
-    fontSize: "2rem"
+    fontSize: "2rem",
   },
   spacer: {
-    paddingTop: "1rem"
+    paddingTop: "1rem",
   },
-  '@media only screen and (max-width: 960px)': {
+  "@media only screen and (max-width: 960px)": {
     stakingCard: {
-      display: 'flex',
+      display: "flex",
       width: "100%",
-      marginTop: "3rem"
-    }
-  }
+      marginTop: "3rem",
+    },
+  },
 };
 
 export default signupPageStyle;

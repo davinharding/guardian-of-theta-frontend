@@ -45,7 +45,7 @@ const CollectionCards = (props) => {
                 <CardBody>
                   <img src={
                     // below handles the Lil Monsters contract which has unique images for each NFT whereas all the others use the same image
-                    e.contract === "0xde402d4deff8cea11f515a7bef886277b32cbc5a" ? contractMetadataKey[e.contract].url + '/' + e.token + '.png' 
+                    e.contract === "0xde402d4deff8cea11f515a7bef886277b32cbc5a" ? contractMetadataKey[e.contract].url + e.token + '.png' 
                     :
                     contractMetadataKey[e.contract].url
                     } height="100%" width="100%"/>

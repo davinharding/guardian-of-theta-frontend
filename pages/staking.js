@@ -80,14 +80,13 @@ export default function StakingPage(props) {
         }
         {...rest}
       />
-
       <div
         className={classes.pageHeader}
         style={{
           backgroundImage: "url('/img/thetavibes-neon_smaller.jpg')",
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundPosition: "top center",
-          height: "100vh",
+          backgroundRepeat: "repeat-y",
         }}
       >
         <div className={classes.container}>
@@ -224,9 +223,7 @@ export default function StakingPage(props) {
           </GridContainer>
         </div>
       </div>
-
-      <div className={classes.backgroundOverflow}></div>
-      <Footer  />
+      <Footer />
     </div>
   );
 }
