@@ -29,7 +29,7 @@ const CollectionCardsModal = (props) => {
               <CardBody>
                 <img src={e.contract === "0xde402d4deff8cea11f515a7bef886277b32cbc5a" || 
                 e.contract === '0x2f9ce5a469ed1cc8ae353b55b40432c8c1745153' ?
-                  contractMetadataKey[e.contract].url + '/' + e.token + '.png' 
+                  contractMetadataKey[e.contract].url + e.token + '.png' 
                   :
                   contractMetadataKey[e.contract].url} height="100%" width="100%"/>
               </CardBody>
