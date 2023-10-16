@@ -33,11 +33,11 @@ const CollectionCardsModal = (props) => {
                   :
                   contractMetadataKey[e.contract].url} height="100%" width="100%"/>
               </CardBody>
-              <CardFooter>
+              {/* <CardFooter>
                 <Button color="primary">
                   Stake
                 </Button> 
-              </CardFooter>     
+              </CardFooter>      */}
             </Card>
           </div>
         )
