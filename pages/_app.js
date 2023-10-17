@@ -99,13 +99,13 @@ export default class MyApp extends App {
             `,
           }}
         />
-        {Component.name === 'Index' ? (
+        {/* {Component.name === 'Index' ? (
           <Component contractMetadataKey={contractMetadataKey} {...pageProps} /> 
-        ) : (
+        ) : ( */}
           <DAppProvider config={config}>
             <Component contractMetadataKey={contractMetadataKey} {...pageProps} />
           </DAppProvider> 
-        )}        
+        {/* )}         */}
       </React.Fragment>
     );
   }

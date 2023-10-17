@@ -107,8 +107,8 @@ export default function HeaderLinks(props) {
           </Button>
         </a>
       </ListItem>
-      {
-        props.page !== 'index' ? (
+      {/* {
+        props.page !== 'index' ? ( */}
           <ListItem className={classes.listItem}>
             <ConnectButton
               tooltipClasses={{ tooltip: classes.tooltip }}
@@ -127,10 +127,10 @@ export default function HeaderLinks(props) {
               tvibeBalance={tvibeBalance}
             />
           </ListItem>
-            ) : (
+            {/* ) : (
               ''
           )
-       }        
+       }         */}
       
     </List>
   );
