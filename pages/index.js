@@ -27,7 +27,6 @@ const Index = (props) => {
         rightLinks={
           <HeaderLinks 
             contractMetadataKey={props.contractMetadataKey}
-            // page={'index'}
             account={account}
             handleConnectWallet={handleConnectWallet}
             etherBalance={etherBalance}
