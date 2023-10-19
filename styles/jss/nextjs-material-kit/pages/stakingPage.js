@@ -12,7 +12,7 @@ const signupPageStyle = {
   backgroundOverflow: {
     background: "linear-gradient(0deg, #8e24aa, black)",
     borderRadius: "0px 0px 5px 5px",
-    height: '100%',
+    height: "100%",
     boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)",
     zIndex: "0",
   },

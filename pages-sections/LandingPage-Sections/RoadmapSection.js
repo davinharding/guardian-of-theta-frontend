@@ -1,5 +1,8 @@
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 import Speaker from "@material-ui/icons/Speaker";
 import CheckCircle from "@material-ui/icons/CheckCircle";
 import MonetizationOn from "@material-ui/icons/MonetizationOn";
@@ -32,94 +35,106 @@ export default function RoadmapSection() {
       <VerticalTimeline>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: '#29cad2', color: '#1A120Dff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #29cad2' }}
-          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
+          contentStyle={{ background: "#29cad2", color: "#1A120Dff" }}
+          contentArrowStyle={{ borderRight: "7px solid  #29cad2" }}
+          iconStyle={{ background: "#9c27b0", color: "#ffffff" }}
           icon={<MonetizationOn />}
         >
-          <h3 className="vertical-timeline-element-title">NFT Staking for TVIBE </h3>
+          <h3 className="vertical-timeline-element-title">
+            NFT Staking for TVIBE{" "}
+          </h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q3 2022</h4> */}
           <p>
-          Stake your Theta Vibes NFTs and receive $TVIBE to spend on music and video content, NFTs, merch and more!
-          </p>
-        </VerticalTimelineElement>        
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
-          icon={<LiveTv />}
-        >
-          <h3 className="vertical-timeline-element-title">$TVIBE LP Staking on Voltswap</h3>
-          {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
-          <p>
+            Stake your Theta Vibes NFTs and receive $TVIBE to spend on music and
+            video content, NFTs, merch and more!
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
+          iconStyle={{ background: "#9c27b0", color: "#ffffff" }}
+          contentStyle={{ background: "#ffa50d", color: "#1A120Dff" }}
+          contentArrowStyle={{ borderRight: "7px solid  #ffa50d" }}
           icon={<LiveTv />}
         >
-          <h3 className="vertical-timeline-element-title">Members only live streams and chat</h3>
+          <h3 className="vertical-timeline-element-title">
+            $TVIBE LP Staking on Voltswap
+          </h3>
+          {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
+          <p></p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          iconStyle={{ background: "#9c27b0", color: "#ffffff" }}
+          contentStyle={{ background: "#ffa50d", color: "#1A120Dff" }}
+          contentArrowStyle={{ borderRight: "7px solid  #ffa50d" }}
+          icon={<LiveTv />}
+        >
+          <h3 className="vertical-timeline-element-title">
+            Members only live streams and chat
+          </h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Join the Discord for access to live premiers, and VIP giveaways!
+            Join the Discord for access to live premiers, and VIP giveaways!
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2008 - 2010"
-          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
-          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
+          contentStyle={{ background: "#ffa50d", color: "#1A120Dff" }}
+          iconStyle={{ background: "#9c27b0", color: "#ffffff" }}
+          contentArrowStyle={{ borderRight: "7px solid  #ffa50d" }}
           icon={<Storefront />}
         >
           <h3 className="vertical-timeline-element-title">$TVIBE/USD Store</h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Stake your Theta Vibes NFTs and earn $TVIBE, or use USD to purchase entertainment, merch, NFTs, and more.
+            Stake your Theta Vibes NFTs and earn $TVIBE, or use USD to purchase
+            entertainment, merch, NFTs, and more.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
-          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
+          iconStyle={{ background: "#9c27b0", color: "#ffffff" }}
+          contentArrowStyle={{ borderRight: "7px solid  #ffa50d" }}
+          contentStyle={{ background: "#ffa50d", color: "#1A120Dff" }}
           icon={<Speaker />}
         >
-          <h3 className="vertical-timeline-element-title">4k 2D/ 8k 3D 180° VR Content and Live Performances / Theta DRM</h3>
+          <h3 className="vertical-timeline-element-title">
+            4k 2D/ 8k 3D 180° VR Content and Live Performances / Theta DRM
+          </h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q4 2022</h4> */}
           <p>
-          Join us in Discord and verify membership to watch live premiers with us! Click the Entertainment tab at the top of the page.
+            Join us in Discord and verify membership to watch live premiers with
+            us! Click the Entertainment tab at the top of the page.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
-          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
+          iconStyle={{ background: "#9c27b0", color: "#ffffff" }}
+          contentArrowStyle={{ borderRight: "7px solid  #ffa50d" }}
+          contentStyle={{ background: "#ffa50d", color: "#1A120Dff" }}
           icon={<Public />}
         >
-          <h3 className="vertical-timeline-element-title">Sony Spatial Reality Display</h3>
+          <h3 className="vertical-timeline-element-title">
+            Sony Spatial Reality Display
+          </h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
           <p>
-          Use your $TVIBE to purchase different 3D Scenes for your device!
+            Use your $TVIBE to purchase different 3D Scenes for your device!
           </p>
-        </VerticalTimelineElement>  
+        </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          iconStyle={{ background: '#9c27b0', color: '#ffffff' }}
-          contentArrowStyle={{ borderRight: '7px solid  #ffa50d' }}
-          contentStyle={{ background: '#ffa50d', color: '#1A120Dff' }}
+          iconStyle={{ background: "#9c27b0", color: "#ffffff" }}
+          contentArrowStyle={{ borderRight: "7px solid  #ffa50d" }}
+          contentStyle={{ background: "#ffa50d", color: "#1A120Dff" }}
           icon={<Landscape />}
         >
-          <h3 className="vertical-timeline-element-title">Metaverse Integration</h3>
+          <h3 className="vertical-timeline-element-title">
+            Metaverse Integration
+          </h3>
           {/* <h4 className="vertical-timeline-element-subtitle">Q1 2023</h4> */}
-          <p>
-          Come watch premiers in the metaverse!
-          </p>
+          <p>Come watch premiers in the metaverse!</p>
         </VerticalTimelineElement>
         {/* <VerticalTimelineElement
           className="vertical-timeline-element--work"
@@ -134,7 +149,7 @@ export default function RoadmapSection() {
           </p>
         </VerticalTimelineElement> */}
         <VerticalTimelineElement
-          iconStyle={{ background: '#2ab8e6', color: '#fff' }}
+          iconStyle={{ background: "#2ab8e6", color: "#fff" }}
           icon={<CheckCircle />}
         />
       </VerticalTimeline>

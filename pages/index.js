@@ -1,9 +1,9 @@
-import { React } from 'react';
-import LandingPageBody from "../pages-sections/LandingPage-Sections/LandingPageBody"
+import { React } from "react";
+import LandingPageBody from "../pages-sections/LandingPage-Sections/LandingPageBody";
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import { useEthers, useEtherBalance, useTokenBalance } from '@usedapp/core';
+import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
 import { tvibeTokenAddress } from "../web3/addressConstants";
 
 const dashboardRoutes = [];
@@ -18,14 +18,14 @@ const Index = (props) => {
   };
 
   const { ...rest } = props;
-  return(
+  return (
     <div>
       <Header
         color="transparent"
         routes={dashboardRoutes}
         brand="Theta Vibes"
         rightLinks={
-          <HeaderLinks 
+          <HeaderLinks
             contractMetadataKey={props.contractMetadataKey}
             account={account}
             handleConnectWallet={handleConnectWallet}
@@ -44,7 +44,7 @@ const Index = (props) => {
       <LandingPageBody />
       <Footer />
     </div>
-  )
+  );
 };
 
 export default Index;
