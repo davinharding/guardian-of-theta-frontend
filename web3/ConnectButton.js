@@ -31,18 +31,18 @@ export default function ConnectButton(props) {
   }
 
   const handleNetworkChange = async () => {
-      await switchNetwork(THETA_TESTNET_CHAIN_ID); // DAVIN CHANGE: back to mainnet after testing
+      await switchNetwork(THETA_CHAIN_ID); // DAVIN CHANGE: back to mainnet after testing
       const provider = window.ethereum;
       await provider.request({
         method: 'wallet_addEthereumChain',
         params: [
-          testnettParams, // DAVIN CHANGE: back to mainnet after testing 
+          mainnetParams, // DAVIN CHANGE: back to mainnet after testing 
         ],
       });
   };
   
   return props.account ? (    
-    props.chainId === THETA_TESTNET_CHAIN_ID ? ( // DAVIN CHANGE: switch to mainnet after testing
+    props.chainId === THETA_CHAIN_ID ? ( // DAVIN CHANGE: switch to mainnet after testing
       <Button
         color="primary"
         href=""

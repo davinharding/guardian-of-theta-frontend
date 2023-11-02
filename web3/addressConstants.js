@@ -1,5 +1,5 @@
 export const tvibeTokenAddress = "0x14e4c61d6aa9accda3850b201077cebf464dcb31";
 
-export const GOTTokenAddress = "0xb8a9116493e191a43224e3971c7e9f23522b0883";
+export const GOTTokenAddress = "0xe943B24169c5261E727A0f5146feB4FB63eB4C14";
 
-export const GOTDistributorAddress = "0x56c91547f695a10a773c72cf310f8194c8656b99";
+export const GOTDistributorAddress = "0x141522d76514c739809f31bc623dbb730fc2d543";

@@ -21,6 +21,8 @@ import { tvibeTokenAddress } from "../web3/addressConstants";
 import { GOTDistributorAbi } from "../web3/GOTDistributorAbi";
 import { GOTTokenAddress, GOTDistributorAddress } from "../web3/addressConstants";
 import dynamic from 'next/dynamic';
+import { Theta } from '@usedapp/core';
+
 
 const useStyles = makeStyles(styles);
 
@@ -80,7 +82,7 @@ export default function CollectGOTPage(props) {
                   <h4>$GOT Collection Menu</h4>
                 </CardHeader>
                 <CardBody>
-                  {account && (chainId === 365) ? ( // DAVIN CHANGE: switch to mainnet after testing
+                  {account && (chainId === Theta.chainId) ? (
                     <div className={classes.header}>
                       GOT Balance: {GOTbalance && 
               commaNumber(parseFloat(formatEther(GOTbalance)).toFixed(3))}

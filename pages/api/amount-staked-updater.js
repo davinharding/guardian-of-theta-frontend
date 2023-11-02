@@ -5,12 +5,12 @@ import { GOTDistributorAbi } from '../../web3/GOTDistributorAbi';
 
 async function getStakeByAddress(address) {
     const response = await axios.get(`https://explorer-api.thetatoken.org/api/stake/${address}`);
-    return response.data; // Replace with the actual format of the staked data returned by the API
+    return response.data; 
 }
 
 async function sendTransactionWithKeys(privateKey, contractAddress, contractAbi, sources, amounts) {
     try {
-        const provider = new ethers.providers.JsonRpcProvider('https://eth-rpc-api-testnet.thetatoken.org/rpc');
+        const provider = new ethers.providers.JsonRpcProvider('https://eth-rpc-api.thetatoken.org/rpc');
         const wallet = new ethers.Wallet(privateKey, provider);
 
         const contract = new ethers.Contract(contractAddress, contractAbi, wallet);
