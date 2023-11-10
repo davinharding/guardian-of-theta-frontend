@@ -85,7 +85,7 @@ export default function CollectGOTPage(props) {
                   {account && (chainId === Theta.chainId) ? (
                     <div className={classes.header}>
                       GOT Balance: {GOTbalance && 
-              commaNumber(parseFloat(formatEther(GOTbalance)).toFixed(3))}
+              commaNumber(parseFloat(formatEther(GOTbalance)).toFixed(7))}
                       {/* <ContractButton
                           contractAddress={GOTDistributorAddress}
                           abi={GOTDistributorAbi}

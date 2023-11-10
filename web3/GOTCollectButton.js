@@ -95,7 +95,7 @@ const GOTCollectButton = (props) => {
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       {txHash && 
         <div>View transacion on explorer:{' '}
-          <a href={`https://explorer.thetatoken.org//tx/${txHash}`} style={{textDecoration: "none", color: "purple", cursor: "pointer", transition: "color 0.3s, text-decoration 0.3s"}} target="_blank">
+          <a href={`https://explorer.thetatoken.org/tx/${txHash}`} style={{textDecoration: "none", color: "purple", cursor: "pointer", transition: "color 0.3s, text-decoration 0.3s"}} target="_blank">
             <span style={{textDecoration: "none"}}>{`${txHash.slice(0, 6)}...${txHash.slice(
               txHash.length - 4,
               txHash.length
