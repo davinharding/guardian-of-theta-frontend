@@ -51,13 +51,14 @@ export const MultiFunctionContractCall = (props) => {
 
         try {
           const transactionResponse = await currentCall.contract[currentCall.functionName](...currentCall.parameters, {
-            gasLimit: ethers.utils.hexlify(30000), // Example gas limit
+            gasLimit: ethers.utils.hexlify(100000), // Example gas limit
           });
 
           // Wait for the transaction to be mined
           await transactionResponse.wait();
         } catch (error) {
           console.error("Error executing contract call:", error);
+          // can potentially build this into the UI
         } finally {
           setIsExecuting(false);
           setCurrentCallIndex(currentIndex => currentIndex + 1);
