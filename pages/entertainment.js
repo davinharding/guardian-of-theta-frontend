@@ -23,7 +23,7 @@ export default function StakingPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  let tvibeBalance = useTokenBalance(tvibeTokenAddress, account); 
+  let tvibeBalance = useTokenBalance(tvibeTokenAddress, account);
 
   const handleConnectWallet = () => {
     activateBrowserWallet();
@@ -44,13 +44,14 @@ export default function StakingPage(props) {
         brand="ThetaVibes"
         rightLinks={
           <HeaderLinks
-          account={account} 
-          handleConnectWallet={handleConnectWallet} 
-          etherBalance={etherBalance}
-          tvibeBalance={tvibeBalance}
-          chainId={chainId}
-          contractMetadataKey={contractMetadataKey}
-          />}
+            account={account}
+            handleConnectWallet={handleConnectWallet}
+            etherBalance={etherBalance}
+            tvibeBalance={tvibeBalance}
+            chainId={chainId}
+            contractMetadataKey={contractMetadataKey}
+          />
+        }
         {...rest}
       />
       <div
@@ -69,10 +70,8 @@ export default function StakingPage(props) {
                   <h4>Entertainment Menu</h4>
                 </CardHeader>
                 <CardBody>
-                  <div className={classes.header}>
-                    Coming Soon!
-                  </div>                  
-                </CardBody>                         
+                  <div className={classes.header}>Coming Soon!</div>
+                </CardBody>
                 <CardFooter className={classes.cardFooter}>
                   {/* <Button simple color="primary" size="lg">
                     Get started

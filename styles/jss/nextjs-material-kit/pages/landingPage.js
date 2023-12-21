@@ -46,7 +46,7 @@ const landingPageStyle = {
     width: "100%",
     height: "100%",
   },
-  ...imagesStyles
+  ...imagesStyles,
 };
 
 export default landingPageStyle;

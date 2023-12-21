@@ -20,8 +20,8 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import Script from 'next/script';
-import { DAppProvider, Theta, useEthers } from '@usedapp/core';
+import Script from "next/script";
+import { DAppProvider, Theta, useEthers } from "@usedapp/core";
 
 import PageChange from "components/PageChange/PageChange.js";
 
@@ -48,13 +48,12 @@ Router.events.on("routeChangeError", () => {
 const config = {
   readOnlyChainId: Theta.chainId,
   readOnlyUrls: {
-    [Theta.chainId]: 'https://eth-rpc-api.thetatoken.org/rpc',
-    365: 'https://eth-rpc-api-testnet.thetatoken.org/rpc', // theta testnet
+    [Theta.chainId]: "https://eth-rpc-api.thetatoken.org/rpc",
+    365: "https://eth-rpc-api-testnet.thetatoken.org/rpc", // theta testnet
   },
 };
 
 export default class MyApp extends App {
-
   // static async getInitialProps({ Component, router, ctx }) {
   //   let pageProps = {};
 
@@ -65,13 +64,11 @@ export default class MyApp extends App {
   //   return { pageProps };
   // }
 
- 
-  
   render() {
     const { Component, pageProps } = this.props;
 
-    if(!Component) {
-        return null;
+    if (!Component) {
+      return null;
     }
 
     return (
@@ -84,12 +81,15 @@ export default class MyApp extends App {
           <title>Theta Vibes</title>
         </Head>
         {/* Google tag (gtag.js) */}
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-1PPQHTHQ53"/>
         <Script
-          id='google-analytics'
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-1PPQHTHQ53"
+        />
+        <Script
+          id="google-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-          __html: `
+            __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -99,13 +99,9 @@ export default class MyApp extends App {
             `,
           }}
         />
-        {Component.name === 'Index' ? (
-          <Component contractMetadataKey={contractMetadataKey} {...pageProps} /> 
-        ) : (
-          <DAppProvider config={config}>
-            <Component contractMetadataKey={contractMetadataKey} {...pageProps} /> 
-          </DAppProvider>
-        )}              
+        <DAppProvider config={config}>
+          <Component contractMetadataKey={contractMetadataKey} {...pageProps} />
+        </DAppProvider>
       </React.Fragment>
     );
   }

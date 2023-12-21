@@ -17,7 +17,6 @@ import styles from "styles/jss/nextjs-material-kit/pages/landingPage.js";
 import ProductSection from "pages-sections/LandingPage-Sections/ProductSection.js";
 import RoadmapSection from "pages-sections/LandingPage-Sections/RoadmapSection.js";
 
-
 const useStyles = makeStyles(styles);
 
 export default function LandingPageBody(props) {
@@ -31,7 +30,8 @@ export default function LandingPageBody(props) {
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Welcome to ThetaVibes.</h1>
               <h4>
-              The intersection of entertainment, music, NFTs and vibes powered by the Theta Blockchain.
+                The intersection of entertainment, music, NFTs and vibes powered
+                by the Theta Blockchain.
               </h4>
               <br />
               {/* <Button
@@ -46,15 +46,16 @@ export default function LandingPageBody(props) {
               </Button> */}
             </GridItem>
             <GridItem xs={12} sm={12} md={6}>
-            <div className={classes.videoPlayerContainer}>
-              <iframe 
-                className={classes.iframe}
-                src="https://player.thetavideoapi.com/video/video_mbxnpi3j79yamytfvzt605541c" 
-                border="0" 
-                width="100%" 
-                height="100%"
-                allowFullScreen/>
-            </div>
+              <div className={classes.videoPlayerContainer}>
+                <iframe
+                  className={classes.iframe}
+                  src="https://player.thetavideoapi.com/video/video_mbxnpi3j79yamytfvzt605541c"
+                  border="0"
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                />
+              </div>
             </GridItem>
           </GridContainer>
         </div>
@@ -66,5 +67,5 @@ export default function LandingPageBody(props) {
         </div>
       </div>
     </>
-  )
-} 
+  );
+}

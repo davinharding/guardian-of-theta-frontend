@@ -12,17 +12,17 @@ const productStyle = {
     marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
-    color: "#AAFCFBff"
+    color: "#AAFCFBff",
   },
   description: {
     color: "#999",
   },
   roadmapItems: {
-    display: "block"
+    display: "block",
   },
   roadmapBg: {
-    backgroundColor: "#D3D3D3"
-  }
+    backgroundColor: "#D3D3D3",
+  },
 };
 
 export default productStyle;

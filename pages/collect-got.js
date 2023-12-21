@@ -35,7 +35,7 @@ export default function CollectGOTPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const { activateBrowserWallet, account, chainId } = useEthers();
   const etherBalance = useEtherBalance(account);
-  let tvibeBalance = useTokenBalance(tvibeTokenAddress, account); 
+  let tvibeBalance = useTokenBalance(tvibeTokenAddress, account);
   let GOTbalance = useTokenBalance(GOTTokenAddress, account);
 
   const handleConnectWallet = () => {
@@ -57,13 +57,14 @@ export default function CollectGOTPage(props) {
         brand="ThetaVibes"
         rightLinks={
           <HeaderLinks
-          account={account} 
-          handleConnectWallet={handleConnectWallet} 
-          etherBalance={etherBalance}
-          tvibeBalance={tvibeBalance}
-          chainId={chainId}
-          contractMetadataKey={contractMetadataKey}
-          />}
+            account={account}
+            handleConnectWallet={handleConnectWallet}
+            etherBalance={etherBalance}
+            tvibeBalance={tvibeBalance}
+            chainId={chainId}
+            contractMetadataKey={contractMetadataKey}
+          />
+        }
         {...rest}
       />
       <div
@@ -86,34 +87,6 @@ export default function CollectGOTPage(props) {
                     <div className={classes.header}>
                       GOT Balance: {GOTbalance && 
               commaNumber(parseFloat(formatEther(GOTbalance)).toFixed(7))}
-                      {/* <ContractButton
-                          contractAddress={GOTDistributorAddress}
-                          abi={GOTDistributorAbi}
-                          functionName={'claimReward'}
-                          buttonTitle={'Claim $GOT'}
-                          sendParameter={merkleProof} 
-                      /> */}
-                      {/* <ContractButton
-                          contractAddress={GOTDistributorAddress}
-                          abi={GOTDistributorAbi}
-                          functionName={'updateClaimWaitTimeInBlocks'}
-                          buttonTitle={'updateClaimWaitTimeInBlocks'}
-                          sendParameter={13900} 
-                      />
-                      <ContractButton
-                          contractAddress={GOTDistributorAddress}
-                          abi={GOTDistributorAbi}
-                          functionName={'updateMerkleRoot'}
-                          buttonTitle={'Update MerkleRoot'}
-                          sendParameter={merkleRoot} 
-                      />
-                      <ContractButton
-                          contractAddress={GOTDistributorAddress}
-                          abi={GOTDistributorAbi}
-                          functionName={'withdrawTokens'}
-                          buttonTitle={'withdrawTokens'}
-                          sendParameter={ethers.utils.parseEther('1176')} 
-                      /> */}
                       <GOTCollectButton
                         contractAddress={GOTDistributorAddress}
                         abi={GOTDistributorAbi}
@@ -122,20 +95,13 @@ export default function CollectGOTPage(props) {
                         gasLimit={100000}
                         userAddress={account}
                       />
-                      {/* <ContractButton
-                          contractAddress={GOTDistributorAddress}
-                          abi={GOTDistributorAbi}
-                          functionName={'updateDistributionRate'}
-                          buttonTitle={'Update Distribution Rate'}
-                          sendParameter={11} 
-                      /> */}
-                    </div>  
+                    </div>
                   ) : (
                     <div className={classes.progress}>
                       Please connect your theta wallet in the top right corner!
                     </div>
-                  )}                   
-                </CardBody>                         
+                  )}
+                </CardBody>
                 <CardFooter className={classes.cardFooter}>
                   {/* <Button simple color="primary" size="lg">
                     Get started

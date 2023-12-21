@@ -63,9 +63,16 @@ export default function Header(props) {
     [classes.fixed]: fixed,
   });
   const brandComponent = (
-      <Link href="/" as="/">        
-        <Button className={classes.title}><Image src="/img/TV_logo.png" height="50%" width="50%" className={classes.imgRoundedCircle + " " + classes.imgFluid}></Image></Button>        
-      </Link>
+    <Link href="/" as="/">
+      <Button className={classes.title}>
+        <Image
+          src="/img/TV_logo.png"
+          height="50%"
+          width="50%"
+          className={classes.imgRoundedCircle + " " + classes.imgFluid}
+        ></Image>
+      </Button>
+    </Link>
   );
   return (
     <AppBar className={appBarClasses}>

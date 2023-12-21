@@ -1,13 +1,8 @@
-import { utils } from 'ethers';
-import { useCall } from '@usedapp/core';
-import { Contract } from '@ethersproject/contracts'
+import { utils } from "ethers";
+import { useCall } from "@usedapp/core";
+import { Contract } from "@ethersproject/contracts";
 
-export function useReadFunction(
-  nftAddress,
-  address,
-  nftAbi,
-  functionName
-) {
+export function useReadFunction(nftAddress, address, nftAbi, functionName) {
   const nftInterface = new utils.Interface(nftAbi);
   const { value, error } =
     useCall(
@@ -18,9 +13,9 @@ export function useReadFunction(
           args: [address], // Method arguments - address to be checked for balance
         }
     ) ?? {};
-  if(error) {
-    console.log(error.message)
-    return undefined
+  if (error) {
+    console.log(error.message);
+    return undefined;
   }
-  return value?.[0]
+  return value?.[0];
 }

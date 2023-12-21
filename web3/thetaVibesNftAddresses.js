@@ -8,4 +8,5 @@ export const thetaVibesNftAddresses = [
   "0xc22c7bc45e8b2acec53c474462cb42ff2536cf54", // Glorious Guitar
   "0x10c5594f8b6d43055909498ffcdb83b9ddb6a67a", // Rastaman
   "0xf7578080ffae18c9e3ba2eccd9628946816a7dfe", // AI Samurai
+  "0xde402d4deff8cea11f515a7bef886277b32cbc5a", // Lil Monsters
 ];

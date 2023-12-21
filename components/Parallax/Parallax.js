@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import styles from "styles/jss/nextjs-material-kit/components/parallaxStyle.js";
-import Image from "next/image"
+import Image from "next/image";
 
 const useStyles = makeStyles(styles);
 
@@ -34,15 +34,8 @@ export default function Parallax(props) {
     var windowScrollTop = window.pageYOffset / 3;
     setTransform("translate3d(0," + windowScrollTop + "px,0)");
   };
-  const {
-    filter,
-    className,
-    children,
-    style,
-    image,
-    small,
-    responsive,
-  } = props;
+  const { filter, className, children, style, image, small, responsive } =
+    props;
   const classes = useStyles();
   const parallaxClasses = classNames({
     [classes.parallax]: true,
@@ -60,12 +53,12 @@ export default function Parallax(props) {
         transform: transform,
       }}
     >
-      <Image 
+      <Image
         src={image.toString()}
-        layout='fill'
-        objectFit='cover'
-        objectPosition='center'    
-        priority  
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        priority
       />
       {children}
     </div>
