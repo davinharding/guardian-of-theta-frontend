@@ -43,8 +43,6 @@ export default async function handler(request, response) {
 
         // Fetch staked data from the API
         const stakedDataFromAPI = await getStakeByAddress(nodeAddress);
-
-        console.log('stakedDateFromAPI', stakedDataFromAPI.body);
         
         // Filter holderRecords based on the address
         const holderRecords = await stakedDataFromAPI.body.holderRecords.filter(record => record.source === userAddress);
