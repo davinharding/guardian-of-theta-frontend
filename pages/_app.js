@@ -76,7 +76,7 @@ export default class MyApp extends App {
         <Head>
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            content="The intersection of Entertainment, Music, NFTs and Vibes powered by the Theta Blockchain"
           />
           <title>Theta Vibes</title>
         </Head>
