@@ -49,10 +49,11 @@ export default function LandingPageBody(props) {
               <div className={classes.videoPlayerContainer}>
                 <iframe
                   className={classes.iframe}
-                  src="https://player.thetavideoapi.com/video/video_mbxnpi3j79yamytfvzt605541c"
+                  src="https://player.thetavideoapi.com/video/video_mbxnpi3j79yamytfvzt605541c?autoplay=1"
                   border="0"
                   width="100%"
                   height="100%"
+                  allow='autoplay'
                   allowFullScreen
                 />
               </div>
