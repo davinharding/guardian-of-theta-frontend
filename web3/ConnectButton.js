@@ -6,31 +6,43 @@ export default function ConnectButton(props) {
   const { switchNetwork } = useEthers();
 
   const THETA_CHAIN_ID = 361; // Chain ID for theta network
-  const THETA_TESTNET_CHAIN_ID = 365; // Chain ID for theta network
+  // const THETA_TESTNET_CHAIN_ID = 365; // Chain ID for theta network
+
+  const mainnetParams = {
+    chainId: '0x169',
+    chainName: 'Theta Mainnet',
+    rpcUrls: ['https://eth-rpc-api.thetatoken.org/rpc'],
+    blockExplorerUrls: ['https://explorer.thetatoken.org/'],
+    nativeCurrency: {
+      symbol: 'TFUEL', // 2-6 characters long
+      decimals: 18,
+    },
+  }
+
+  // const testnettParams = {
+  //   chainId: '0x16d',
+  //   chainName: 'Theta Testnet',
+  //   rpcUrls: ['https://eth-rpc-api-testnet.thetatoken.org/rpc'],
+  //   blockExplorerUrls: ['https://testnet-explorer.thetatoken.org/'],
+  //   nativeCurrency: {
+  //     symbol: 'TFUEL', // 2-6 characters long
+  //     decimals: 18,
+  //   },
+  // }
 
   const handleNetworkChange = async () => {
-    await switchNetwork(THETA_CHAIN_ID);
-    const provider = window.ethereum;
-    await provider.request({
-      method: "wallet_addEthereumChain",
-      params: [
-        {
-          chainId: "0x169",
-          chainName: "Theta Mainnet",
-          rpcUrls: ["https://eth-rpc-api.thetatoken.org/rpc"],
-          blockExplorerUrls: ["https://explorer.thetatoken.org/"],
-          nativeCurrency: {
-            symbol: "TFUEL", // 2-6 characters long
-            decimals: 18,
-          },
-        },
-      ],
-    });
+      await switchNetwork(THETA_CHAIN_ID);
+      const provider = window.ethereum;
+      await provider.request({
+        method: 'wallet_addEthereumChain',
+        params: [
+          mainnetParams, 
+        ],
+      });
   };
-
-  return props.account ? (
-    props.chainId === THETA_CHAIN_ID ||
-    props.chainId === THETA_TESTNET_CHAIN_ID ? (
+  
+  return props.account ? (    
+    props.chainId === THETA_CHAIN_ID ? (
       <Button
         color="primary"
         href=""

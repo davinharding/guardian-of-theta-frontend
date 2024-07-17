@@ -12,8 +12,8 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { formatEther } from "@ethersproject/units";
-import { useEthers, useEtherBalance, useTokenBalance } from "@usedapp/core";
+import { formatEther, parseUnits } from '@ethersproject/units'
+import { useEthers, useEtherBalance, useTokenBalance, Theta } from "@usedapp/core";
 import InfoIcon from "@material-ui/icons/InfoOutlined";
 
 import styles from "styles/jss/nextjs-material-kit/pages/stakingPage.js";
@@ -97,8 +97,9 @@ export default function StakingPage(props) {
                   <h4>Staking Menu</h4>
                 </CardHeader>
                 <CardBody>
-                  {account && (chainId === 361 || chainId === 365) ? (
-                    <>
+                   
+                  {account && (chainId === Theta.chainId) ? ( 
+                    <>   
                       <div className={classes.iconGroup}>
                         <Button
                           color="primary"

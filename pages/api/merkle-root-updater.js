@@ -7,9 +7,7 @@ import { GOTDistributorAbi } from "../../web3/GOTDistributorAbi";
 
 export default async function handler(_request, response) {
   async function getStakeByAddress(address) {
-    const response = await axios.get(
-      `https://explorer.thetatoken.org:8443/api/stake/${address}`
-    );
+    const response = await axios.get(`https://explorer-api.thetatoken.org/api/stake/${address}`);
     // console.log('response.data.body', response.data.body)
     return response.data;
   }
