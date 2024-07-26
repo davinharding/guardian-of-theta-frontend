@@ -50,7 +50,7 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link href="https://www.thetavibes.net" external>
-          <Button color="transparent" className={classes.navLink}>
+          <Button color="transparent" className={classes.navLink} disabled>
             <Icon className={classes.icons}>play_circle</Icon> Entertainment
           </Button>
         </Link>
