@@ -2,7 +2,7 @@
 
 The website and web3 app for the Theta Vibes NFT project on the Theta blockchain. Visitors can browse the collections; holders can connect a wallet, mint, stake NFTs, track unclaimed rewards, and collect the GOT reward token.
 
-Part of the **Theta Vibes / Guardian of Theta** project: [frontend](https://github.com/davinharding/guardian-of-theta-frontend) · [NFT staking contracts](https://github.com/davinharding/staking-guardina-of-theta) · [GOT reward airdropper](https://github.com/davinharding/GOTAirdropper)
+Part of the **Theta Vibes / Guardian of Theta** project: [frontend](https://github.com/davinharding/guardian-of-theta-frontend) · [NFT staking contracts](https://github.com/davinharding/staking-guardian-of-theta) · [GOT reward airdropper](https://github.com/davinharding/GOTAirdropper)
 
 Live (when deployed): [thetavibes.io](https://www.thetavibes.io)
 
